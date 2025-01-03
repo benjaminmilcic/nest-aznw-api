@@ -6,6 +6,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GuestbookModule } from './guestbook/guestbook.module';
 import { Guestbook } from './guestbook/guestbook.entity';
+import { FilesModule } from './files/files.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { Guestbook } from './guestbook/guestbook.entity';
     }),
     Form2emailModule,
     GuestbookModule,
+    FilesModule,
   ],
 })
 export class AppModule {}
