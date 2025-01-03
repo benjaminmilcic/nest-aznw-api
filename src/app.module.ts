@@ -3,9 +3,13 @@ import { Form2emailModule } from './form2email/form2email.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { StripeModule } from './stripe/stripe.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { GuestbookModule } from './guestbook/guestbook.module';
+import { Guestbook } from './guestbook/guestbook.entity';
 
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     MailerModule.forRoot({
       transport: {
         host: 'smtp.strato.de',
@@ -15,8 +19,16 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         },
       },
     }),
-    Form2emailModule,
-    ConfigModule.forRoot(),
+    TypeOrmModule.forRoot({
+      type: 'mysql',
+      host: 'localhost',
+      port: 3306,
+      username: 'benjamin',
+      password: 'homeschooling',
+      database: 'guestbook',
+      entities: [Guestbook],
+      synchronize: false,
+    }),
     StripeModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
@@ -28,6 +40,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         },
       }),
     }),
+    Form2emailModule,
+    GuestbookModule,
   ],
 })
 export class AppModule {}
