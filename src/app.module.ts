@@ -7,10 +7,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { GuestbookModule } from './guestbook/guestbook.module';
 import { Guestbook } from './guestbook/guestbook.entity';
 import { FilesModule } from './files/files.module';
+import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { User } from './users/user.entity';
+import { FailedLogin } from './users/failed-login.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     MailerModule.forRoot({
       transport: {
         host: 'smtp.strato.de',
@@ -27,7 +31,7 @@ import { FilesModule } from './files/files.module';
       username: 'benjamin',
       password: 'homeschooling',
       database: 'guestbook',
-      entities: [Guestbook],
+      entities: [Guestbook, User, FailedLogin],
       synchronize: false,
     }),
     StripeModule.forRootAsync({
@@ -44,6 +48,8 @@ import { FilesModule } from './files/files.module';
     Form2emailModule,
     GuestbookModule,
     FilesModule,
+    AuthModule,
+    UsersModule,
   ],
 })
 export class AppModule {}
