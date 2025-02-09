@@ -14,6 +14,8 @@ import { FailedLogin } from './users/failed-login.entity';
 import { MoorhuhnModule } from './moorhuhn/moorhuhn.module';
 import { Moorhuhn } from './moorhuhn/moorhuhn.entity';
 import { Error2emailModule } from './error2email/error2email.module';
+import { MathTasks } from './math4lisa/math-tasks.entity';
+import { Math4LisaModule } from './math4lisa/math4lisa.module';
 
 @Module({
   imports: [
@@ -34,7 +36,7 @@ import { Error2emailModule } from './error2email/error2email.module';
       username: 'benjamin',
       password: 'homeschooling',
       database: 'guestbook',
-      entities: [Guestbook, User, FailedLogin, Moorhuhn],
+      entities: [Guestbook, User, FailedLogin, Moorhuhn, MathTasks],
       synchronize: false,
     }),
     StripeModule.forRootAsync({
@@ -55,6 +57,7 @@ import { Error2emailModule } from './error2email/error2email.module';
     UsersModule,
     MoorhuhnModule,
     Error2emailModule,
+    Math4LisaModule,
   ],
 })
 export class AppModule {}
