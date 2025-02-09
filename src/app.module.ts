@@ -16,6 +16,7 @@ import { Moorhuhn } from './moorhuhn/moorhuhn.entity';
 import { Error2emailModule } from './error2email/error2email.module';
 import { MathTasks } from './math4lisa/math-tasks.entity';
 import { Math4LisaModule } from './math4lisa/math4lisa.module';
+import { DifficultySettings } from './math4lisa/difficulty-settings.entity';
 
 @Module({
   imports: [
@@ -36,7 +37,14 @@ import { Math4LisaModule } from './math4lisa/math4lisa.module';
       username: 'benjamin',
       password: 'homeschooling',
       database: 'guestbook',
-      entities: [Guestbook, User, FailedLogin, Moorhuhn, MathTasks],
+      entities: [
+        Guestbook,
+        User,
+        FailedLogin,
+        Moorhuhn,
+        MathTasks,
+        DifficultySettings,
+      ],
       synchronize: false,
     }),
     StripeModule.forRootAsync({
