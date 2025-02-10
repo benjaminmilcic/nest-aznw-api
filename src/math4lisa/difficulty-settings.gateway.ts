@@ -36,6 +36,7 @@ export class DifficultySettingsGateway {
         maxAdditionValue: settings.maxAdditionValue,
         maxSubtractionValue: settings.maxSubtractionValue,
         maxAdditionResult: settings.maxAdditionResult,
+        showAddToHomescreenButton: settings.showAddToHomescreenButton,
       };
       
     } else {
@@ -43,6 +44,7 @@ export class DifficultySettingsGateway {
         maxAdditionValue: 10,
         maxSubtractionValue: 10,
         maxAdditionResult: 12,
+        showAddToHomescreenButton:false,
       };
     }
   }

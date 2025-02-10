@@ -13,4 +13,7 @@ export class DifficultySettings {
 
   @Column()
   maxAdditionResult: number;
+
+  @Column()
+  showAddToHomescreenButton: boolean;
 }
