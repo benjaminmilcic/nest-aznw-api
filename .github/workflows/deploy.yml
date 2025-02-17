@@ -1,0 +1,66 @@
+name: Deploy Nest.js App
+
+on:
+  push:
+    branches:
+      - master  # Passe den Branch nach Bedarf an
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # Passe die Node.js-Version an
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install --force
+
+      - name: Build the Application
+        run: npm run build
+
+      - name: Clean Deployment Directory on Server (if exists)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            if [ -d "/home/benjamin/test/dist" ]; then rm -rf /home/benjamin/test/dist; fi
+            if [ -d "/home/benjamin/test/node_modules" ]; then rm -rf /home/benjamin/test/node_modules; fi
+
+      - name: Copy Files to Server
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          source: "dist/*,node_modules/*,package.json"
+          target: "/home/benjamin/test"
+
+      - name: Reboot Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            sudo reboot
+
+      - name: Wait for Server to Restart
+        run: sleep 60  # Warten, bis der Server hochgefahren ist
+
+      - name: Check Running Processes After Reboot
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            ps -xal
