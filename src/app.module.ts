@@ -21,38 +21,42 @@ import { DifficultySettings } from './math4lisa/difficulty-settings.entity';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
-    MailerModule.forRoot({
-      transport: {
-        host: 'smtp.strato.de',
-        auth: {
-          user: 'info@auf-zu-neuen-welten.de',
-          pass: 'nest-form2mail',
+    MailerModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        transport: {
+          host: configService.get<string>('SMTP_HOST'),
+          auth: {
+            user: configService.get<string>('SMTP_USER'),
+            pass: configService.get<string>('SMTP_PASS'),
+          },
         },
-      },
+      }),
     }),
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'benjamin',
-      password: 'homeschooling',
-      database: 'guestbook',
-      entities: [
-        Guestbook,
-        User,
-        FailedLogin,
-        Moorhuhn,
-        MathTasks,
-        DifficultySettings,
-      ],
-      synchronize: false,
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: (configService: ConfigService) => ({
+        type: 'mysql',
+        host: configService.get<string>('DB_HOST'),
+        port: +configService.get<number>('DB_PORT'),
+        username: configService.get<string>('DB_USER'),
+        password: configService.get<string>('DB_PASS'),
+        database: configService.get<string>('DB_NAME'),
+        entities: [
+          Guestbook,
+          User,
+          FailedLogin,
+          Moorhuhn,
+          MathTasks,
+          DifficultySettings,
+        ],
+        synchronize: false,
+      }),
     }),
     StripeModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
-        apiKey: configService.get<string>(
-          'sk_test_51P05azL6Qm22ltjdxUjj3yspSzTt5kH0VcfEJxFWebr7fnFxI42OATXWdS1KhgZBSqeuWkYNsJB5NPTqUBepP83A00WTzj93hw',
-        ),
+        apiKey: configService.get<string>('STRIPE_API_KEY'),
         options: {
           apiVersion: '2024-06-20',
         },
