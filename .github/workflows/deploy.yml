@@ -32,8 +32,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            if [ -d "/home/benjamin/test/dist" ]; then rm -rf /home/benjamin/test/dist; fi
-            if [ -d "/home/benjamin/test/node_modules" ]; then rm -rf /home/benjamin/test/node_modules; fi
+            if [ -d "/home/benjamin/nest-aznw-api/dist" ]; then rm -rf /home/benjamin/nest-aznw-api/dist; fi
+            if [ -d "/home/benjamin/nest-aznw-api/node_modules" ]; then rm -rf /home/benjamin/nest-aznw-api/node_modules; fi
 
       - name: Copy Files to Server
         uses: appleboy/scp-action@master
@@ -42,7 +42,7 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "dist/*,node_modules/*,package.json"
-          target: "/home/benjamin/test"
+          target: "/home/benjamin/nest-aznw-api"
 
       - name: Reboot Server
         uses: appleboy/ssh-action@master
