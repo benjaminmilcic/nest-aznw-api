@@ -8,6 +8,7 @@ import { Server } from 'socket.io';
 import { Math4LisaService } from './math4lisa.service';
 
 @WebSocketGateway({
+  namespace: '/math4lisa',
   cors: {
     origin: [
       'https://benjaminmilcic.site',
