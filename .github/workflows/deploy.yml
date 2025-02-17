@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Log Current Date
+        run: echo "📅 Aktuelles Datum $(date +'%Y-%m-%d %H:%M:%S')"
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
