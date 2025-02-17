@@ -9,12 +9,17 @@ import { Math4LisaService } from './math4lisa.service';
 
 @WebSocketGateway({
   cors: {
-    origin: '*', // Passe dies an, um nur spezifische Clients zuzulassen
+    origin: [
+      'https://benjaminmilcic.site',
+      'http://benjaminmilcic.site',
+      'https://evaluation.benjaminmilcic.site',
+      'http://evaluation.benjaminmilcic.site',
+    ], // Passe dies an, um nur spezifische Clients zuzulassen
   },
 })
 export class DifficultySettingsGateway {
-  constructor(private math4lisaService: Math4LisaService) { }
-  
+  constructor(private math4lisaService: Math4LisaService) {}
+
   @WebSocketServer()
   server: Server;
 
@@ -30,7 +35,7 @@ export class DifficultySettingsGateway {
   async handleGetSettings(@MessageBody() data: any) {
     // Hier könntest du initiale Einstellungen zurückgeben
 
-    let settings = await this.math4lisaService.getDifficultySettings()
+    let settings = await this.math4lisaService.getDifficultySettings();
     if (settings) {
       return {
         maxAdditionValue: settings.maxAdditionValue,
@@ -38,13 +43,12 @@ export class DifficultySettingsGateway {
         maxAdditionResult: settings.maxAdditionResult,
         showAddToHomescreenButton: settings.showAddToHomescreenButton,
       };
-      
     } else {
       return {
         maxAdditionValue: 10,
         maxSubtractionValue: 10,
         maxAdditionResult: 12,
-        showAddToHomescreenButton:false,
+        showAddToHomescreenButton: false,
       };
     }
   }
