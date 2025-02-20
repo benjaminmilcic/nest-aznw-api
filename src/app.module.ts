@@ -17,6 +17,7 @@ import { Error2emailModule } from './error2email/error2email.module';
 import { MathTasks } from './math4lisa/math-tasks.entity';
 import { Math4LisaModule } from './math4lisa/math4lisa.module';
 import { DifficultySettings } from './math4lisa/difficulty-settings.entity';
+import { YahtzeeGameModule } from './yahtzee-game/yahtzee-game.module';
 
 @Module({
   imports: [
@@ -70,6 +71,7 @@ import { DifficultySettings } from './math4lisa/difficulty-settings.entity';
     MoorhuhnModule,
     Error2emailModule,
     Math4LisaModule,
+    YahtzeeGameModule,
   ],
 })
 export class AppModule {}
