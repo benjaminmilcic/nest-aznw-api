@@ -18,6 +18,7 @@ import { MathTasks } from './math4lisa/math-tasks.entity';
 import { Math4LisaModule } from './math4lisa/math4lisa.module';
 import { DifficultySettings } from './math4lisa/difficulty-settings.entity';
 import { YahtzeeGameModule } from './yahtzee-game/yahtzee-game.module';
+import { GeolocationModule } from './geolocation/geolocation.module';
 
 @Module({
   imports: [
@@ -72,6 +73,7 @@ import { YahtzeeGameModule } from './yahtzee-game/yahtzee-game.module';
     Error2emailModule,
     Math4LisaModule,
     YahtzeeGameModule,
+    GeolocationModule,
   ],
 })
 export class AppModule {}
