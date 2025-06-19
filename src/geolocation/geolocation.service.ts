@@ -1,54 +1,78 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, HttpException } from '@nestjs/common';
 import axios from 'axios';
 
 @Injectable()
 export class GeolocationService {
-  private readonly userAgent = 'MeineGeolocationApp (example@example.com)';
+  private readonly userAgent =
+    'MeineGeolocationApp (benjamin.milcic@gmail.com)';
   private readonly geoNamesUser = 'benjamin.milcic';
 
-  async reverseGeocode(lat: string, lon: string) {
+  async reverseGeocode(lat: string, lon: string, language: string = 'de') {
     const url = 'https://nominatim.openstreetmap.org/reverse';
-    const response = await axios.get(url, {
-      params: { format: 'jsonv2', lat, lon },
-      headers: { 'User-Agent': this.userAgent },
-    });
-    return response.data;
+    try {
+      const response = await axios.get(url, {
+        params: { format: 'jsonv2', lat, lon },
+        headers: {
+          'User-Agent': this.userAgent,
+          'Accept-Language': language,
+        },
+      });
+      return response.data;
+    } catch (error) {
+      throw new HttpException(
+        error.response?.data || { error: 'Fehler von Nominatim' },
+        error.response?.status || 500,
+      );
+    }
   }
 
   async geocode(city: string) {
     const url = 'https://nominatim.openstreetmap.org/search';
-    const response = await axios.get(url, {
-      params: {
-        q: city,
-        format: 'json',
-        limit: 1,
-      },
-      headers: { 'User-Agent': this.userAgent },
-    });
+    try {
+      const response = await axios.get(url, {
+        params: {
+          q: city,
+          format: 'json',
+          limit: 1,
+        },
+        headers: { 'User-Agent': this.userAgent },
+      });
 
-    return response.data.length ? response.data[0] : null;
+      return response.data.length ? response.data[0] : null;
+    } catch (error) {
+      throw new HttpException(
+        error.response?.data || { error: 'Fehler von Nominatim' },
+        error.response?.status || 500,
+      );
+    }
   }
 
-  async searchCities(query: string, country: string) {
+  async searchCities(query: string, country: string, lang: string) {
     const url = 'http://api.geonames.org/searchJSON';
     const params: any = {
       name_startsWith: query,
       maxRows: 100,
       featureClass: 'P',
-      lang: 'de',
       username: this.geoNamesUser,
+      lang: lang,
     };
 
     if (country && country !== 'any') {
       params.country = country;
     }
 
-    const response = await axios.get(url, { params });
-
-    return response.data.geonames.map((g) => ({
-      display_name: `${g.name}, ${g.countryName}`,
-      lat: g.lat,
-      lon: g.lng,
-    }));
+    try {
+      const response = await axios.get(url, { params });
+      return response.data.geonames.map((g) => ({
+        display_name: `${g.name}, ${g.countryName}`,
+        lat: g.lat,
+        lon: g.lng,
+      }));
+    } catch (error) {
+      throw new HttpException(
+        error.response?.data || { error: 'Fehler von GeoNames' },
+        error.response?.status || 500,
+      );
+    }
   }
 }
