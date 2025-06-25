@@ -6,11 +6,14 @@ import {
   Req,
   UseGuards,
   NotFoundException,
+  Res,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import * as fs from 'fs';
 import * as path from 'path';
+import { AuthGuard as GoogleAuthGuard } from '@nestjs/passport';
+import { Response } from 'express'; // Import Express Response
 
 @Controller('auth')
 export class AuthController {
@@ -34,7 +37,7 @@ export class AuthController {
       (req.headers['x-forwarded-for'] as string) ||
       req.connection.remoteAddress ||
       req.ip;
-    
+
     // If multiple IPs are returned, extract the first one
     if (ip.includes(',')) {
       ip = ip.split(',')[0].trim();
@@ -57,5 +60,29 @@ export class AuthController {
     const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
     return jsonData; // Return parsed JSON data
+  }
+
+  @Get('google')
+  @UseGuards(GoogleAuthGuard('google'))
+  async googleAuth() {
+    // Leitet automatisch zu Google OAuth weiter
+  }
+
+  @Get('google/callback')
+  @UseGuards(GoogleAuthGuard('google'))
+  async googleAuthRedirect(@Req() req, @Res() res: Response) {
+    // req.user enthält die Google-Daten aus GoogleStrategy.validate()
+
+    const jwt = await this.authService.loginWithGoogle(req.user);
+
+    if (process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'development') {
+      return res.redirect(
+        `http://localhost:4200/#/gimmicks/auth/google-redirect?token=${jwt.token}`,
+      );
+    } else {
+      return res.redirect(
+        `https://auf-zu-neuen-welten.de/#/gimmicks/auth/google-redirect?token=${jwt.token}`,
+      );
+    }
   }
 }

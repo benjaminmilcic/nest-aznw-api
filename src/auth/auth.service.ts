@@ -67,4 +67,13 @@ export class AuthService {
       registered,
     };
   }
+
+  async loginWithGoogle(user: any) {
+    // Hier kannst du Nutzer in DB speichern / prüfen, falls gewünscht
+
+    const payload = { email: user.email, sub: user.email };
+    const token = this.jwtService.sign(payload, { expiresIn: '1h' });
+
+    return { token };
+  }
 }
