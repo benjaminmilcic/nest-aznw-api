@@ -12,8 +12,8 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import * as fs from 'fs';
 import * as path from 'path';
-import { AuthGuard as GoogleAuthGuard } from '@nestjs/passport';
 import { Response } from 'express'; // Import Express Response
+import { GoogleAuthGuard } from './google-auth.guard';
 
 @Controller('auth')
 export class AuthController {
@@ -63,13 +63,13 @@ export class AuthController {
   }
 
   @Get('google')
-  @UseGuards(GoogleAuthGuard('google'))
+  @UseGuards(GoogleAuthGuard) // <-- unser eigener Guard
   async googleAuth() {
-    // Leitet automatisch zu Google OAuth weiter
+    // Wird automatisch umgeleitet
   }
 
   @Get('google/callback')
-  @UseGuards(GoogleAuthGuard('google'))
+  @UseGuards(GoogleAuthGuard)
   async googleAuthRedirect(@Req() req, @Res() res: Response) {
     // req.user enthält die Google-Daten aus GoogleStrategy.validate()
 
