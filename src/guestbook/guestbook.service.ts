@@ -14,7 +14,7 @@ export class GuestbookService {
   }
 
   saveNewPost(name: string, content: string, date: string) {
-    const newPost = this.repo.create({ name, content, date });
+    const newPost = this.repo.create({ name, content, date: new Date(date) });
     return this.repo.save(newPost);
   }
 }

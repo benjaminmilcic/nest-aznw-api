@@ -13,6 +13,6 @@ export class GuestbookController {
 
   @Post()
   saveNewPost(@Body() body: PostDto) {
-      return this.guestbookService.saveNewPost(body.name,body.content,body.date.slice(0,10));
+      return this.guestbookService.saveNewPost(body.name,body.content,body.date);
   }
 }

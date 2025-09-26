@@ -1,10 +1,10 @@
-import { IsString } from 'class-validator';
+import { IsISO8601, IsString } from 'class-validator';
 
 export class PostDto {
   @IsString()
   name: string;
   @IsString()
   content: string;
-  @IsString()
+  @IsISO8601()
   date: string;
 }

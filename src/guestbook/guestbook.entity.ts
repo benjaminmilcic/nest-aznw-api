@@ -11,6 +11,6 @@ export class Guestbook {
   @Column()
   content: string;
 
-  @Column({type:'date'})
-  date: string;
+  @Column({type:'datetime'})
+  date: Date;
 }
