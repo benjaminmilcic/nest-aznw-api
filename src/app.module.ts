@@ -19,6 +19,8 @@ import { Math4LisaModule } from './math4lisa/math4lisa.module';
 import { DifficultySettings } from './math4lisa/difficulty-settings.entity';
 import { YahtzeeGameModule } from './yahtzee-game/yahtzee-game.module';
 import { GeolocationModule } from './geolocation/geolocation.module';
+import { Recipes } from './recipes/recipes.entity';
+import { RecipesModule } from './recipes/recipes.module';
 
 @Module({
   imports: [
@@ -51,8 +53,9 @@ import { GeolocationModule } from './geolocation/geolocation.module';
           Moorhuhn,
           MathTasks,
           DifficultySettings,
+          Recipes,
         ],
-        synchronize: false,
+        synchronize: true,
       }),
     }),
     StripeModule.forRootAsync({
@@ -74,6 +77,7 @@ import { GeolocationModule } from './geolocation/geolocation.module';
     Math4LisaModule,
     YahtzeeGameModule,
     GeolocationModule,
+    RecipesModule,
   ],
 })
 export class AppModule {}
