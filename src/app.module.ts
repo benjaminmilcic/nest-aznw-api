@@ -55,7 +55,7 @@ import { RecipesModule } from './recipes/recipes.module';
           DifficultySettings,
           Recipes,
         ],
-        synchronize: true,
+        synchronize: false,
       }),
     }),
     StripeModule.forRootAsync({
