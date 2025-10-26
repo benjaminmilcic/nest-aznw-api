@@ -1,13 +1,15 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import Stripe from 'stripe';
 
 @Injectable()
 export class StripeService {
   public readonly stripe: Stripe;
   constructor(
+    private configService: ConfigService,
   ) {
     this.stripe = new Stripe(
-      'sk_test_51P05azL6Qm22ltjdxUjj3yspSzTt5kH0VcfEJxFWebr7fnFxI42OATXWdS1KhgZBSqeuWkYNsJB5NPTqUBepP83A00WTzj93hw',
+      this.configService.get<string>('STRIPE_API_KEY'),
       {
         apiVersion: '2024-06-20', // Use whatever API latest version
       },

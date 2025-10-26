@@ -1,11 +1,16 @@
 import { Injectable, HttpException } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import axios from 'axios';
 
 @Injectable()
 export class GeolocationService {
-  private readonly userAgent =
-    'MeineGeolocationApp (benjamin.milcic@gmail.com)';
-  private readonly geoNamesUser = 'benjamin.milcic';
+  private readonly userAgent: string;
+  private readonly geoNamesUser: string;
+
+  constructor(private readonly configService: ConfigService) {
+    this.userAgent = this.configService.get<string>('USER_AGENT');
+    this.geoNamesUser = this.configService.get<string>('GEONAMES_USERNAME');
+  }
 
   async reverseGeocode(lat: string, lon: string, language: string = 'de') {
     const url = 'https://nominatim.openstreetmap.org/reverse';

@@ -1,15 +1,19 @@
 import { Injectable } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 import { MailerService } from '@nestjs-modules/mailer';
 
 @Injectable()
 export class Error2emailService {
-  constructor(private readonly mailerService: MailerService) {}
+  constructor(
+    private readonly mailerService: MailerService,
+    private readonly configService: ConfigService,
+  ) {}
 
   sendErrorMail(error: string): void {
     const formattedError = JSON.parse(error);
     this.mailerService.sendMail({
-      to: 'benjamin.milcic@gmail.com',
-      from: 'info@auf-zu-neuen-welten.de',
+      to: this.configService.get<string>('ADMIN_EMAIL'),
+      from: this.configService.get<string>('SENDER_EMAIL'),
       subject: 'An error has occurred on auf-zu-neuen-welten.de',
       html: this.buildHtml(JSON.parse(formattedError.error), 4),
     });

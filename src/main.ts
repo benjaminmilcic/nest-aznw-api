@@ -12,8 +12,8 @@ async function bootstrap() {
     console.log('production');
     const fs = require('fs');
     const httpsOptions = {
-      key: fs.readFileSync('./secrets/benjaminmilcic.site.key'),
-      cert: fs.readFileSync('./secrets/benjaminmilcic.site.crt'),
+      key: fs.readFileSync(process.env.SSL_KEY_PATH),
+      cert: fs.readFileSync(process.env.SSL_CERT_PATH),
     };
     app = await NestFactory.create(AppModule, {
       httpsOptions,
