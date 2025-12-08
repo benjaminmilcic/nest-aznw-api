@@ -24,7 +24,13 @@ import { RecipesModule } from './recipes/recipes.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath:
+        process.env.NODE_ENV.trim() === 'development'
+          ? '.env.development'
+          : '.env.production',
+    }),
     MailerModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => ({
