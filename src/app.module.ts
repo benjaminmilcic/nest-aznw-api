@@ -21,6 +21,8 @@ import { YahtzeeGameModule } from './yahtzee-game/yahtzee-game.module';
 import { GeolocationModule } from './geolocation/geolocation.module';
 import { Recipes } from './recipes/recipes.entity';
 import { RecipesModule } from './recipes/recipes.module';
+import { Analytics } from './analytics/analytics.entity';
+import { AnalyticsModule } from './analytics/analytics.module';
 
 @Module({
   imports: [
@@ -54,8 +56,9 @@ import { RecipesModule } from './recipes/recipes.module';
           MathTasks,
           DifficultySettings,
           Recipes,
+          Analytics,
         ],
-        synchronize: false,
+        synchronize: true,
       }),
     }),
     StripeModule.forRootAsync({
@@ -78,6 +81,7 @@ import { RecipesModule } from './recipes/recipes.module';
     YahtzeeGameModule,
     GeolocationModule,
     RecipesModule,
+    AnalyticsModule,
   ],
 })
 export class AppModule {}
