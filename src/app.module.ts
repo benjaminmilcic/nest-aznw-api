@@ -22,6 +22,7 @@ import { GeolocationModule } from './geolocation/geolocation.module';
 import { Recipes } from './recipes/recipes.entity';
 import { RecipesModule } from './recipes/recipes.module';
 import { Analytics } from './analytics/analytics.entity';
+import { PageView } from './analytics/page-view.entity';
 import { AnalyticsModule } from './analytics/analytics.module';
 
 @Module({
@@ -57,6 +58,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
           DifficultySettings,
           Recipes,
           Analytics,
+          PageView,
         ],
         synchronize: true,
       }),
