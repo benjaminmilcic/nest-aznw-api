@@ -60,7 +60,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
           Analytics,
           PageView,
         ],
-        synchronize: true,
+        synchronize: false,
       }),
     }),
     StripeModule.forRootAsync({
