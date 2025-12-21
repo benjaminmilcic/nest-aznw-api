@@ -5,7 +5,7 @@ export class Analytics {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column({ unique: true, nullable: true })
   sessionId: string; // UUID zur Verknüpfung mit PageViews
 
   // Frontend-Daten
