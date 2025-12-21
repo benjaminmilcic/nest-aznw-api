@@ -58,7 +58,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
           Recipes,
           Analytics,
         ],
-        synchronize: false,
+        synchronize: true,
       }),
     }),
     StripeModule.forRootAsync({
