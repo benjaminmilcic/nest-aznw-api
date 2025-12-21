@@ -18,6 +18,9 @@ class ViewportSizeDto {
 }
 
 export class VisitorDataDto {
+  @IsString()
+  sessionId: string;
+
   @IsISO8601()
   timestamp: string;
 

@@ -1,13 +1,16 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Analytics } from './analytics.entity';
+import { PageView } from './page-view.entity';
 import { Repository } from 'typeorm';
 import { VisitorDataDto } from './dtos/visitor-data.dto';
+import { PageViewDto } from './dtos/page-view.dto';
 
 @Injectable()
 export class AnalyticsService {
   constructor(
     @InjectRepository(Analytics) private repo: Repository<Analytics>,
+    @InjectRepository(PageView) private pageViewRepo: Repository<PageView>,
   ) {}
 
   /**
@@ -49,6 +52,7 @@ export class AnalyticsService {
     acceptLanguage: string,
   ): Promise<Analytics> {
     const analyticsEntry = this.repo.create({
+      sessionId: visitorData.sessionId,
       timestamp: new Date(visitorData.timestamp),
       userAgent: visitorData.userAgent,
       language: visitorData.language,
@@ -141,5 +145,67 @@ export class AnalyticsService {
       })),
       topBrowsers,
     };
+  }
+
+  /**
+   * Speichert einen PageView in der Datenbank
+   * @param pageViewData - Daten vom Frontend
+   */
+  async savePageView(pageViewData: PageViewDto): Promise<PageView> {
+    const pageView = this.pageViewRepo.create({
+      sessionId: pageViewData.sessionId,
+      route: pageViewData.route,
+      timestamp: new Date(pageViewData.timestamp),
+      referrer: pageViewData.referrer || null,
+    });
+
+    return this.pageViewRepo.save(pageView);
+  }
+
+  /**
+   * Ruft alle PageViews für eine bestimmte Session ab
+   * @param sessionId - Die Session-ID
+   */
+  async getPageViewsBySession(sessionId: string): Promise<PageView[]> {
+    return this.pageViewRepo.find({
+      where: { sessionId },
+      order: { timestamp: 'ASC' },
+    });
+  }
+
+  /**
+   * Ruft Top-Routes-Statistiken ab
+   */
+  async getTopRoutes(limit: number = 10): Promise<{ route: string; count: number }[]> {
+    const routes = await this.pageViewRepo
+      .createQueryBuilder('pageView')
+      .select('pageView.route', 'route')
+      .addSelect('COUNT(*)', 'count')
+      .groupBy('pageView.route')
+      .orderBy('count', 'DESC')
+      .limit(limit)
+      .getRawMany();
+
+    return routes.map((r) => ({
+      route: r.route,
+      count: parseInt(r.count),
+    }));
+  }
+
+  /**
+   * Ruft Visitor-Details mit PageViews ab
+   * @param sessionId - Die Session-ID
+   */
+  async getVisitorWithPageViews(sessionId: string): Promise<{
+    visitor: Analytics;
+    pageViews: PageView[];
+  }> {
+    const visitor = await this.repo.findOne({
+      where: { sessionId },
+    });
+
+    const pageViews = await this.getPageViewsBySession(sessionId);
+
+    return { visitor, pageViews };
   }
 }

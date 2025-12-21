@@ -5,6 +5,9 @@ export class Analytics {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({ unique: true })
+  sessionId: string; // UUID zur Verknüpfung mit PageViews
+
   // Frontend-Daten
   @Column({ type: 'datetime' })
   timestamp: Date;
