@@ -1,12 +1,42 @@
-import { Body, Controller, Get, Post, Req, HttpCode, Param, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Req, HttpCode, Param, Query, UseGuards, UnauthorizedException } from '@nestjs/common';
 import { AnalyticsService } from './analytics.service';
 import { VisitorDataDto } from './dtos/visitor-data.dto';
 import { PageViewDto } from './dtos/page-view.dto';
 import { Request } from 'express';
+import { AnalyticsAuthGuard } from './analytics-auth.guard';
+import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
 
 @Controller('analytics')
 export class AnalyticsController {
-  constructor(private analyticsService: AnalyticsService) {}
+  constructor(
+    private analyticsService: AnalyticsService,
+    private jwtService: JwtService,
+    private configService: ConfigService,
+  ) {}
+
+  /**
+   * POST /analytics/auth
+   * Authentifizierung mit Passwort aus .env (ANALYTICS_PASSWORD)
+   */
+  @Post('auth')
+  @HttpCode(200)
+  async authenticate(@Body('password') password: string) {
+    const validPassword = this.configService.get<string>('ANALYTICS_PASSWORD');
+
+    if (password !== validPassword) {
+      throw new UnauthorizedException('Invalid password');
+    }
+
+    // Generiere Token mit type: analytics
+    const payload = { type: 'analytics' };
+    const token = this.jwtService.sign(payload, { expiresIn: '24h' });
+
+    return {
+      token,
+      expiresIn: '86400', // 24 Stunden in Sekunden
+    };
+  }
 
   /**
    * POST /analytics/visitor-data
@@ -41,6 +71,7 @@ export class AnalyticsController {
    * Gibt alle Analytics-Einträge zurück (für Admin-Zwecke)
    */
   @Get()
+  @UseGuards(AnalyticsAuthGuard)
   async getAllAnalytics() {
     return this.analyticsService.getAllAnalytics();
   }
@@ -50,6 +81,7 @@ export class AnalyticsController {
    * Gibt Analytics-Statistiken zurück
    */
   @Get('stats')
+  @UseGuards(AnalyticsAuthGuard)
   async getStats() {
     return this.analyticsService.getAnalyticsStats();
   }
@@ -74,6 +106,7 @@ export class AnalyticsController {
    * Gibt die meist besuchten Routen zurück
    */
   @Get('top-routes')
+  @UseGuards(AnalyticsAuthGuard)
   async getTopRoutes(@Query('limit') limit?: number) {
     return this.analyticsService.getTopRoutes(limit || 10);
   }
@@ -83,6 +116,7 @@ export class AnalyticsController {
    * Gibt Visitor-Details mit allen PageViews zurück
    */
   @Get('visitor/:sessionId')
+  @UseGuards(AnalyticsAuthGuard)
   async getVisitorDetails(@Param('sessionId') sessionId: string) {
     return this.analyticsService.getVisitorWithPageViews(sessionId);
   }
