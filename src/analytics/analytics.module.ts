@@ -10,6 +10,7 @@ import { AnalyticsAuthGuard } from './analytics-auth.guard';
 
 @Module({
   imports: [
+    ConfigModule,
     TypeOrmModule.forFeature([Analytics, PageView]),
     JwtModule.registerAsync({
       imports: [ConfigModule],
