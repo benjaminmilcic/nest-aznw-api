@@ -25,16 +25,7 @@ export class AnalyticsController {
     const validPassword = this.configService.get<string>('ANALYTICS_PASSWORD');
 
     if (password !== validPassword) {
-      throw new UnauthorizedException({
-        message: 'Invalid password',
-        debug: {
-          receivedPassword: password,
-          receivedPasswordLength: password?.length,
-          expectedPassword: validPassword,
-          expectedPasswordLength: validPassword?.length,
-          match: password === validPassword,
-        }
-      });
+      throw new UnauthorizedException('Invalid password');
     }
 
     // Generiere Token mit type: analytics
