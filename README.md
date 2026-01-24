@@ -1,6 +1,17 @@
 # NestAznwApi
 
-This is the backend for my personal homepage. The repository is public, because I made this website to demonstrate my skills.
+This is the backend code for my personal homepage.
+
+<p align="center">
+  <strong>Visit my homepage here:</strong><br><br>
+  <a href="https://auf-zu-neuen-welten.de/" target="_blank">
+    <img src="https://auf-zu-neuen-welten.de/assets/homepage-image.png" width="300" alt="Auf zu neuen Welten Homepage" />
+  </a>
+</p>
+
+This backend is made with NestJS.
+
+The repository is public, because I made this website to demonstrate my skills.
 The frontend that is used by this backend can be viewed here: [Frontend repository for this backend](https://github.com/benjaminmilcic/aznw-routes). It is also public.
 
 If you have any hints or questions feel free to write me an email to [benjamin.milcic@gmail.com](mailto:benjamin.milcic@gmail.com).
