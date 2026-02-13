@@ -7,6 +7,8 @@ This is the backend code for my personal homepage.
   <a href="https://auf-zu-neuen-welten.de/" target="_blank">
     <img src="https://auf-zu-neuen-welten.de/assets/homepage-image.png" width="300" alt="Auf zu neuen Welten Homepage" />
   </a>
+  <br>
+  <a href="https://auf-zu-neuen-welten.de/" target="_blank">https://auf-zu-neuen-welten.de</a>
 </p>
 
 This backend is made with NestJS.
