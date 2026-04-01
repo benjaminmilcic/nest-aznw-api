@@ -12,7 +12,7 @@ import { NewMessageEvent } from 'telegram/events';
 import { utils } from 'telegram';
 
 @WebSocketGateway({
-  namespace: '/telegram',
+  namespace: '/telegramws',
   cors: { origin: '*' },
   credentials: true,
 })
