@@ -24,6 +24,7 @@ import { RecipesModule } from './recipes/recipes.module';
 import { Analytics } from './analytics/analytics.entity';
 import { PageView } from './analytics/page-view.entity';
 import { AnalyticsModule } from './analytics/analytics.module';
+import { TelegramModule } from './telegram/telegram.module';
 
 @Module({
   imports: [
@@ -84,6 +85,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
     GeolocationModule,
     RecipesModule,
     AnalyticsModule,
+    TelegramModule,
   ],
 })
 export class AppModule {}
