@@ -23,34 +23,59 @@ export class TelegramGateway
   server!: Server;
 
   private readonly logger = new Logger(TelegramGateway.name);
+  private registeredSessions = new Set<string>();
 
   constructor(private readonly telegramService: TelegramService) {}
 
   afterInit(): void {
     this.logger.log('WebSocket Gateway initialized');
-    this.setupTelegramEventHandler();
   }
 
   handleConnection(client: Socket): void {
-    this.logger.log(`Client connected: ${client.id}`);
+    const sessionId = client.handshake.query['sessionId'] as string;
+    if (!sessionId) {
+      this.logger.warn(`Client ${client.id} connected without sessionId`);
+      client.disconnect();
+      return;
+    }
+
+    client.join(sessionId);
+    this.logger.log(
+      `Client ${client.id} connected (session ${sessionId})`,
+    );
+
+    // Register Telegram event handlers for this session if not already done
+    if (
+      !this.registeredSessions.has(sessionId) &&
+      this.telegramService.isConnected(sessionId)
+    ) {
+      this.registerHandlerForSession(sessionId);
+    }
   }
 
   handleDisconnect(client: Socket): void {
-    this.logger.log(`Client disconnected: ${client.id}`);
-  }
+    const sessionId = client.handshake.query['sessionId'] as string;
+    this.logger.log(
+      `Client ${client.id} disconnected (session ${sessionId})`,
+    );
 
-  private setupTelegramEventHandler(): void {
-    // Re-register every 5 seconds until client is connected
-    const interval = setInterval(() => {
-      if (this.telegramService.isConnected()) {
-        this.registerHandler();
-        clearInterval(interval);
+    // If no more clients in the room, unregister
+    if (sessionId) {
+      const room = (this.server.adapter as any).rooms?.get(sessionId);
+      if (!room || room.size === 0) {
+        this.registeredSessions.delete(sessionId);
       }
-    }, 5000);
+    }
   }
 
-  private registerHandler(): void {
+  registerHandlerForSession(sessionId: string): void {
+    if (this.registeredSessions.has(sessionId)) return;
+    if (!this.telegramService.isConnected(sessionId)) return;
+
+    this.registeredSessions.add(sessionId);
+
     this.telegramService.registerNewMessageHandler(
+      sessionId,
       async (event: NewMessageEvent) => {
         const msg = event.message;
         let senderName = 'Unknown';
@@ -78,7 +103,8 @@ export class TelegramGateway
           chatId = (peer.userId ?? peer.chatId ?? peer.channelId)?.toString();
         }
 
-        this.server.emit('newMessage', {
+        // Emit only to clients in this session's room
+        this.server.to(sessionId).emit('newMessage', {
           id: msg.id,
           text: msg.text || '',
           date: msg.date,
@@ -91,9 +117,9 @@ export class TelegramGateway
       },
     );
 
-    this.telegramService.registerRawUpdateHandler({
+    this.telegramService.registerRawUpdateHandler(sessionId, {
       onReadOutbox: (chatId: string, maxId: number) => {
-        this.server.emit('readHistory', { chatId, maxId });
+        this.server.to(sessionId).emit('readHistory', { chatId, maxId });
       },
       onOutgoingMessage: async (msg) => {
         let chatId = msg.chatId?.toString();
@@ -105,7 +131,7 @@ export class TelegramGateway
           ? await this.telegramService.extractMediaInfo(msg)
           : null;
 
-        this.server.emit('newMessage', {
+        this.server.to(sessionId).emit('newMessage', {
           id: msg.id,
           text: msg.text || '',
           date: msg.date,
@@ -118,6 +144,6 @@ export class TelegramGateway
       },
     });
 
-    this.logger.log('Telegram event handler registered');
+    this.logger.log(`Telegram event handler registered for session ${sessionId}`);
   }
 }

@@ -10,77 +10,134 @@ import {
   writeFileSync,
   mkdirSync,
   unlinkSync,
+  readdirSync,
 } from 'fs';
 import { join } from 'path';
 import { ConfigService } from '@nestjs/config';
+import { randomUUID } from 'crypto';
+
+interface UserSession {
+  client: TelegramClient;
+  phoneCodeHash: string | null;
+  lastActivity: number;
+}
 
 @Injectable()
 export class TelegramService {
   private readonly logger = new Logger(TelegramService.name);
-  private client: TelegramClient | null = null;
+  private sessions = new Map<string, UserSession>();
   private apiId: number;
   private apiHash: string;
   private sessionPath = join(process.cwd() + '/../sessions');
-  private phoneCodeHash: string | null = null;
-  private onNewMessage: ((event: NewMessageEvent) => void) | null = null;
+  private cleanupInterval: NodeJS.Timeout;
+
+  // Callbacks per sessionId for gateway event handling
+  private eventCallbacks = new Map<
+    string,
+    {
+      onNewMessage?: (event: NewMessageEvent) => void;
+      onReadOutbox?: (chatId: string, maxId: number) => void;
+      onOutgoingMessage?: (msg: Api.Message) => void;
+    }
+  >();
 
   constructor(private readonly configService: ConfigService) {
     this.apiId = +this.configService.get<string>('TELEGRAM_API_ID') || 0;
     this.apiHash = this.configService.get<string>('TELEGRAM_API_HASH') || '';
+
+    // Cleanup inactive sessions every 30 minutes
+    this.cleanupInterval = setInterval(
+      () => this.cleanupInactiveSessions(),
+      30 * 60 * 1000,
+    );
   }
 
-  isConnected(): boolean {
-    return this.client?.connected ?? false;
+  onModuleDestroy(): void {
+    clearInterval(this.cleanupInterval);
+    for (const [, session] of this.sessions) {
+      session.client.disconnect();
+    }
   }
 
-  getClient(): TelegramClient | null {
-    return this.client;
+  isConnected(sessionId: string): boolean {
+    return this.sessions.get(sessionId)?.client?.connected ?? false;
   }
 
-  async initClient(): Promise<void> {
-    const sessionString = this.loadSession();
+  getClient(sessionId: string): TelegramClient | null {
+    const session = this.sessions.get(sessionId);
+    if (session) session.lastActivity = Date.now();
+    return session?.client ?? null;
+  }
+
+  private async initClient(sessionId: string): Promise<TelegramClient> {
+    const sessionString = this.loadSession(sessionId);
     const session = new StringSession(sessionString);
 
-    this.client = new TelegramClient(session, this.apiId, this.apiHash, {
+    const client = new TelegramClient(session, this.apiId, this.apiHash, {
       connectionRetries: 5,
     });
 
-    await this.client.connect();
-    this.logger.log('Telegram client connected');
+    await client.connect();
+
+    this.sessions.set(sessionId, {
+      client,
+      phoneCodeHash: null,
+      lastActivity: Date.now(),
+    });
+
+    this.logger.log(`Telegram client connected for session ${sessionId}`);
+    return client;
   }
 
-  async sendCode(phoneNumber: string): Promise<{ phoneCodeHash: string }> {
-    await this.initClient();
+  async sendCode(
+    phoneNumber: string,
+    sessionId?: string,
+  ): Promise<{ phoneCodeHash: string; sessionId: string }> {
+    // Create new session if none provided
+    if (!sessionId) {
+      sessionId = randomUUID();
+    }
 
-    const result = await this.client!.invoke(
+    await this.initClient(sessionId);
+    const client = this.sessions.get(sessionId)!.client;
+
+    const result = await client.invoke(
       new Api.auth.SendCode({
         phoneNumber,
-        apiId:this.apiId,
-        apiHash:this.apiHash,
+        apiId: this.apiId,
+        apiHash: this.apiHash,
         settings: new Api.CodeSettings({}),
       }),
     );
 
-    this.phoneCodeHash = (result as any).phoneCodeHash;
-    return { phoneCodeHash: this.phoneCodeHash! };
+    const phoneCodeHash = (result as any).phoneCodeHash;
+    this.sessions.get(sessionId)!.phoneCodeHash = phoneCodeHash;
+
+    return { phoneCodeHash, sessionId };
   }
 
   async signIn(
+    sessionId: string,
     phoneNumber: string,
     phoneCode: string,
   ): Promise<{ status: string; user?: any }> {
+    const session = this.sessions.get(sessionId);
+    if (!session) throw new Error('Session not found');
+
     try {
-      const result = await this.client!.invoke(
+      const result = await session.client.invoke(
         new Api.auth.SignIn({
           phoneNumber,
-          phoneCodeHash: this.phoneCodeHash!,
+          phoneCodeHash: session.phoneCodeHash!,
           phoneCode,
         }),
       );
 
       const user = (result as any).user;
-      this.saveSession();
-      this.logger.log(`Signed in as ${user?.firstName}`);
+      this.saveSession(sessionId);
+      this.logger.log(
+        `Signed in as ${user?.firstName} (session ${sessionId})`,
+      );
       return { status: 'success', user: this.formatUser(user) };
     } catch (error: any) {
       if (error.errorMessage === 'SESSION_PASSWORD_NEEDED') {
@@ -90,62 +147,81 @@ export class TelegramService {
     }
   }
 
-  async signIn2FA(password: string): Promise<{ status: string; user?: any }> {
-    const passwordInfo = await this.client!.invoke(
+  async signIn2FA(
+    sessionId: string,
+    password: string,
+  ): Promise<{ status: string; user?: any }> {
+    const session = this.sessions.get(sessionId);
+    if (!session) throw new Error('Session not found');
+
+    const passwordInfo = await session.client.invoke(
       new Api.account.GetPassword(),
     );
     const passwordSrp = await computeCheck(passwordInfo, password);
-    const result = await this.client!.invoke(
+    const result = await session.client.invoke(
       new Api.auth.CheckPassword({
         password: passwordSrp,
       }),
     );
 
     const user = (result as any).user;
-    this.saveSession();
-    this.logger.log(`Signed in with 2FA as ${user?.firstName}`);
+    this.saveSession(sessionId);
+    this.logger.log(
+      `Signed in with 2FA as ${user?.firstName} (session ${sessionId})`,
+    );
     return { status: 'success', user: this.formatUser(user) };
   }
 
-  async getAuthStatus(): Promise<{ authenticated: boolean; user?: any }> {
-    if (!this.client?.connected) {
-      // Try to restore session
-      const sessionString = this.loadSession();
-      if (sessionString) {
-        if (this.apiId && this.apiHash) {
-          try {
-            await this.initClient();
-            const me = await this.client!.getMe();
-            return { authenticated: true, user: this.formatUser(me) };
-          } catch {
-            return { authenticated: false };
-          }
-        }
+  async getAuthStatus(
+    sessionId: string,
+  ): Promise<{ authenticated: boolean; user?: any }> {
+    // If already connected in memory
+    const existing = this.sessions.get(sessionId);
+    if (existing?.client?.connected) {
+      try {
+        existing.lastActivity = Date.now();
+        const me = await existing.client.getMe();
+        return { authenticated: true, user: this.formatUser(me) };
+      } catch {
+        return { authenticated: false };
       }
-      return { authenticated: false };
     }
 
-    try {
-      const me = await this.client.getMe();
-      return { authenticated: true, user: this.formatUser(me) };
-    } catch {
-      return { authenticated: false };
+    // Try to restore from saved session file
+    const sessionString = this.loadSession(sessionId);
+    if (sessionString && this.apiId && this.apiHash) {
+      try {
+        await this.initClient(sessionId);
+        const client = this.sessions.get(sessionId)!.client;
+        const me = await client.getMe();
+        return { authenticated: true, user: this.formatUser(me) };
+      } catch {
+        return { authenticated: false };
+      }
+    }
+
+    return { authenticated: false };
+  }
+
+  async logout(sessionId: string): Promise<void> {
+    const session = this.sessions.get(sessionId);
+    if (session) {
+      try {
+        await session.client.invoke(new Api.auth.LogOut());
+      } catch {}
+      session.client.disconnect();
+      this.sessions.delete(sessionId);
+      this.eventCallbacks.delete(sessionId);
+      this.deleteSession(sessionId);
     }
   }
 
-  async logout(): Promise<void> {
-    if (this.client) {
-      await this.client.invoke(new Api.auth.LogOut());
-      this.client = null;
-      this.deleteSession();
-    }
-  }
+  async getDialogById(sessionId: string, chatId: string): Promise<any> {
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
+    const inputPeer = await client.getInputEntity(chatId);
 
-  async getDialogById(chatId: string): Promise<any> {
-    const entity = await this.client!.getEntity(chatId);
-    const inputPeer = await this.client!.getInputEntity(chatId);
-
-    const result = await this.client!.invoke(
+    const result = await client.invoke(
       new Api.messages.GetPeerDialogs({
         peers: [new Api.InputDialogPeer({ peer: inputPeer as any })],
       }),
@@ -156,7 +232,7 @@ export class TelegramService {
 
     let avatarBase64: string | null = null;
     try {
-      const photo = await this.client!.downloadProfilePhoto(entity, {
+      const photo = await client.downloadProfilePhoto(entity, {
         isBig: false,
       });
       if (photo && Buffer.isBuffer(photo)) {
@@ -196,8 +272,13 @@ export class TelegramService {
     };
   }
 
-  async getDialogs(limit = 30, offset = 0): Promise<any[]> {
-    const dialogs = await this.client!.getDialogs({ limit: limit + offset });
+  async getDialogs(
+    sessionId: string,
+    limit = 30,
+    offset = 0,
+  ): Promise<any[]> {
+    const client = this.getClient(sessionId)!;
+    const dialogs = await client.getDialogs({ limit: limit + offset });
     const sliced = dialogs.slice(offset, offset + limit);
 
     return Promise.all(
@@ -205,12 +286,9 @@ export class TelegramService {
         let avatarBase64: string | null = null;
         try {
           if (dialog.entity) {
-            const photo = await this.client!.downloadProfilePhoto(
-              dialog.entity,
-              {
-                isBig: false,
-              },
-            );
+            const photo = await client.downloadProfilePhoto(dialog.entity, {
+              isBig: false,
+            });
             if (photo && Buffer.isBuffer(photo)) {
               avatarBase64 = `data:image/jpeg;base64,${photo.toString('base64')}`;
             }
@@ -235,20 +313,22 @@ export class TelegramService {
   }
 
   async getMessages(
+    sessionId: string,
     chatId: string,
     limit = 30,
     offsetId?: number,
   ): Promise<{ messages: any[]; readOutboxMaxId: number }> {
-    const entity = await this.client!.getEntity(chatId);
-    const messages = await this.client!.getMessages(entity, {
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
+    const messages = await client.getMessages(entity, {
       limit,
       offsetId,
     });
 
     let readOutboxMaxId = 0;
     try {
-      const inputPeer = await this.client!.getInputEntity(chatId);
-      const result = await this.client!.invoke(
+      const inputPeer = await client.getInputEntity(chatId);
+      const result = await client.invoke(
         new Api.messages.GetPeerDialogs({
           peers: [new Api.InputDialogPeer({ peer: inputPeer as any })],
         }),
@@ -294,9 +374,14 @@ export class TelegramService {
     return { messages: mappedMessages, readOutboxMaxId };
   }
 
-  async sendMessage(chatId: string, text: string): Promise<any> {
-    const entity = await this.client!.getEntity(chatId);
-    const result = await this.client!.sendMessage(entity, { message: text });
+  async sendMessage(
+    sessionId: string,
+    chatId: string,
+    text: string,
+  ): Promise<any> {
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
+    const result = await client.sendMessage(entity, { message: text });
     return {
       id: result.id,
       text: result.text,
@@ -306,11 +391,13 @@ export class TelegramService {
   }
 
   async sendFile(
+    sessionId: string,
     chatId: string,
     fileData: { buffer: Buffer; originalname: string; mimetype: string },
     caption?: string,
   ): Promise<any> {
-    const entity = await this.client!.getEntity(chatId);
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
 
     const customFile = new CustomFile(
       fileData.originalname,
@@ -319,7 +406,7 @@ export class TelegramService {
       fileData.buffer,
     );
 
-    const result = await this.client!.sendFile(entity, {
+    const result = await client.sendFile(entity, {
       file: customFile,
       caption: caption || '',
       forceDocument: !fileData.mimetype.startsWith('image/'),
@@ -334,6 +421,7 @@ export class TelegramService {
   }
 
   async getMediaMetadata(
+    sessionId: string,
     chatId: string,
     messageId: number,
   ): Promise<{
@@ -344,8 +432,9 @@ export class TelegramService {
     dcId?: number;
     msgData?: [any, number];
   } | null> {
-    const entity = await this.client!.getEntity(chatId);
-    const messages = await this.client!.getMessages(entity, { ids: messageId });
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
+    const messages = await client.getMessages(entity, { ids: messageId });
     const msg = messages[0];
 
     if (!msg?.media) return null;
@@ -410,11 +499,13 @@ export class TelegramService {
   }
 
   iterDownloadMedia(
+    sessionId: string,
     inputLocation: Api.TypeInputFileLocation,
     dcId?: number,
     msgData?: [any, number],
   ) {
-    return this.client!.iterDownload({
+    const client = this.getClient(sessionId)!;
+    return client.iterDownload({
       file: inputLocation,
       requestSize: 256 * 1024,
       dcId,
@@ -422,15 +513,16 @@ export class TelegramService {
     });
   }
 
-  async deleteChat(chatId: string): Promise<void> {
-    const entity = await this.client!.getEntity(chatId);
+  async deleteChat(sessionId: string, chatId: string): Promise<void> {
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
 
     if (entity instanceof Api.Channel) {
-      await this.client!.invoke(
+      await client.invoke(
         new Api.channels.LeaveChannel({ channel: entity }),
       );
     } else {
-      await this.client!.invoke(
+      await client.invoke(
         new Api.messages.DeleteHistory({
           peer: entity,
           maxId: 0,
@@ -440,9 +532,10 @@ export class TelegramService {
     }
   }
 
-  async clearHistory(chatId: string): Promise<void> {
-    const entity = await this.client!.getEntity(chatId);
-    await this.client!.invoke(
+  async clearHistory(sessionId: string, chatId: string): Promise<void> {
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
+    await client.invoke(
       new Api.messages.DeleteHistory({
         peer: entity,
         maxId: 0,
@@ -451,31 +544,51 @@ export class TelegramService {
     );
   }
 
-  async blockUser(chatId: string): Promise<void> {
-    const entity = await this.client!.getEntity(chatId);
-    await this.client!.invoke(new Api.contacts.Block({ id: entity }));
+  async blockUser(sessionId: string, chatId: string): Promise<void> {
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
+    await client.invoke(new Api.contacts.Block({ id: entity }));
   }
 
-  async markAsRead(chatId: string): Promise<void> {
-    const entity = await this.client!.getEntity(chatId);
-    await this.client!.markAsRead(entity);
+  async markAsRead(sessionId: string, chatId: string): Promise<void> {
+    const client = this.getClient(sessionId)!;
+    const entity = await client.getEntity(chatId);
+    await client.markAsRead(entity);
   }
 
-  registerNewMessageHandler(callback: (event: NewMessageEvent) => void): void {
-    if (this.onNewMessage) {
-      this.client?.removeEventHandler(this.onNewMessage, new NewMessage({}));
+  registerNewMessageHandler(
+    sessionId: string,
+    callback: (event: NewMessageEvent) => void,
+  ): void {
+    const client = this.getClient(sessionId);
+    if (!client) return;
+
+    const callbacks = this.eventCallbacks.get(sessionId) || {};
+    if (callbacks.onNewMessage) {
+      client.removeEventHandler(callbacks.onNewMessage, new NewMessage({}));
     }
-    this.onNewMessage = callback;
-    this.client?.addEventHandler(callback, new NewMessage({}));
-    this.logger.log('Registered new message handler');
+    callbacks.onNewMessage = callback;
+    this.eventCallbacks.set(sessionId, callbacks);
+    client.addEventHandler(callback, new NewMessage({}));
+    this.logger.log(`Registered new message handler for session ${sessionId}`);
   }
 
-  registerRawUpdateHandler(callbacks: {
-    onReadOutbox: (chatId: string, maxId: number) => void;
-    onOutgoingMessage: (msg: Api.Message) => void;
-  }): void {
-    this.client?.addEventHandler((update: Api.TypeUpdate) => {
-      // Read history updates
+  registerRawUpdateHandler(
+    sessionId: string,
+    callbacks: {
+      onReadOutbox: (chatId: string, maxId: number) => void;
+      onOutgoingMessage: (msg: Api.Message) => void;
+    },
+  ): void {
+    const client = this.getClient(sessionId);
+    if (!client) return;
+
+    const existing = this.eventCallbacks.get(sessionId) || {};
+    existing.onReadOutbox = callbacks.onReadOutbox;
+    existing.onOutgoingMessage = callbacks.onOutgoingMessage;
+    this.eventCallbacks.set(sessionId, existing);
+
+    client.addEventHandler((update: Api.TypeUpdate) => {
       if (update instanceof Api.UpdateReadHistoryOutbox) {
         const chatId = utils.getPeerId(update.peer).toString();
         callbacks.onReadOutbox(chatId, update.maxId);
@@ -485,7 +598,6 @@ export class TelegramService {
         callbacks.onReadOutbox(chatId, update.maxId);
       }
 
-      // Outgoing messages from other devices
       if (
         update instanceof Api.UpdateNewMessage ||
         update instanceof Api.UpdateNewChannelMessage
@@ -496,7 +608,17 @@ export class TelegramService {
         }
       }
     }, new Raw({}));
-    this.logger.log('Registered raw update handler');
+    this.logger.log(`Registered raw update handler for session ${sessionId}`);
+  }
+
+  getConnectedSessionIds(): string[] {
+    const ids: string[] = [];
+    for (const [id, session] of this.sessions) {
+      if (session.client?.connected) {
+        ids.push(id);
+      }
+    }
+    return ids;
   }
 
   async extractMediaInfo(msg: Api.Message): Promise<any> {
@@ -560,28 +682,44 @@ export class TelegramService {
     };
   }
 
-  private loadSession(): string {
-    const filePath = join(this.sessionPath, 'session.txt');
+  private loadSession(sessionId: string): string {
+    const filePath = join(this.sessionPath, `${sessionId}.txt`);
     if (existsSync(filePath)) {
       return readFileSync(filePath, 'utf-8').trim();
     }
     return '';
   }
 
-  private saveSession(): void {
+  private saveSession(sessionId: string): void {
     if (!existsSync(this.sessionPath)) {
       mkdirSync(this.sessionPath, { recursive: true });
     }
-    const filePath = join(this.sessionPath, 'session.txt');
-    const sessionString = this.client!.session.save() as unknown as string;
-    writeFileSync(filePath, sessionString);
-    this.logger.log('Session saved');
+    const filePath = join(this.sessionPath, `${sessionId}.txt`);
+    const client = this.sessions.get(sessionId)?.client;
+    if (client) {
+      const sessionString = client.session.save() as unknown as string;
+      writeFileSync(filePath, sessionString);
+      this.logger.log(`Session saved for ${sessionId}`);
+    }
   }
 
-  private deleteSession(): void {
-    const filePath = join(this.sessionPath, 'session.txt');
+  private deleteSession(sessionId: string): void {
+    const filePath = join(this.sessionPath, `${sessionId}.txt`);
     if (existsSync(filePath)) {
       unlinkSync(filePath);
+    }
+  }
+
+  private cleanupInactiveSessions(): void {
+    const maxInactivity = 2 * 60 * 60 * 1000; // 2 hours
+    const now = Date.now();
+    for (const [id, session] of this.sessions) {
+      if (now - session.lastActivity > maxInactivity) {
+        this.logger.log(`Cleaning up inactive session ${id}`);
+        session.client.disconnect();
+        this.sessions.delete(id);
+        this.eventCallbacks.delete(id);
+      }
     }
   }
 }
