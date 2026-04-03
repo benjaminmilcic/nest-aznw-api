@@ -24,6 +24,7 @@ export class TelegramGateway
 
   private readonly logger = new Logger(TelegramGateway.name);
   private registeredSessions = new Set<string>();
+  private sessionKeepAliveIntervals = new Map<string, NodeJS.Timeout>();
 
   constructor(private readonly telegramService: TelegramService) {}
 
@@ -43,6 +44,15 @@ export class TelegramGateway
     this.logger.log(
       `Client ${client.id} connected (session ${sessionId})`,
     );
+
+    this.telegramService.touchSession(sessionId);
+    if (!this.sessionKeepAliveIntervals.has(sessionId)) {
+      const interval = setInterval(
+        () => this.telegramService.touchSession(sessionId),
+        60 * 1000,
+      );
+      this.sessionKeepAliveIntervals.set(sessionId, interval);
+    }
 
     // Register Telegram event handlers for this session if not already done
     if (
@@ -64,6 +74,12 @@ export class TelegramGateway
       const room = (this.server.adapter as any).rooms?.get(sessionId);
       if (!room || room.size === 0) {
         this.registeredSessions.delete(sessionId);
+        const interval = this.sessionKeepAliveIntervals.get(sessionId);
+        if (interval) {
+          clearInterval(interval);
+          this.sessionKeepAliveIntervals.delete(sessionId);
+        }
+        this.telegramService.unregisterHandlers(sessionId);
       }
     }
   }

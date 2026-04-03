@@ -28,6 +28,11 @@ interface UserSession {
   lastActivity: number;         // Unix-Timestamp für inaktive-Session-Cleanup
 }
 
+interface MediaTokenEntry {
+  sessionId: string;
+  expiresAt: number;
+}
+
 @Injectable()
 export class TelegramService {
   private readonly logger = new Logger(TelegramService.name);
@@ -49,10 +54,14 @@ export class TelegramService {
     string,
     {
       onNewMessage?: (event: NewMessageEvent) => void;
+      onRawUpdate?: (update: Api.TypeUpdate) => void;
       onReadOutbox?: (chatId: string, maxId: number) => void;
       onOutgoingMessage?: (msg: Api.Message) => void;
     }
   >();
+
+  private mediaTokens = new Map<string, MediaTokenEntry>();
+
 
   constructor(private readonly configService: ConfigService) {
     this.apiId = +this.configService.get<string>('TELEGRAM_API_ID') || 0;
@@ -78,11 +87,29 @@ export class TelegramService {
     return this.sessions.get(sessionId)?.client?.connected ?? false;
   }
 
+  // H?lt eine Session aktiv (wird z.B. vom WebSocket-Gateway genutzt)
+  touchSession(sessionId: string): void {
+    const session = this.sessions.get(sessionId);
+    if (session) session.lastActivity = Date.now();
+  }
+
   // Gibt den TelegramClient für eine Session zurück und aktualisiert lastActivity
   getClient(sessionId: string): TelegramClient | null {
     const session = this.sessions.get(sessionId);
     if (session) session.lastActivity = Date.now();
     return session?.client ?? null;
+  }
+
+  private async ensureClient(sessionId: string): Promise<TelegramClient> {
+    const session = this.sessions.get(sessionId);
+    if (session) {
+      if (!session.client.connected) {
+        await session.client.connect();
+      }
+      session.lastActivity = Date.now();
+      return session.client;
+    }
+    return this.initClient(sessionId);
   }
 
   // Erstellt eine neue TelegramClient-Instanz und verbindet sie mit Telegrams MTProto-Servern.
@@ -136,8 +163,7 @@ export class TelegramService {
       sessionId = randomUUID();
     }
 
-    await this.initClient(sessionId);
-    const client = this.sessions.get(sessionId)!.client;
+    const client = await this.ensureClient(sessionId);
 
     const result = await client.invoke(
       new Api.auth.SendCode({
@@ -267,9 +293,11 @@ export class TelegramService {
       try {
         await session.client.invoke(new Api.auth.LogOut());
       } catch {}
+      this.unregisterHandlers(sessionId);
       session.client.disconnect();
       this.sessions.delete(sessionId);
       this.eventCallbacks.delete(sessionId);
+      this.revokeMediaTokens(sessionId);
 
       // DATEI-PERSISTENZ (auskommentiert):
       // this.deleteSession(sessionId);
@@ -663,7 +691,7 @@ export class TelegramService {
     existing.onOutgoingMessage = callbacks.onOutgoingMessage;
     this.eventCallbacks.set(sessionId, existing);
 
-    client.addEventHandler((update: Api.TypeUpdate) => {
+    const rawHandler = (update: Api.TypeUpdate) => {
       if (update instanceof Api.UpdateReadHistoryOutbox) {
         const chatId = utils.getPeerId(update.peer).toString();
         callbacks.onReadOutbox(chatId, update.maxId);
@@ -682,11 +710,33 @@ export class TelegramService {
           callbacks.onOutgoingMessage(msg);
         }
       }
-    }, new Raw({}));
+    };
+
+    if (existing.onRawUpdate) {
+      client.removeEventHandler(existing.onRawUpdate, new Raw({}));
+    }
+    existing.onRawUpdate = rawHandler;
+    this.eventCallbacks.set(sessionId, existing);
+
+    client.addEventHandler(rawHandler, new Raw({}));
     this.logger.log(`Registered raw update handler for session ${sessionId}`);
   }
 
-  // Gibt alle sessionIds zurück, die aktuell eine aktive Telegram-Verbindung haben
+  // Entfernt alle registrierten Event-Handler f?r eine Session
+  unregisterHandlers(sessionId: string): void {
+    const client = this.sessions.get(sessionId)?.client;
+    const callbacks = this.eventCallbacks.get(sessionId);
+    if (!client || !callbacks) return;
+
+    if (callbacks.onNewMessage) {
+      client.removeEventHandler(callbacks.onNewMessage, new NewMessage({}));
+    }
+    if (callbacks.onRawUpdate) {
+      client.removeEventHandler(callbacks.onRawUpdate, new Raw({}));
+    }
+  }
+
+  // Gibt alle sessionIds zur?ck, die aktuell eine aktive Telegram-Verbindung haben
   getConnectedSessionIds(): string[] {
     const ids: string[] = [];
     for (const [id, session] of this.sessions) {
@@ -696,6 +746,33 @@ export class TelegramService {
     }
     return ids;
   }
+
+  createMediaToken(sessionId: string): { token: string; expiresAt: number } {
+    const token = randomUUID();
+    const expiresAt = Date.now() + 60 * 60 * 1000; // 1 Stunde
+    this.mediaTokens.set(token, { sessionId, expiresAt });
+    return { token, expiresAt };
+  }
+
+  resolveMediaToken(token?: string): string | null {
+    if (!token) return null;
+    const entry = this.mediaTokens.get(token);
+    if (!entry) return null;
+    if (Date.now() > entry.expiresAt) {
+      this.mediaTokens.delete(token);
+      return null;
+    }
+    return entry.sessionId;
+  }
+
+  revokeMediaTokens(sessionId: string): void {
+    for (const [token, entry] of this.mediaTokens) {
+      if (entry.sessionId === sessionId) {
+        this.mediaTokens.delete(token);
+      }
+    }
+  }
+
 
   // Extrahiert Medien-Metadaten aus einer Nachricht (Typ, MIME, Dateiname, Größe)
   async extractMediaInfo(msg: Api.Message): Promise<any> {
@@ -802,9 +879,17 @@ export class TelegramService {
     for (const [id, session] of this.sessions) {
       if (now - session.lastActivity > maxInactivity) {
         this.logger.log(`Cleaning up inactive session ${id}`);
+        this.unregisterHandlers(id);
         session.client.disconnect();
         this.sessions.delete(id);
         this.eventCallbacks.delete(id);
+        this.revokeMediaTokens(id);
+      }
+    }
+
+    for (const [token, entry] of this.mediaTokens) {
+      if (now > entry.expiresAt) {
+        this.mediaTokens.delete(token);
       }
     }
   }

@@ -256,15 +256,27 @@ export class TelegramController {
     return this.telegramService.sendFile(sessionId, chatId, file, body.caption);
   }
 
+  @Post('media/token')
+  async createMediaToken(@Headers() headers: Record<string, string>) {
+    const sessionId = this.getSessionId(headers);
+    this.ensureConnected(sessionId);
+    return this.telegramService.createMediaToken(sessionId);
+  }
+
   @Get(['media/:chatId/:messageId', 'media/:chatId/:messageId/:fileName'])
   async downloadMedia(
     @Headers() headers: Record<string, string>,
     @Param('chatId') chatId: string,
     @Param('messageId') messageId: string,
     @Query('sessionId') querySessionId: string,
+    @Query('token') token: string,
     @Res() res: Response,
   ) {
-    const sessionId = querySessionId || this.getSessionId(headers);
+    const tokenSessionId = this.telegramService.resolveMediaToken(token);
+    if (token && !tokenSessionId) {
+      throw new HttpException('Invalid media token', HttpStatus.UNAUTHORIZED);
+    }
+    const sessionId = tokenSessionId || querySessionId || this.getSessionId(headers);
     this.ensureConnected(sessionId);
     const meta = await this.telegramService.getMediaMetadata(
       sessionId,
