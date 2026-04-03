@@ -4,34 +4,47 @@ import { StringSession } from 'telegram/sessions';
 import { NewMessage, NewMessageEvent, Raw } from 'telegram/events';
 import { computeCheck } from 'telegram/Password';
 import { CustomFile } from 'telegram/client/uploads';
-import {
-  existsSync,
-  readFileSync,
-  writeFileSync,
-  mkdirSync,
-  unlinkSync,
-  readdirSync,
-} from 'fs';
-import { join } from 'path';
 import { ConfigService } from '@nestjs/config';
 import { randomUUID } from 'crypto';
 
+// HINWEIS: Session-Persistenz auf dem Dateisystem wurde aus Sicherheitsgründen deaktiviert.
+// Die auskommentierten Imports werden benötigt, wenn die Persistenz wieder aktiviert wird.
+// import {
+//   existsSync,
+//   readFileSync,
+//   writeFileSync,
+//   mkdirSync,
+//   unlinkSync,
+//   readdirSync,
+// } from 'fs';
+// import { join } from 'path';
+
+// Repräsentiert eine aktive Telegram-Verbindung eines Users im Server-Memory.
+// Solange der Server läuft, bleiben Sessions hier gespeichert.
+// Bei einem Server-Neustart gehen alle Sessions verloren → User muss sich neu einloggen.
 interface UserSession {
   client: TelegramClient;
-  phoneCodeHash: string | null;
-  lastActivity: number;
+  phoneCodeHash: string | null; // Wird beim Login-Flow (sendCode → signIn) benötigt
+  lastActivity: number;         // Unix-Timestamp für inaktive-Session-Cleanup
 }
 
 @Injectable()
 export class TelegramService {
   private readonly logger = new Logger(TelegramService.name);
+
+  // In-Memory-Map: sessionId (UUID) → aktive TelegramClient-Instanz
+  // SICHERHEIT: Sessions werden nicht auf Disk geschrieben, nur hier gehalten.
   private sessions = new Map<string, UserSession>();
+
   private apiId: number;
   private apiHash: string;
-  private sessionPath = join(process.cwd() + '/../sessions');
+
+  // HINWEIS: sessionPath wird nur benötigt, wenn Datei-Persistenz aktiv ist.
+  // private sessionPath = join(process.cwd() + '/../sessions');
+
   private cleanupInterval: NodeJS.Timeout;
 
-  // Callbacks per sessionId for gateway event handling
+  // Event-Callbacks pro Session für den WebSocket-Gateway (Echtzeit-Updates)
   private eventCallbacks = new Map<
     string,
     {
@@ -45,13 +58,14 @@ export class TelegramService {
     this.apiId = +this.configService.get<string>('TELEGRAM_API_ID') || 0;
     this.apiHash = this.configService.get<string>('TELEGRAM_API_HASH') || '';
 
-    // Cleanup inactive sessions every 30 minutes
+    // Inaktive Sessions alle 30 Minuten aus dem Memory räumen
     this.cleanupInterval = setInterval(
       () => this.cleanupInactiveSessions(),
       30 * 60 * 1000,
     );
   }
 
+  // Wird beim NestJS-Modul-Shutdown aufgerufen: alle Verbindungen sauber trennen
   onModuleDestroy(): void {
     clearInterval(this.cleanupInterval);
     for (const [, session] of this.sessions) {
@@ -59,19 +73,29 @@ export class TelegramService {
     }
   }
 
+  // Prüft ob für eine sessionId eine aktive Telegram-Verbindung im Memory existiert
   isConnected(sessionId: string): boolean {
     return this.sessions.get(sessionId)?.client?.connected ?? false;
   }
 
+  // Gibt den TelegramClient für eine Session zurück und aktualisiert lastActivity
   getClient(sessionId: string): TelegramClient | null {
     const session = this.sessions.get(sessionId);
     if (session) session.lastActivity = Date.now();
     return session?.client ?? null;
   }
 
+  // Erstellt eine neue TelegramClient-Instanz und verbindet sie mit Telegrams MTProto-Servern.
+  // Startet immer mit einer leeren Session (kein gespeicherter Auth-State).
   private async initClient(sessionId: string): Promise<TelegramClient> {
-    const sessionString = this.loadSession(sessionId);
-    const session = new StringSession(sessionString);
+    // Leere Session → noch nicht eingeloggt, nur verbunden
+    const session = new StringSession('');
+
+    // DATEI-PERSISTENZ (auskommentiert):
+    // Wenn Sessions wieder aus Dateien geladen werden sollen, diese Zeilen einkommentieren
+    // und den Import-Block oben ebenfalls aktivieren.
+    // const sessionString = this.loadSession(sessionId);
+    // const session = new StringSession(sessionString);
 
     const client = new TelegramClient(session, this.apiId, this.apiHash, {
       connectionRetries: 5,
@@ -89,11 +113,13 @@ export class TelegramService {
     return client;
   }
 
+  // Schritt 1 des Login-Flows: Sendet einen SMS/App-Code an die Telefonnummer.
+  // Gibt eine neue sessionId zurück, die der Client für alle weiteren Requests verwenden muss.
   async sendCode(
     phoneNumber: string,
     sessionId?: string,
   ): Promise<{ phoneCodeHash: string; sessionId: string }> {
-    // Create new session if none provided
+    // Neue Session anlegen falls noch keine vorhanden
     if (!sessionId) {
       sessionId = randomUUID();
     }
@@ -110,12 +136,15 @@ export class TelegramService {
       }),
     );
 
+    // phoneCodeHash wird für den nachfolgenden signIn-Aufruf benötigt
     const phoneCodeHash = (result as any).phoneCodeHash;
     this.sessions.get(sessionId)!.phoneCodeHash = phoneCodeHash;
 
     return { phoneCodeHash, sessionId };
   }
 
+  // Schritt 2 des Login-Flows: Bestätigt den Code und loggt den User ein.
+  // Bei aktivierter 2FA gibt es den Status '2fa_required' zurück → dann signIn2FA aufrufen.
   async signIn(
     sessionId: string,
     phoneNumber: string,
@@ -134,7 +163,10 @@ export class TelegramService {
       );
 
       const user = (result as any).user;
-      this.saveSession(sessionId);
+
+      // DATEI-PERSISTENZ (auskommentiert):
+      // this.saveSession(sessionId);
+
       this.logger.log(
         `Signed in as ${user?.firstName} (session ${sessionId})`,
       );
@@ -147,6 +179,7 @@ export class TelegramService {
     }
   }
 
+  // Schritt 2b (optional): 2-Faktor-Authentifizierung mit Cloud-Passwort
   async signIn2FA(
     sessionId: string,
     password: string,
@@ -165,17 +198,23 @@ export class TelegramService {
     );
 
     const user = (result as any).user;
-    this.saveSession(sessionId);
+
+    // DATEI-PERSISTENZ (auskommentiert):
+    // this.saveSession(sessionId);
+
     this.logger.log(
       `Signed in with 2FA as ${user?.firstName} (session ${sessionId})`,
     );
     return { status: 'success', user: this.formatUser(user) };
   }
 
+  // Prüft ob eine Session noch aktiv/eingeloggt ist.
+  // Ohne Datei-Persistenz: gibt false zurück sobald die Session nicht mehr im Memory ist
+  // (z.B. nach Server-Neustart oder inaktivem Cleanup).
   async getAuthStatus(
     sessionId: string,
   ): Promise<{ authenticated: boolean; user?: any }> {
-    // If already connected in memory
+    // Prüfe zuerst ob eine aktive Verbindung im Memory existiert
     const existing = this.sessions.get(sessionId);
     if (existing?.client?.connected) {
       try {
@@ -187,22 +226,29 @@ export class TelegramService {
       }
     }
 
-    // Try to restore from saved session file
-    const sessionString = this.loadSession(sessionId);
-    if (sessionString && this.apiId && this.apiHash) {
-      try {
-        await this.initClient(sessionId);
-        const client = this.sessions.get(sessionId)!.client;
-        const me = await client.getMe();
-        return { authenticated: true, user: this.formatUser(me) };
-      } catch {
-        return { authenticated: false };
-      }
-    }
+    // DATEI-PERSISTENZ (auskommentiert):
+    // Wenn Sessions aus Dateien wiederhergestellt werden sollen (z.B. nach Server-Neustart),
+    // diesen Block einkommentieren. SICHERHEITSHINWEIS: Die Session-Dateien enthalten den
+    // vollständigen Telegram-Auth-Token im Klartext. Wer Zugriff auf das Dateisystem hat,
+    // kann sich damit als der jeweilige User einloggen.
+    //
+    // const sessionString = this.loadSession(sessionId);
+    // if (sessionString && this.apiId && this.apiHash) {
+    //   try {
+    //     await this.initClient(sessionId);
+    //     const client = this.sessions.get(sessionId)!.client;
+    //     const me = await client.getMe();
+    //     return { authenticated: true, user: this.formatUser(me) };
+    //   } catch {
+    //     return { authenticated: false };
+    //   }
+    // }
 
     return { authenticated: false };
   }
 
+  // Beendet die Telegram-Session: loggt bei Telegram aus, trennt die Verbindung
+  // und entfernt die Session aus dem Memory.
   async logout(sessionId: string): Promise<void> {
     const session = this.sessions.get(sessionId);
     if (session) {
@@ -212,10 +258,13 @@ export class TelegramService {
       session.client.disconnect();
       this.sessions.delete(sessionId);
       this.eventCallbacks.delete(sessionId);
-      this.deleteSession(sessionId);
+
+      // DATEI-PERSISTENZ (auskommentiert):
+      // this.deleteSession(sessionId);
     }
   }
 
+  // Gibt Details zu einem einzelnen Chat/Dialog zurück, inklusive Avatar als Base64
   async getDialogById(sessionId: string, chatId: string): Promise<any> {
     const client = this.getClient(sessionId)!;
     const entity = await client.getEntity(chatId);
@@ -272,6 +321,7 @@ export class TelegramService {
     };
   }
 
+  // Gibt eine paginierte Liste aller Dialoge (Chats, Gruppen, Kanäle) zurück
   async getDialogs(
     sessionId: string,
     limit = 30,
@@ -312,6 +362,7 @@ export class TelegramService {
     );
   }
 
+  // Gibt Nachrichten eines Chats zurück (paginiert über offsetId)
   async getMessages(
     sessionId: string,
     chatId: string,
@@ -325,6 +376,7 @@ export class TelegramService {
       offsetId,
     });
 
+    // readOutboxMaxId = die höchste Message-ID, die der Gegenüber gelesen hat
     let readOutboxMaxId = 0;
     try {
       const inputPeer = await client.getInputEntity(chatId);
@@ -374,6 +426,7 @@ export class TelegramService {
     return { messages: mappedMessages, readOutboxMaxId };
   }
 
+  // Sendet eine Textnachricht an einen Chat
   async sendMessage(
     sessionId: string,
     chatId: string,
@@ -390,6 +443,7 @@ export class TelegramService {
     };
   }
 
+  // Sendet eine Datei (Bild, Dokument, etc.) an einen Chat
   async sendFile(
     sessionId: string,
     chatId: string,
@@ -420,6 +474,7 @@ export class TelegramService {
     };
   }
 
+  // Gibt Metadaten einer Medien-Nachricht zurück (für den Streaming-Download benötigt)
   async getMediaMetadata(
     sessionId: string,
     chatId: string,
@@ -498,6 +553,7 @@ export class TelegramService {
     return null;
   }
 
+  // Streamt Mediendaten in Chunks (256KB) direkt aus Telegrams CDN
   iterDownloadMedia(
     sessionId: string,
     inputLocation: Api.TypeInputFileLocation,
@@ -513,6 +569,7 @@ export class TelegramService {
     });
   }
 
+  // Löscht einen Chat (Kanal: austreten, sonst: History löschen mit revoke=true für beide Seiten)
   async deleteChat(sessionId: string, chatId: string): Promise<void> {
     const client = this.getClient(sessionId)!;
     const entity = await client.getEntity(chatId);
@@ -532,6 +589,7 @@ export class TelegramService {
     }
   }
 
+  // Leert den Chat-Verlauf lokal (justClear=true → nur auf dieser Seite, nicht beim Gegenüber)
   async clearHistory(sessionId: string, chatId: string): Promise<void> {
     const client = this.getClient(sessionId)!;
     const entity = await client.getEntity(chatId);
@@ -544,18 +602,22 @@ export class TelegramService {
     );
   }
 
+  // Blockiert einen User
   async blockUser(sessionId: string, chatId: string): Promise<void> {
     const client = this.getClient(sessionId)!;
     const entity = await client.getEntity(chatId);
     await client.invoke(new Api.contacts.Block({ id: entity }));
   }
 
+  // Markiert alle Nachrichten in einem Chat als gelesen
   async markAsRead(sessionId: string, chatId: string): Promise<void> {
     const client = this.getClient(sessionId)!;
     const entity = await client.getEntity(chatId);
     await client.markAsRead(entity);
   }
 
+  // Registriert einen Handler für eingehende Nachrichten (für WebSocket-Gateway)
+  // Ersetzt einen evtl. vorhandenen alten Handler für dieselbe Session
   registerNewMessageHandler(
     sessionId: string,
     callback: (event: NewMessageEvent) => void,
@@ -573,6 +635,7 @@ export class TelegramService {
     this.logger.log(`Registered new message handler for session ${sessionId}`);
   }
 
+  // Registriert Handler für Raw-Updates: gelesen-Bestätigungen und eigene gesendete Nachrichten
   registerRawUpdateHandler(
     sessionId: string,
     callbacks: {
@@ -611,6 +674,7 @@ export class TelegramService {
     this.logger.log(`Registered raw update handler for session ${sessionId}`);
   }
 
+  // Gibt alle sessionIds zurück, die aktuell eine aktive Telegram-Verbindung haben
   getConnectedSessionIds(): string[] {
     const ids: string[] = [];
     for (const [id, session] of this.sessions) {
@@ -621,6 +685,7 @@ export class TelegramService {
     return ids;
   }
 
+  // Extrahiert Medien-Metadaten aus einer Nachricht (Typ, MIME, Dateiname, Größe)
   async extractMediaInfo(msg: Api.Message): Promise<any> {
     const media = msg.media;
 
@@ -672,6 +737,7 @@ export class TelegramService {
     };
   }
 
+  // Formatiert ein Telegram-User-Objekt auf die relevanten Felder
   private formatUser(user: any): any {
     return {
       id: user?.id?.toString(),
@@ -682,36 +748,44 @@ export class TelegramService {
     };
   }
 
-  private loadSession(sessionId: string): string {
-    const filePath = join(this.sessionPath, `${sessionId}.txt`);
-    if (existsSync(filePath)) {
-      return readFileSync(filePath, 'utf-8').trim();
-    }
-    return '';
-  }
+  // DATEI-PERSISTENZ (auskommentiert):
+  // Diese drei Methoden ermöglichen das Speichern/Laden/Löschen von Sessions als .txt-Dateien.
+  // SICHERHEITSHINWEIS: Die Dateien enthalten den vollständigen Telegram-Auth-Token im Klartext.
+  // Wer Zugriff auf das Dateisystem hat (inkl. Admins), kann sich damit als der User einloggen.
+  // Zum Reaktivieren: diese Methoden einkommentieren, den Import-Block oben aktivieren,
+  // und die auskommentierten Aufrufe in initClient, signIn, signIn2FA, getAuthStatus und logout einkommentieren.
+  //
+  // private loadSession(sessionId: string): string {
+  //   const filePath = join(this.sessionPath, `${sessionId}.txt`);
+  //   if (existsSync(filePath)) {
+  //     return readFileSync(filePath, 'utf-8').trim();
+  //   }
+  //   return '';
+  // }
+  //
+  // private saveSession(sessionId: string): void {
+  //   if (!existsSync(this.sessionPath)) {
+  //     mkdirSync(this.sessionPath, { recursive: true });
+  //   }
+  //   const filePath = join(this.sessionPath, `${sessionId}.txt`);
+  //   const client = this.sessions.get(sessionId)?.client;
+  //   if (client) {
+  //     const sessionString = client.session.save() as unknown as string;
+  //     writeFileSync(filePath, sessionString);
+  //     this.logger.log(`Session saved for ${sessionId}`);
+  //   }
+  // }
+  //
+  // private deleteSession(sessionId: string): void {
+  //   const filePath = join(this.sessionPath, `${sessionId}.txt`);
+  //   if (existsSync(filePath)) {
+  //     unlinkSync(filePath);
+  //   }
+  // }
 
-  private saveSession(sessionId: string): void {
-    if (!existsSync(this.sessionPath)) {
-      mkdirSync(this.sessionPath, { recursive: true });
-    }
-    const filePath = join(this.sessionPath, `${sessionId}.txt`);
-    const client = this.sessions.get(sessionId)?.client;
-    if (client) {
-      const sessionString = client.session.save() as unknown as string;
-      writeFileSync(filePath, sessionString);
-      this.logger.log(`Session saved for ${sessionId}`);
-    }
-  }
-
-  private deleteSession(sessionId: string): void {
-    const filePath = join(this.sessionPath, `${sessionId}.txt`);
-    if (existsSync(filePath)) {
-      unlinkSync(filePath);
-    }
-  }
-
+  // Räumt Sessions auf, die länger als 2 Stunden inaktiv waren
   private cleanupInactiveSessions(): void {
-    const maxInactivity = 2 * 60 * 60 * 1000; // 2 hours
+    const maxInactivity = 2 * 60 * 60 * 1000; // 2 Stunden
     const now = Date.now();
     for (const [id, session] of this.sessions) {
       if (now - session.lastActivity > maxInactivity) {
