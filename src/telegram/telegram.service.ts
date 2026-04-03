@@ -101,6 +101,18 @@ export class TelegramService {
       connectionRetries: 5,
     });
 
+    // GramJS-eigene Console-Ausgaben deaktivieren; wir nutzen den NestJS-Logger.
+    // Ohne _log.setLevel('none') würde updates.js TIMEOUT-Fehler via console.error() ausgeben,
+    // obwohl diese kein Absturz sind – GramJS reconnectet danach automatisch.
+    (client as any)._log.setLevel('none');
+    (client as any)._errorHandler = async (err: Error) => {
+      if (err?.message === 'TIMEOUT') {
+        this.logger.warn(`Telegram ping timeout für Session ${sessionId}, reconnecting…`);
+      } else {
+        this.logger.error(`Telegram client error für Session ${sessionId}: ${err?.message}`);
+      }
+    };
+
     await client.connect();
 
     this.sessions.set(sessionId, {
