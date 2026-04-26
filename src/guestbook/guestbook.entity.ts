@@ -8,7 +8,7 @@ export class Guestbook {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ type: 'text' })
   content: string;
 
   @Column({type:'datetime'})
