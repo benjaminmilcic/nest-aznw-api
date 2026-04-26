@@ -61,7 +61,7 @@ import { TelegramModule } from './telegram/telegram.module';
           Analytics,
           PageView,
         ],
-        synchronize: true,
+        synchronize: false,
       }),
     }),
     StripeModule.forRootAsync({
