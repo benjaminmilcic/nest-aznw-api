@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, Req, HttpCode, Param, Query, UseGuards, UnauthorizedException } from '@nestjs/common';
+import { Body, Controller, Get, Post, Delete, Req, HttpCode, Param, Query, UseGuards, UnauthorizedException } from '@nestjs/common';
 import { AnalyticsService } from './analytics.service';
 import { VisitorDataDto } from './dtos/visitor-data.dto';
 import { PageViewDto } from './dtos/page-view.dto';
@@ -74,6 +74,22 @@ export class AnalyticsController {
   @UseGuards(AnalyticsAuthGuard)
   async getAllAnalytics() {
     return this.analyticsService.getAllAnalytics();
+  }
+
+  /**
+   * DELETE /analytics/all
+   * Löscht ALLE Analytics-Daten (Besuche und PageViews).
+   * Nur mit gültigem Analytics-Token möglich.
+   */
+  @Delete('all')
+  @UseGuards(AnalyticsAuthGuard)
+  async deleteAllAnalytics() {
+    const result = await this.analyticsService.deleteAllAnalytics();
+    return {
+      success: true,
+      message: 'All analytics data deleted successfully',
+      ...result,
+    };
   }
 
   /**

@@ -193,6 +193,21 @@ export class AnalyticsService {
   }
 
   /**
+   * Löscht alle Analytics-Daten (Analytics-Einträge und PageViews)
+   * Setzt die Analytics quasi auf "leer" zurück.
+   */
+  async deleteAllAnalytics(): Promise<{ deletedVisits: number; deletedPageViews: number }> {
+    const deletedPageViews = await this.pageViewRepo.count();
+    const deletedVisits = await this.repo.count();
+
+    // clear() leert die gesamte Tabelle (TRUNCATE)
+    await this.pageViewRepo.clear();
+    await this.repo.clear();
+
+    return { deletedVisits, deletedPageViews };
+  }
+
+  /**
    * Ruft Visitor-Details mit PageViews ab
    * @param sessionId - Die Session-ID
    */
