@@ -25,6 +25,8 @@ import { Analytics } from './analytics/analytics.entity';
 import { PageView } from './analytics/page-view.entity';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { TelegramModule } from './telegram/telegram.module';
+import { QuizQuestions } from './quiz/quiz-questions.entity';
+import { QuizModule } from './quiz/quiz.module';
 
 @Module({
   imports: [
@@ -60,6 +62,7 @@ import { TelegramModule } from './telegram/telegram.module';
           Recipes,
           Analytics,
           PageView,
+          QuizQuestions,
         ],
         synchronize: false,
       }),
@@ -86,6 +89,7 @@ import { TelegramModule } from './telegram/telegram.module';
     RecipesModule,
     AnalyticsModule,
     TelegramModule,
+    QuizModule,
   ],
 })
 export class AppModule {}
