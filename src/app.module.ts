@@ -25,8 +25,8 @@ import { Analytics } from './analytics/analytics.entity';
 import { PageView } from './analytics/page-view.entity';
 import { AnalyticsModule } from './analytics/analytics.module';
 import { TelegramModule } from './telegram/telegram.module';
-import { QuizQuestions } from './quiz/quiz-questions.entity';
-import { QuizModule } from './quiz/quiz.module';
+import { TriviaQuestions } from './trivia/trivia-questions.entity';
+import { TriviaModule } from './trivia/trivia.module';
 
 @Module({
   imports: [
@@ -62,7 +62,7 @@ import { QuizModule } from './quiz/quiz.module';
           Recipes,
           Analytics,
           PageView,
-          QuizQuestions,
+          TriviaQuestions,
         ],
         synchronize: false,
       }),
@@ -89,7 +89,7 @@ import { QuizModule } from './quiz/quiz.module';
     RecipesModule,
     AnalyticsModule,
     TelegramModule,
-    QuizModule,
+    TriviaModule,
   ],
 })
 export class AppModule {}
