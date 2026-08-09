@@ -1,0 +1,151 @@
+[
+{"n":1,"cat":"Food & Drink","correct":"B",
+ "q":"Why does Emmental cheese have holes?",
+ "a":["They are punched with needles during moulding","Bacteria produce carbon dioxide inside the cheese","Liquid evaporates from cavities as it ripens"],
+ "e":"Propionic acid bacteria are responsible. As the cheese ripens they break down lactic acid and release carbon dioxide in the process. The gas cannot escape from the solid wheel, so it collects at tiny nucleation points – and those become the round holes, known in the trade as »eyes«.\n\nWhat happens when you work too cleanly is telling: small particles of hay in the milk used to serve as those nucleation points. Since modern milking systems deliver practically particle-free milk, the holes have become measurably smaller. Some dairies now deliberately add hay dust again."},
+
+{"n":2,"cat":"Nature","correct":"A",
+ "q":"Why are bananas curved?",
+ "a":["The fruit grows upwards against gravity","The weight of the bunch bends them downwards","The skin dries on one side and contracts"],
+ "e":"The flower stalk of the banana plant hangs downwards at first. The young fruits then grow back upwards, against gravity and towards the light – botanists call this negative gravitropism. Because they start low and end high, the curve appears.\n\nSo the bend is not the result of breeding but an ordinary growth response. Wild bananas are just as curved – they are simply full of hard seeds and barely edible."},
+
+{"n":3,"cat":"Body","correct":"B",
+ "q":"Why does chilli burn in your mouth when nothing is actually hot?",
+ "a":["The pungent compound slightly corrodes the mucous membrane","It irritates precisely the nerves that report heat","It briefly raises the temperature inside your mouth"],
+ "e":"The pungent compound capsaicin docks onto a receptor called TRPV1. That receptor is really a heat detector and normally fires from about 43 degrees. Capsaicin opens it chemically – so the brain receives a genuine heat report without any warmth being involved.\n\nThat is why water hardly helps: capsaicin is fat-soluble. Milk, yoghurt or cream bind it effectively. And because birds have this receptor built differently, chillies do not taste hot to them at all – handy for the plant, since birds spread the seeds unharmed."},
+
+{"n":4,"cat":"Food & Drink","correct":"A",
+ "q":"Why do onions make you cry when you cut them?",
+ "a":["A gas forms an acid on the surface of your eye","Onion juice mechanically irritates the cornea","The intense smell triggers a reflex in the brain"],
+ "e":"When the onion is damaged, two substances meet that were kept apart inside the cell. An enzyme builds a volatile sulphur compound from them. It rises, and on the moist surface of the eye it reacts to form a weak acid. The eye flushes it away with tears.\n\nThat also explains why the household remedies work: a chilled onion releases less gas, a sharp knife destroys fewer cells, and anyone working close to an extractor hood gets less of it into their eyes."},
+
+{"n":5,"cat":"Technology","correct":"C",
+ "q":"Why does a golf ball have dimples?",
+ "a":["They improve your grip at the tee","They make the ball easier to spot in the grass","They reduce air resistance considerably"],
+ "e":"A smooth ball makes the airflow separate early and drags a wide wake behind it. The dimples create a thin, turbulent layer right at the surface that follows the contour for longer. The wake shrinks, drag falls – and the backspin generates additional lift.\n\nThe effect is enormous: a smooth golf ball flies only about half as far. It was discovered by accident, because players in the 19th century noticed that their old, scuffed balls flew better than new ones."},
+
+{"n":6,"cat":"History","correct":"B",
+ "q":"Why are tennis balls yellow?",
+ "a":["Yellow stays clean longest on clay","Because of visibility on colour television","The dye makes the felt more durable"],
+ "e":"Until the 1970s tennis balls were white. Colour television turned that into a problem: against bright lines and white clothing the ball was hard to follow on screen. Studies showed that a vivid yellow-green was easiest to see. The international federation permitted it in 1972.\n\nWimbledon nevertheless stuck with the white ball until 1986 – tradition. The official name of the colour is »optic yellow«, and whether the ball is yellow or green is something spectators argue about to this day."},
+
+{"n":7,"cat":"Technology","correct":"B",
+ "q":"Why are the cabin lights dimmed for take-off and landing?",
+ "a":["To save power for the engines","So that your eyes are adapted to darkness","So the pilots get fewer reflections in the cockpit"],
+ "e":"Take-off and landing are the critical phases. If an evacuation were needed in the dark, eyes that had just been used to bright cabin lighting would take several minutes to make anything out outside. With the lights dimmed they are already pre-adapted.\n\nWindow blinds have to stay open for the same reason: from inside, the crew must be able to see whether there is fire or debris on one side before opening a door. And the emergency lighting runs along the floor, because down there it stays visible even in smoke."},
+
+{"n":8,"cat":"Technology","correct":"C",
+ "q":"Why does every aircraft window have a small hole at the bottom?",
+ "a":["So the pane does not fog up on the inside","It drains condensation","It makes sure the outer pane carries the pressure"],
+ "e":"A cabin window consists of several acrylic panes. The tiny hole in the middle pane connects the gap to the cabin. As a result the entire pressure difference to the thin outside air rests on the outer pane, which is built precisely for it. The middle one is the reserve, in case the outer one fails.\n\nAs a side effect, moisture escapes from the gap so the panes do not ice up from inside. Handling both at once is good engineering with a drill hole."},
+
+{"n":9,"cat":"Nature","correct":"A",
+ "q":"Why is the sea salty?",
+ "a":["Rivers carry dissolved rock into it","Undersea salt deposits slowly dissolve","Marine organisms constantly release salts"],
+ "e":"Rain is slightly acidic and dissolves minerals out of rock as it runs off. Rivers transport these salts to the sea. Water evaporates from there again – the salts stay behind. Over millions of years this has settled at a content of around 35 grams per litre. Undersea volcanic vents supply a second contribution.\n\nSo why does it not get ever saltier? Because salts also disappear again: they are built into sediments, deposited in cut-off sea basins and dragged into the depths with the tectonic plates. Supply and removal roughly balance out."},
+
+{"n":10,"cat":"Body","correct":"B",
+ "q":"What is the cracking sound when you crack your knuckles?",
+ "a":["Tendons snapping over a bony ridge","A gas bubble in the joint fluid","Cartilage surfaces briefly rubbing together"],
+ "e":"When you pull the joint apart, the gap widens faster than fluid can flow in. Pressure drops, and dissolved gases abruptly form a bubble. It is the formation of that bubble which makes the sound – MRI scans have now caught it on film.\n\nThat is why you cannot do it again immediately: the gas has to dissolve back in first, which takes around 20 minutes. And the popular warning is not quite right – studies of habitual crackers found no increased rate of arthritis, at most slightly less grip strength."},
+
+{"n":11,"cat":"Animals","correct":"C",
+ "q":"How many hearts does an octopus have?",
+ "a":["One, but with four chambers","Two, one per side of the body","Three"],
+ "e":"Two branchial hearts each pump the blood through one gill, and a larger main heart then sends it around the body. This is necessary because the oxygen carrier in octopus blood, copper-based haemocyanin, works far less efficiently than our iron-based haemoglobin. Incidentally, it makes the blood bluish.\n\nThe main heart stops while the animal swims – one reason octopuses prefer walking across the seabed to swimming. Swimming simply tires them out faster."},
+
+{"n":12,"cat":"Animals","correct":"B",
+ "q":"Why do penguins not freeze to the ice by their feet?",
+ "a":["The soles of their feet are insulated with fat","Incoming and outgoing blood exchange heat","They keep their feet permanently slightly raised"],
+ "e":"In the legs, arteries and veins lie close together and run in opposite directions. Warm blood from the body passes its heat straight to the cold blood returning. What arrives at the bottom is only just above freezing – warm enough not to freeze fast, and cold enough that almost no heat is lost.\n\nDucks on ice, whales in their flukes and reindeer in their legs use this counter-current principle too. The penguin can also regulate the blood flow – on warm days it releases more heat through its feet."},
+
+{"n":13,"cat":"Animals","correct":"A",
+ "q":"What colour is a polar bear's skin?",
+ "a":["Black","Pink, as in other bears","Light grey with white patches"],
+ "e":"Under the fur, a polar bear's skin is black – clearly visible on the nose and lips. Dark skin absorbs heat better. The hairs themselves are not white but colourless and translucent. They look white because light is scattered inside them, much as in snow or candyfloss.\n\nThat is why polar bears in zoos can turn greenish: if algae settle in the hollow hairs, the coat takes on a green shimmer. The widespread idea that the hairs channel sunlight to the skin like optical fibres is now considered disproved."},
+
+{"n":14,"cat":"Nature","correct":"B",
+ "q":"Why is the sky blue?",
+ "a":["It reflects the colour of the oceans","Air molecules scatter blue light most strongly","Water vapour filters out red light"],
+ "e":"Sunlight contains all colours. Air molecules scatter short-wavelength light in all directions far more strongly than long-wavelength light – this relationship is called Rayleigh scattering. Blue therefore reaches us from the whole sky, not just directly from the sun.\n\nViolet would be scattered even more strongly, but the sun emits less of it and our eyes are less sensitive to it. And in the evening? Then the light travels at a slant through far more air, the blue has been scattered out along the way – what remains is orange and red."},
+
+{"n":15,"cat":"Physics","correct":"C",
+ "q":"Why does ice float on water?",
+ "a":["Trapped air bubbles keep it up","Surface tension holds it at the top","Water becomes lighter as it freezes"],
+ "e":"Almost all substances become denser as they solidify. Water does not: in ice the molecules arrange themselves into a wide-meshed lattice with cavities. Ice therefore takes up about nine per cent more room than the same amount of liquid water – so it floats. Water is densest at around four degrees.\n\nThis density anomaly is one reason life in lakes survives the winter: the ice sheet forms on top and insulates, while below it stays liquid at four degrees. If ice sank, lakes would freeze from the bottom up."},
+
+{"n":16,"cat":"Everyday life","correct":"A",
+ "q":"Why are manhole covers round?",
+ "a":["Because a round cover cannot fall into the shaft","Because pipes are round and the cover matches them","Because round covers are easier to cast"],
+ "e":"A circle has the same diameter in every direction. A round cover therefore cannot be turned in a way that lets it slip through its own opening – with a square cover it is enough to hold it diagonally. For workers under the street that is a solid safety argument.\n\nOn top of that come practical points: round covers do not need to be aligned when you put them back, they can be rolled instead of carried, and the round shape channels the weight of lorries driving over evenly into the rim – corners would be weak spots."},
+
+{"n":17,"cat":"Language","correct":"B",
+ "q":"Where does the name of the Bluetooth wireless standard come from?",
+ "a":["From a blue component in the first prototype","From a Danish king","From a code name for blue cables at Ericsson"],
+ "e":"The namesake is Harald Bluetooth, who united Danish tribal territories in the 10th century and brought Norway into the fold. An engineer proposed the name as a working title: just as the king united tribes, the technology was meant to unite different devices. The working title stuck because marketing could not agree on anything else.\n\nEven the logo fits: it combines the Old Norse runes for H and B – the king's initials. Where the nickname Bluetooth came from is unclear; perhaps from a dark, dead tooth."},
+
+{"n":18,"cat":"Everyday life","correct":"B",
+ "q":"Why do jeans have small metal rivets at the pockets?",
+ "a":["They are a mark of genuine branded goods","They reinforce the places where the fabric tears","They discharge static electricity"],
+ "e":"The tailor Jacob Davis patched work trousers for gold prospectors and was annoyed that the pocket corners always came apart. He simply fitted rivets from the harness workshop. Because he lacked the money for a patent, in 1873 he teamed up with his fabric supplier Levi Strauss – and that rivet became the modern pair of jeans.\n\nOne rivet later disappeared again: the one at the crotch. It became uncomfortably hot by the campfire. And the small fifth pocket at the front was once the pocket for a pocket watch."},
+
+{"n":19,"cat":"Space","correct":"B",
+ "q":"Why do we always see the same side of the moon?",
+ "a":["It does not rotate at all","Its rotation takes exactly as long as one orbit","The earth hides the other side with its shadow"],
+ "e":"The moon does rotate – it just takes exactly as long to do so as it takes to travel once around the earth, about 27 days. That is why it always shows us the same face. This tidal locking is no coincidence: the earth's tidal forces slowed its rotation over millions of years until it clicked into place.\n\nThe view is not entirely rigid. Because the moon's orbit is slightly elliptical and tilted, it rocks a little back and forth. Over time this makes around 59 per cent of its surface visible from earth."},
+
+{"n":20,"cat":"Space","correct":"A",
+ "q":"Why are there seasons?",
+ "a":["Because the earth's axis is tilted","Because the distance to the sun varies","Because the sun shines with varying strength"],
+ "e":"The earth's axis is tilted by a good 23 degrees. As a result sunlight hits the northern hemisphere more steeply and for longer in June, and more shallowly and briefly in December – and exactly the other way round in the southern hemisphere. More steeply means the same energy is spread over less area.\n\nDistance cannot be the reason, if only because it would then be summer everywhere at once. In fact the earth is closest to the sun in early January – in the middle of the European winter."},
+
+{"n":21,"cat":"Physics","correct":"C",
+ "q":"Why do stars twinkle but planets barely do?",
+ "a":["Planets do not shine themselves, they only reflect","Stars really do change their brightness constantly","Planets appear as a small disc, stars as a point"],
+ "e":"The twinkling does not happen at the star but in our atmosphere: layers of air at different temperatures refract the light differently and steer it back and forth. Even through a telescope a star is only a point of light – if that point is deflected, you notice at once.\n\nA planet, by contrast, is so close that it forms a tiny disc, that is many points side by side. Their fluctuations average out and the light stays steady. A practical trick under the night sky: whatever stands still is usually a planet."},
+
+{"n":22,"cat":"Food & Drink","correct":"B",
+ "q":"Why does honey practically never go off?",
+ "a":["Bees add a natural preservative","There is too little free water in it for germs to grow","The high sugar content kills germs chemically"],
+ "e":"Ripe honey contains only around 17 per cent water, and the sugar binds it firmly. Micro-organisms need free water – in honey the surroundings draw fluid out of them instead. Honey is also acidic and contains small amounts of hydrogen peroxide, which the bees introduce via an enzyme.\n\nHoney has been found in Egyptian tombs that had not spoiled after thousands of years. Dilute it, though, and the protection falls away and it starts to ferment – which is exactly what mead-making exploits."},
+
+{"n":23,"cat":"Food & Drink","correct":"B",
+ "q":"Why does cola fizz up so violently when you drop Mentos into it?",
+ "a":["The sweets react chemically with the acid","Their rough surface offers countless bubble seeds","They dissolve instantly and displace liquid"],
+ "e":"Carbonated drinks are supersaturated with gas. For a bubble to form, it needs a starting point. Under the microscope the surface of a Mentos is full of pores and edges – thousands of starting points at once. The gas escapes within seconds and pushes the liquid up as a fountain.\n\nIt is not a chemical reaction. Additives in the sweets also lower the surface tension, which makes bubbles form more easily still. With diet cola the fountain goes higher, because without sugar syrup it is thinner."},
+
+{"n":24,"cat":"Body","correct":"B",
+ "q":"Why does the skin on your fingers wrinkle in water?",
+ "a":["The skin soaks up water and expands","The nervous system actively narrows the blood vessels","Skin oil is washed away and the skin collapses"],
+ "e":"You would expect simple swelling – in fact it is a controlled response. The autonomic nervous system narrows the blood vessels under the skin, the volume beneath decreases, and the firm outer layer folds. The proof: if the relevant nerve is damaged, the fingers no longer wrinkle.\n\nWhy the body does this is not settled. Experiments suggest the grooves make wet objects easier to grip – rather as the tread of a tyre channels water away."},
+
+{"n":25,"cat":"Animals","correct":"C",
+ "q":"Why do birds on a power line not get a shock?",
+ "a":["Their claws are made of insulating material","Feathers do not conduct electricity onwards","There is barely any voltage between their feet"],
+ "e":"Current only flows where there is a difference in voltage. Both of the bird's feet sit on the same wire, a few centimetres apart – between them there is almost no voltage, so virtually no current flows through the bird. The easier route remains the copper.\n\nIt becomes dangerous the moment the bird touches something else as well: a second wire, a pylon or an earthed part. That is precisely why large birds with a wide wingspan are particularly at risk on high-voltage pylons."},
+
+{"n":26,"cat":"Language","correct":"A",
+ "q":"What does the English phrase »to steal someone's thunder« originally refer to?",
+ "a":["A theatre sound effect","A stolen weather almanac","A cannon fired before a battle"],
+ "e":"In the early 18th century the playwright John Dennis invented a device for producing stage thunder for one of his plays. The play flopped and was taken off, but rival theatres promptly adopted his thunder machine. Dennis is said to have complained that they would not run his play but were stealing his thunder.\n\nThe phrase outlived both the man and his play, and today it means taking someone else's moment of glory. Which, given the origin, is rather fitting."},
+
+{"n":27,"cat":"Language","correct":"B",
+ "q":"Why do people say »break a leg« to wish an actor good luck?",
+ "a":["Because a famous actor once broke a leg on stage","Because of a superstition that open good wishes bring bad luck","Because bowing deeply was called breaking a leg"],
+ "e":"Behind it lies a widespread superstition in the theatre: whoever wishes for luck openly summons the opposite. So you wish for something bad instead. The custom exists in many languages – Germans wish each other »Hals- und Beinbruch«, a neck and a leg break, and the Italians send you to the wolf.\n\nThe German version probably has an extra twist. It very likely goes back to the Yiddish formula »hatslokhe un brokhe« – luck and blessing. German ears heard something close to »Hals und Bruch«, and since that made no sense, popular usage turned it into a full-blown curse."},
+
+{"n":28,"cat":"Everyday life","correct":"A",
+ "q":"Why is the lettering on the front of an ambulance mirrored?",
+ "a":["So it reads correctly in the rear-view mirror","Because the film is easier to apply from inside","It is an international requirement for emergency vehicles"],
+ "e":"The lettering on the front is meant for the driver of the car ahead. They see the vehicle in their rear-view mirror – and in a mirror any writing appears reversed. Applied mirrored from the start, they read it correctly in the mirror and can react sooner.\n\nThat is also why the mirrored lettering only ever appears at the front, never on the sides or the back: only the front ever ends up in someone else's rear-view mirror."},
+
+{"n":29,"cat":"Physics","correct":"B",
+ "q":"Why does a lightning strike not endanger the people inside an aircraft?",
+ "a":["The rubber tyres insulate the aircraft","The metal skin conducts the current around the outside","The altitude weakens the lightning that much"],
+ "e":"The conductive outer skin acts as a Faraday cage: the current runs across the surface and leaves the aircraft again at a discharge point, while the interior stays practically field-free. Statistically, airliners are struck about once a year; passengers usually notice nothing more than a bang and a flash.\n\nIt takes effort with modern carbon-fibre fuselage sections, which conduct less well. There, fine metal meshes or copper foils are laminated in so that the cage keeps working. In addition, small discharge points sit on the trailing edges of wings and tail."},
+
+{"n":30,"cat":"Nature","correct":"B",
+ "q":"Why are flamingos pink?",
+ "a":["Their plumage contains a red pigment of its own","The colour comes from their food","The structure of the feathers refracts light pink"],
+ "e":"Flamingos filter small crustaceans and algae out of the water. These contain carotenoids – the same group of substances that makes carrots orange. The bird builds them into its skin and feathers. Without that diet it stays pale white, which used to be a regular sight in zoos before the feed was adjusted.\n\nThe colour is also a signal: a strong pink shows that an animal is feeding well and is healthy – and it looks correspondingly attractive when choosing a mate. Breeding parents, on the other hand, fade, because they pass pigments on to their chicks."}
+]

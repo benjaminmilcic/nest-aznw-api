@@ -1,0 +1,151 @@
+[
+{"n":61,"cat":"Animals","correct":"A",
+ "q":"How does a cat produce its purr?",
+ "a":["By vibrating the muscles of the larynx","By air brushing past its teeth","By a fluttering of the diaphragm"],
+ "e":"A signal from the brain makes the muscles at the larynx contract about 25 to 30 times per second. The vocal folds open and close in that rhythm, and because this works while breathing in and out, a cat can purr for minutes without a break – unlike miaowing.\n\nPurring does not automatically mean contentment. Cats also purr in pain, at the vet and while dying. One suspicion: the frequency lies in the range that has been shown in experiments to stimulate bone healing – purring would then also be self-soothing, and perhaps more."},
+
+{"n":62,"cat":"Animals","correct":"B",
+ "q":"What is inside a camel's hump?",
+ "a":["A water reservoir","Fat","A network of blood vessels"],
+ "e":"The hump is a fat store of up to 35 kilograms. Fat is the best energy store a body can build, and burning it even produces a little water – but the real gain is the energy. After long hunger the hump shrinks and flops limply to one side.\n\nThe camel's water performance lies elsewhere: it lets its body temperature rise by several degrees during the day instead of sweating, and its red blood cells are oval and stretchable, so they survive drinking over 100 litres at once without bursting."},
+
+{"n":63,"cat":"Animals","correct":"B",
+ "q":"What is the main purpose of an African elephant's large ears?",
+ "a":["Especially fine hearing","Giving off body heat","Warding off insects"],
+ "e":"The ears are laced with a dense network of surface blood vessels and offer several square metres of area. Fanning them makes air pass over and cool the blood before it flows back into the body – by several degrees in favourable conditions. For an animal of this mass, getting rid of heat is the bigger problem than keeping it.\n\nThat is how you can tell the species apart: the African elephant lives in hotter, open country and has noticeably larger ears than the Asian one. Its hearing is good anyway, though mainly for very low tones, which it picks up for kilometres."},
+
+{"n":64,"cat":"Animals","correct":"A",
+ "q":"How many neck vertebrae does a giraffe have?",
+ "a":["Seven, exactly as many as a human","Fourteen","Over twenty, similar to a swan"],
+ "e":"Almost all mammals have seven neck vertebrae – the mouse, the human, the whale and indeed the giraffe. In her case each individual vertebra is up to 25 centimetres long. The number is so strictly fixed during development that deviations in humans usually come with malformations.\n\nThere are exceptions: sloths have six to nine depending on the species, manatees six. Birds are not bound at all, a swan has over twenty – which is why its neck is so flexible, while the giraffe moves hers more like a crane."},
+
+{"n":65,"cat":"Animals","correct":"B",
+ "q":"Why do moths circle a lamp?",
+ "a":["They mistake the lamp for the moon and miscalculate","They instinctively turn their backs to the brightest light","They are attracted by the warmth of the lamp"],
+ "e":"The moon explanation held sway for a long time. But high-speed footage of flying insects has shown something else: they reflexively keep their backs towards the brightest source of light. In the sky that is the right way to stay upright. Next to a lamp this reflex tips the flight path – the animal ends up in a tight curve around the lamp instead of heading for it.\n\nThat explains observations that never fitted the moon theory: moths do not fly straight into the lamp but circle, tumble and sometimes hang beneath it. For nocturnal insects, artificial light is therefore less an attraction than a navigational trap."},
+
+{"n":66,"cat":"Animals","correct":"B",
+ "q":"Why do a cat's eyes glow in headlights?",
+ "a":["The retina emits light itself","There is a mirroring layer behind the retina","The cornea throws the light back like a lens"],
+ "e":"Behind the retina lies the tapetum lucidum, a layer of fine crystals that throws light back towards the front. Whatever the visual cells missed on the first pass they get on the second – which improves twilight vision considerably. The rest leaves the eye again and is what you see as the glow.\n\nThe price is sharpness: the reflected light scatters a little and the image gets grainier. Humans do not have this layer, which is why our eyes appear red in flash photographs – there you simply see the blood-filled retina."},
+
+{"n":67,"cat":"Physics","correct":"A",
+ "q":"What shape would a candle flame have in weightlessness?",
+ "a":["It would be spherical","It would be flat and wide","It would look exactly as it does on earth"],
+ "e":"The pointed shape comes from gravity alone: hot gas is lighter, rises and draws cool air in below. Remove that buoyancy and oxygen can only diffuse in from all sides – the flame becomes a small sphere. This has been observed several times on the space station.\n\nIt also looks different: bluish rather than yellow, and noticeably cooler. Without a rising current it gets less oxygen and hardly any soot forms – and a candle flame on earth is only yellow because glowing particles of soot shine inside it."},
+
+{"n":68,"cat":"Everyday life","correct":"B",
+ "q":"How does soap dissolve grease that water alone cannot shift?",
+ "a":["It breaks the grease down chemically","Its molecules have a water-loving and a grease-loving end","It lowers the temperature at which grease melts"],
+ "e":"A soap molecule is a hybrid: a long grease-loving tail and a water-loving head. In water, many of them arrange themselves around a droplet of grease so that all the tails sit in the grease and all the heads point outwards. These little spheres are called micelles – from the outside they look water-friendly and simply rinse away.\n\nThe same construction makes soap effective against many viruses: they have a fatty envelope, and the soap tails drive right into it and tear it open. So thorough hand washing is more than merely rinsing things off."},
+
+{"n":69,"cat":"Everyday life","correct":"B",
+ "q":"Why does old paper turn yellow?",
+ "a":["The size between the fibres decays","Constituents of wood are broken down by air and light","Paper takes up dust into its fibres over time"],
+ "e":"Cheap paper contains lignin, the substance that makes wood stiff. Lignin reacts with oxygen and light, and the breakdown products are yellowish-brown. On top of that comes acid from manufacturing, which slowly takes the cellulose fibres apart – the paper does not just go yellow but brittle as well.\n\nNewsprint yellows within days at a window, good book paper lasts decades. Archives therefore use acid-free, low-lignin paper. And books from the 16th century are often better preserved than ones from 1900: back then people worked from rags, not wood pulp."},
+
+{"n":70,"cat":"Physics","correct":"B",
+ "q":"Why does ordinary window glass have a green tinge at the cut edge?",
+ "a":["From a coating against heat radiation","From iron impurities in the sand","From a green dye that makes cracks visible"],
+ "e":"The quartz sand used for flat glass always contains traces of iron. Iron oxide absorbs mainly in the red range, and what remains is a slight green cast. Through a thin pane you hardly notice it, but along the edge you are looking through many centimetres of glass – and there the effect adds up visibly.\n\nWhere colour fidelity matters, low-iron sand is used: such white glass costs more and is found in display cases, picture frames and solar panels. Conversely, other metal additions produce strong colours – cobalt for blue, selenium for red."},
+
+{"n":71,"cat":"Body","correct":"B",
+ "q":"Why does your own voice sound so strange in a recording?",
+ "a":["Microphones reproduce low tones more weakly","When speaking you also hear yourself through the bones of your skull","You always hear yourself with a delay"],
+ "e":"When you speak, the sound reaches your inner ear by two routes: through the air and directly through the bones of the jaw and skull. The bone route transmits low frequencies particularly well. So you hear yourself fuller and darker than you actually sound. The recording knows only the air route – and that is the honest version.\n\nIt is also why you still hear your own voice booming when you cover your ears. Singers and speakers therefore practise with recordings: only that way do they hear what the audience hears."},
+
+{"n":72,"cat":"Body","correct":"A",
+ "q":"Why can you not tickle yourself?",
+ "a":["The cerebellum announces your own touch in advance","Your own hand touches too evenly","The stimulus reaches the brain too slowly"],
+ "e":"With every movement of your own, the cerebellum sends a prediction to the sensory areas of the brain: careful, this touch is coming from us. Whatever matches the prediction is damped down. That is exactly why you are not startled by your own footstep and not bothered by the feel of your own clothes.\n\nResearchers have defeated the effect with a robot arm: build in a small delay between the movement of the hand and the touch, and suddenly it does tickle. And people with certain psychiatric conditions in which this prediction is disturbed can indeed tickle themselves."},
+
+{"n":73,"cat":"Body","correct":"B",
+ "q":"Why do blood vessels under the skin look bluish, although blood is red?",
+ "a":["Oxygen-poor blood in the veins really is blue","Skin lets red light pass differently from blue","The vessel walls themselves are bluish in colour"],
+ "e":"Oxygen-poor blood is not blue but dark red – you can see that when blood is taken. The blue only arises through the skin: red light penetrates deeply and is almost completely swallowed in the tissue, while blue is scattered back in the upper layers already. Over a dark vessel the blue share therefore wins.\n\nSo the effect depends on depth: very superficial vessels look reddish, deeper ones are barely visible, and at intermediate depth they appear blue. It is the same reason tattoo ink in deeper layers of skin takes on a bluish shimmer."},
+
+{"n":74,"cat":"Body","correct":"B",
+ "q":"Why do some people sneeze when they step into bright light?",
+ "a":["Light dries out the nasal mucosa","A nerve misroutes the stimulus","The movement of the pupil irritates the sinuses"],
+ "e":"The optic nerve and the facial nerves run close together, and in some people the strong light stimulus jumps across to the pathway that triggers the sneeze reflex. The brain interprets it as irritation in the nose. The reflex is inherited, affects 18 to 35 per cent of the population depending on the study, and is usually over after one to three sneezes.\n\nAristotle already described it, though he put it down to the warmth of the sun. For fighter pilots and ski jumpers it really is an issue – a sneeze on leaving a tunnel comes at the worst possible moment."},
+
+{"n":75,"cat":"Body","correct":"B",
+ "q":"Why does hair go grey?",
+ "a":["It deposits white keratin with age","The pigment cells in the root give up","Air penetrates into the shaft of the hair"],
+ "e":"The colour of a hair comes from melanocytes in the root, which add pigment to the growing hair. Their supply of stem cells is exhausted over the years; once no more pigment arrives, the hair grows back colourless. It looks white because light is scattered inside it. Grey is only the mixed impression of white and still-pigmented hairs.\n\nSo an individual hair does not turn grey – it grows in grey. Hydrogen peroxide, which accumulates in the root and bleaches pigment, is also considered an accelerator. That hair turns white overnight from fright, on the other hand, is physically impossible."},
+
+{"n":76,"cat":"Body","correct":"B",
+ "q":"Why do men have nipples?",
+ "a":["They are a leftover from the evolution of mammals","All embryos lay them down before hormones take effect","They serve a purpose in temperature regulation"],
+ "e":"In the first weeks all embryos develop along the same blueprint, and that includes laying down the mammary glands. Only afterwards do hormones steer further development in one direction. The structure already laid down is not dismantled – it simply stays undeveloped.\n\nThat it is functional tissue shows in the exceptions: under certain hormonal conditions breast tissue can grow in men too, and men can develop breast cancer. Around one per cent of all cases affect men – often recognised late, because nobody expects it."},
+
+{"n":77,"cat":"Food & Drink","correct":"B",
+ "q":"Why does food taste bland on an aircraft?",
+ "a":["It is kept warm for too long","Dry air, low pressure and noise dampen the sense of taste","The galley is not allowed to use salt"],
+ "e":"Three things come together. The cabin air is extremely dry, so the nasal mucosa takes up aromas less well – and taste is mostly smell. The reduced pressure dampens it further. And the constant noise of around 85 decibels measurably lowers the perception of sweet and salty. Roughly 30 per cent of sensitivity is lost.\n\nOne taste is largely spared and is even enhanced by the noise: umami. That is exactly why tomato juice is so popular on board although hardly anyone orders it on the ground – and why airline kitchens season far more strongly than would taste right at sea level."},
+
+{"n":78,"cat":"Everyday life","correct":"A",
+ "q":"Why does an empty room echo so strongly?",
+ "a":["Because furniture and textiles would otherwise absorb the sound","Because air vibrates better without furniture","Because the sound is refracted at more corners"],
+ "e":"Sound is reflected almost completely by hard, smooth surfaces and runs back and forth in the room until the energy is used up. Soft and porous things – sofa, carpet, curtain, bookshelf, people too – absorb it instead and turn it into a little heat. Without them, the decay takes noticeably longer.\n\nThat decay time is the central quantity of room acoustics: in a living room it is about half a second, in an empty new building often over two, in a large church six or more. And because an audience absorbs strongly, a concert hall sounds different at rehearsal than at the performance."},
+
+{"n":79,"cat":"Space","correct":"B",
+ "q":"Why can you see the moon in broad daylight?",
+ "a":["Because it is closer than any star","Because it is bright enough to hold its own against the blue sky","Because sunlight illuminates it additionally during the day"],
+ "e":"The moon is not a night-time object – it is simply in the sky whenever its orbit takes it there, and that is often during the day. It is visible because its surface reflects enough sunlight to be brighter than the scattered blue sky behind it. Stars cannot manage that; their light is lost in it.\n\nIt works best around the half-moon phases: then the moon stands about 90 degrees from the sun, that is high in the sky, while the sun is still shining. At full moon, by contrast, it rises roughly at sunset – during the day it is then below the horizon."},
+
+{"n":80,"cat":"History","correct":"A",
+ "q":"Why do almost all screws have a right-hand thread?",
+ "a":["Because it suits right-handers when tightening","Because left-hand threads come loose more easily","Because the first thread-cutting machines could only work that way"],
+ "e":"When tightening with the right hand, turning clockwise is stronger and better controlled than the opposite direction – the forearm rotates inwards as it does so. Since most people are right-handed, this direction became the norm and was later simply written into standards.\n\nLeft-hand threads exist where the norm would be dangerous: on the left bicycle pedal, so that it does not unscrew itself in use, on some saw blade nuts, and on gas cylinders for flammable gases, so that you cannot screw on the wrong connection. So the exception is always a deliberate safeguard."},
+
+{"n":81,"cat":"Language","correct":"B",
+ "q":"What does »ok« originally mean?",
+ "a":["It is the abbreviation of a place name","It was a joke using a deliberately wrong spelling","It comes from a Native American word for agreement"],
+ "e":"In 1839 a fashion was circulating in Boston newspapers for deliberately misspelling phrases and then abbreviating them. »Oll korrect« for »all correct« became o.k. Most of these joke abbreviations died within months – this one did not, because shortly afterwards it acquired a second meaning in a presidential campaign.\n\nMartin Van Buren came from Kinderhook and was called »Old Kinderhook«; his supporters founded O.K. clubs. The two together made the two letters immortal – today »ok« counts as the most widely spread word in the world."},
+
+{"n":82,"cat":"Language","correct":"A",
+ "q":"Where does the word »panic« come from?",
+ "a":["From a Greek god","From a Latin word for flight","From a medieval physician who described it"],
+ "e":"Pan was the Greek god of shepherds with goat's legs, responsible for woods and pastures. He was said to fall upon travellers and whole herds with a sudden fright – a groundless terror that ran through the crowd with no discernible cause. That panic fright became the word.\n\nMore goes back to him: the panpipes, which legend says he invented, and by a detour the Christian depiction of the devil with horns and goat's feet. The word »pandemic«, on the other hand, has nothing to do with him – that is Greek for »the whole people«."},
+
+{"n":83,"cat":"Nature","correct":"B",
+ "q":"Why does rain have such a characteristic smell?",
+ "a":["Lightning produces ozone near the ground","Drops fling soil oils and bacterial spores into the air","Evaporating water carries the smell of dust with it"],
+ "e":"When a drop hits dry ground, it briefly traps air. That escapes as a swarm of tiny bubbles and carries substances up from the surface with it: plant oils that settle during dry spells, and the compound geosmin from soil bacteria. The process has been made visible with high-speed cameras.\n\nGeosmin is the main carrier of this earthy smell, and the human nose is extremely sensitive to it – a few parts per trillion are enough. The same substance makes beetroot taste earthy and is the reason a single drop of rainwater in drinking water is noticed at once. The name for the scent: petrichor."},
+
+{"n":84,"cat":"Nature","correct":"A",
+ "q":"Why is snow white but ice transparent?",
+ "a":["Snow contains trapped air that scatters the light","Snow crystals have a white colour of their own","Snow only reflects light from the surface"],
+ "e":"Snow is nothing but ice – it just consists of millions of tiny crystals with air in between. At every boundary between ice and air, light is deflected a little. After countless deflections it leaves the snow in all directions and in all colours equally: that is what we perceive as white.\n\nThe same principle makes candyfloss, foam and clouds white although their components are clear. And where snow is deep and tightly pressed you see the next effect: in glaciers, red light is absorbed after a long path after all – which is why glacier ice glows blue."},
+
+{"n":85,"cat":"Physics","correct":"B",
+ "q":"Why does water stay in a bucket that you swing in a circle?",
+ "a":["A force presses it outwards against the bottom","The bottom of the bucket keeps forcing it onto the circular path","The airflow keeps it in the bucket"],
+ "e":"By inertia the water wants to keep flying straight on. The bottom of the bucket is constantly in its way and redirects it inwards – that inward force is what holds it on the circular path. At the highest point gravity takes over part of it, and the bottom still supplies the rest. Swing too slowly and gravity alone is not enough as the turning force, and the water falls out.\n\nThe often-cited centrifugal force »outwards« exists only as an aid to calculation for an observer who turns along with it. Seen from outside, no outward force is acting – there is merely too little acting inwards."},
+
+{"n":86,"cat":"Technology","correct":"B",
+ "q":"Why do aircraft wings often have upturned ends?",
+ "a":["To save space during ground manoeuvres","To slow the vortex at the wingtip","To give the wing more strength"],
+ "e":"At the wingtip the overpressure from below meets the underpressure above and rolls up into a strong vortex. That vortex costs energy without producing lift. An upturned end – a winglet or a curved tip – makes this flow around harder and weakens the vortex. Depending on the design that brings several per cent in fuel savings.\n\nThe vortices are more than a detail: they are the reason for the prescribed spacing between departing aircraft, because a wake vortex can flip a smaller aircraft following a large one. Migrating birds exploit the same effect in formation flight – the follower flies in the updraught of the bird ahead."},
+
+{"n":87,"cat":"Space","correct":"A",
+ "q":"Why is it cold in space, although the sun shines there unfiltered?",
+ "a":["Because with almost no matter, hardly any heat can be transferred","Because solar radiation almost dies away with distance","Because temperature in a vacuum is fundamentally zero"],
+ "e":"Temperature is the movement of particles – where there are almost none, there is hardly anything to warm. On earth, air and water pass heat on by contact and flow; in a vacuum both fall away and only radiation remains. An object in the sun therefore gets very hot, one in the shade very cold, and hundreds of degrees lie between the two sides.\n\nSo cooling is the real problem in space, not heating: the space station carries large radiators to get rid of waste heat. And space suits are not thick against the cold but insulate in both directions and have a cooling system of their own against body heat."},
+
+{"n":88,"cat":"Everyday life","correct":"B",
+ "q":"Why is there a coloured rectangle at the top of a toothpaste tube?",
+ "a":["It encodes the ingredients","It is a marker for the cutting machine","It indicates the origin of the raw materials"],
+ "e":"The coloured squares are register marks for the packaging machine. A light sensor detects the block of colour against the bright background and thereby knows exactly where the endless strip of tubing has to be cut and sealed. The colour itself is arbitrary – it only has to provide enough contrast.\n\nAccordingly, the widespread tale that green stands for purely natural and black for purely chemical ingredients is invented. The same marks appear on crisp packets, coffee packaging and sausage film, where nobody suspects a secret message."},
+
+{"n":89,"cat":"Technology","correct":"B",
+ "q":"Why does a phone battery run flat so quickly outdoors in winter?",
+ "a":["The display needs more power in the cold","The chemical processes in the battery run more slowly","The battery really does lose charge in the cold"],
+ "e":"In a lithium-ion battery, ions have to migrate through an electrolyte. In the cold that becomes more viscous and the migration slower, so internal resistance rises. The battery can no longer deliver the power demanded, the voltage collapses under load, and the electronics read that as »empty« and shut down. The energy is not lost – back in the warmth the device often shows charge again.\n\nThe consequence for charging matters: a battery below zero degrees should not be charged, because metallic lithium can then be deposited, which damages it permanently. Good devices therefore refuse to charge in the cold of their own accord."},
+
+{"n":90,"cat":"History","correct":"B",
+ "q":"Why are railway tracks in many countries exactly 1,435 millimetres apart?",
+ "a":["The figure came out of calculations on stability in curves","It took over the gauge of English coal railways","It matches the axle width of a Roman chariot"],
+ "e":"George Stephenson built his locomotives for coal railways in the north-east of England, whose gauge had grown out of local waggon building. When his machines caught on, their measurement came along and was later written down as standard gauge – a good 1,435 millimetres, that is four feet eight and a half inches.\n\nThe popular tale that the figure goes back to the axle width of Roman chariots is a legend without evidence. That various countries deliberately chose different gauges often had military reasons: a differing gauge slows an attacker down, because he cannot simply keep his trains rolling."}
+]

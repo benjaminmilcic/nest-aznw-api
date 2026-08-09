@@ -1,0 +1,151 @@
+[
+{"n":61,"cat":"Životinje","correct":"A",
+ "q":"Kako mačka proizvodi predenje?",
+ "a":["Titranjem mišića grkljana","Zrakom koji struji uz zube","Lepršanjem dijafragme"],
+ "e":"Signal iz mozga čini da se mišići na grkljanu stežu približno 25 do 30 puta u sekundi. Glasnice se u tom taktu otvaraju i zatvaraju, a kako to radi i pri udisaju i pri izdisaju, mačka može predsti minutama bez prekida – drukčije od mijaukanja.\n\nPredenje ne znači automatski zadovoljstvo. Mačke predu i u bolovima, kod veterinara i pri umiranju. Jedna sumnja: frekvencija leži u području koje u pokusima podstiče zarastanje kostiju – predenje bi tada bilo i samoumirivanje, a možda i više."},
+
+{"n":62,"cat":"Životinje","correct":"B",
+ "q":"Što je u grbi deve?",
+ "a":["Zaliha vode","Mast","Splet krvnih žila"],
+ "e":"Grba je zaliha masti do 35 kilograma. Mast je najbolja zaliha energije koju tijelo može izgraditi, a pri izgaranju nastaje čak i malo vode – prava je dobit ipak energija. Nakon duge gladi grba se smanji i mlitavo prevali na stranu.\n\nDevina se sposobnost sa vodom nalazi na drugom mjestu: tijekom dana pušta da joj tjelesna temperatura poraste za nekoliko stupnjeva umjesto da se znoji, a crvena su joj krvna tjelešca ovalna i rastezljiva, pa preživljavaju naglo pijenje preko 100 litara bez pucanja."},
+
+{"n":63,"cat":"Životinje","correct":"B",
+ "q":"Čemu prije svega služe velike uši afričkoga slona?",
+ "a":["Posebno finom sluhu","Otpuštanju tjelesne topline","Odbijanju insekata"],
+ "e":"Uši su protkane gustom mrežom površinskih krvnih žila i nude nekoliko četvornih metara površine. Mahanjem zrak prolazi uz njih i hladi krv prije nego što se vrati u tijelo – pri povoljnim uvjetima za nekoliko stupnjeva. Za životinju te mase riješiti se topline veći je problem od zadržavanja topline.\n\nPo tome se vrste razlikuju: afrički slon živi u toplijem, otvorenom krajoliku i ima osjetno veće uši od azijskoga. Sluh mu je ionako dobar, no prije svega za vrlo niske tonove, koje čuje kilometrima."},
+
+{"n":64,"cat":"Životinje","correct":"A",
+ "q":"Koliko vratnih kralježaka ima žirafa?",
+ "a":["Sedam, upravo koliko i čovjek","Četrnaest","Preko dvadeset, slično labudu"],
+ "e":"Gotovo svi sisavci imaju sedam vratnih kralježaka – miš, čovjek, kit i doista i žirafa. Kod nje je svaki pojedini kralježak dug do 25 centimetara. Broj je u razvoju tako strogo utvrđen da odstupanja kod ljudi obično idu s razvojnim nepravilnostima.\n\nIznimke postoje: lijenčine imaju šest do devet, ovisno o vrsti, morske krave šest. Ptice nisu vezane, labud ima preko dvadeset – zato mu je vrat toliko gibak, a žirafa svoj pokreće više kao dizalicu."},
+
+{"n":65,"cat":"Životinje","correct":"B",
+ "q":"Zašto noćni leptiri kruže oko svjetiljke?",
+ "a":["Svjetiljku smatraju Mjesecom i pogrešno računaju","Refleksno okreću hrbat prema najsvjetlijem svjetlu","Privlači ih toplina svjetiljke"],
+ "e":"Objašnjenje s Mjesecom dugo je vrijedilo. No snimke insekata u letu velikom brzinom pokazale su nešto drugo: oni refleksno drže hrbat prema najsvjetlijem izvoru svjetla. Na nebu je to ispravan način da ostanu okrenuti prema gore. Uz svjetiljku taj refleks prevrne putanju leta – životinja završi u uskom zavoju oko svjetiljke umjesto da je smjera.\n\nTo objašnjava opažanja koja teoriji s Mjesecom nikada nisu odgovarala: leptiri ne lete pravo u svjetiljku, nego kruže, prevrću se i ponekad ostaju visjeti pod njom. Za noćne insekte umjetno je svjetlo zato manje privlačenje a više zamka za orijentaciju."},
+
+{"n":66,"cat":"Životinje","correct":"B",
+ "q":"Zašto mačje oči svijetle u svjetlu farova?",
+ "a":["Mrežnica sama izlučuje svjetlo","Za mrežnicom sjedi zrcalni sloj","Rožnica odbija svjetlo natrag kao leća"],
+ "e":"Za mrežnicom leži tapetum lucidum, sloj finih kristala koji svjetlo odbija natrag prema naprijed. Ono što su vidne stanice propustile pri prvom prolazu, dobiju pri drugom – što znatno poboljšava vid u sumraku. Ostatak ponovno napušta oko i vidi se kao svjetlucanje.\n\nCijena je oštrina: odbijeno se svjetlo malo rasipa i slika postaje zrnatija. Ljudi taj sloj ne imaju, zato naše oči na snimkama s bljeskalicom izgledaju crveno – tamo se jednostavno vidi mrežnica prožeta krvlju."},
+
+{"n":67,"cat":"Fizika","correct":"A",
+ "q":"Kakav bi oblik imao plamen svijeće u bestežinskom stanju?",
+ "a":["Bio bi kuglast","Bio bi plosnat i širok","Izgledao bi upravo kao na Zemlji"],
+ "e":"Šiljasti oblik dolazi isključivo od sile teže: vrući je plin lakši, diže se i odozdo povlači hladan zrak. Izostane li taj uzgon, kisik može ulaziti samo difuzijom sa svih strana – plamen postaje mala kugla. Na svemirskoj je postaji to opaženo više puta.\n\nIzgleda pri tome i drukčije: plavičast umjesto žut i osjetno hladniji. Bez uzlazne struje dobiva manje kisika i gotovo ne nastaje čađa – a plamen svijeće na Zemlji žut je samo zato što u njemu svijetle raspaljene čestice čađe."},
+
+{"n":68,"cat":"Svakodnevica","correct":"B",
+ "q":"Kako sapun otapa mast koju voda sama ne može odstraniti?",
+ "a":["Mast razgrađuje kemijski","Molekule imaju kraj koji voli vodu i kraj koji voli mast","Snižava temperaturu na kojoj se mast topi"],
+ "e":"Molekula sapuna je dvostruka: dugi rep koji voli mast i glava koja voli vodu. U vodi se mnogo njih smjesti oko kapljice masti tako da svi repovi stoje u masti a sve glave gledaju prema van. Te se kuglice nazivaju micelama – izvana djeluju vodi prijateljski i lako se ispiru.\n\nIsta građa sapun čini djelotvornim protiv mnogih virusa: oni imaju masnu ovojnicu, a repovi sapuna doslovno u nju ulaze i razderu je. Temeljito pranje ruku dakle nije puko ispiranje."},
+
+{"n":69,"cat":"Svakodnevica","correct":"B",
+ "q":"Zašto stari papir požuti?",
+ "a":["Ljepilo između vlakana se raspada","Sastojci drva razgrađuju se zrakom i svjetlom","Papir s vremenom prima prašinu u vlakna"],
+ "e":"Jeftin papir sadrži lignin, tvar koja drvo čini krutim. Lignin reagira s kisikom i svjetlom, a razgradni su proizvodi žućkastosmeđi. Dodatno dolazi kiselina iz proizvodnje, koja celulozna vlakna polako razlaže – papir ne samo da požuti, nego postane i krhak.\n\nNovinski papir na prozoru požuti u nekoliko dana, dobar knjižni papir drži desetljećima. Arhivi zato koriste papir bez kiseline i s malo lignina. A knjige iz 16. stoljeća često su bolje sačuvane od onih iz 1900.: tada se radilo od krpa, a ne od drvne mase."},
+
+{"n":70,"cat":"Fizika","correct":"B",
+ "q":"Zašto obično prozorsko staklo na rezanom rubu ima zelenkast ton?",
+ "a":["Od premaza protiv toplinskog zračenja","Od primjesa željeza u pijesku","Od zelene boje koja pukotine čini vidljivima"],
+ "e":"Kvarcni pijesak za ravno staklo uvijek sadrži tragove željeza. Željezov oksid upija prije svega u crvenom području, a ostaje blagi zelenkasti ton. Kroz tanko staklo to se gotovo ne primijeti, ali uz rub gleda se kroz mnogo centimetara stakla – i tamo se učinak vidljivo zbroji.\n\nGdje je vjernost boja važna, koristi se pijesak s malo željeza: takva bijela stakla više koštaju i nalaze se u vitrinama, okvirima za slike i solarnim modulima. Obrnuto, drugim se metalnim dodacima proizvode jarke boje – kobalt za plavu, selen za crvenu."},
+
+{"n":71,"cat":"Tijelo","correct":"B",
+ "q":"Zašto vlastiti glas u snimci zvuči tako tuđe?",
+ "a":["Mikrofoni niske tonove prenose slabije","Pri govoru sebe čujemo i preko kostiju lubanje","Sebe uvijek čujemo sa zakašnjenjem"],
+ "e":"Pri govoru zvuk dolazi do unutarnjeg uha dvama putovima: kroz zrak i neposredno kroz kosti čeljusti i lubanje. Koštani put niske frekvencije prenosi posebno dobro. Sebe zato čujemo punije i dublje nego što zaista zvučimo. Snimka poznaje samo zračni put – i ona je iskrena verzija.\n\nZato se vlastiti glas i pri zatvorenim ušima još čuje kao tutnjava. Pjevači i govornici zato uvježbavaju sa snimkama: samo tako čuju ono što čuje publika."},
+
+{"n":72,"cat":"Tijelo","correct":"A",
+ "q":"Zašto se ne možemo sami škakljati?",
+ "a":["Mali mozak vlastiti dodir najavljuje unaprijed","Vlastita ruka dodiruje previše jednolično","Podražaj do mozga dolazi presporo"],
+ "e":"Pri svakom vlastitom pokretu mali mozak šalje predviđanje u osjetna područja mozga: pazi, ovaj dodir dolazi od nas. Ono što odgovara predviđanju, prigušuje se. Upravo se zato ne prepadamo vlastitoga koraka i ne smeta nas osjet vlastite odjeće.\n\nIstraživači su učinak nadmudrili robotskom rukom: ugradi li se malo zakašnjenje između pokreta ruke i dodira, odjednom ipak škaklja. A ljudi s određenim psihičkim bolestima, kod kojih je to predviđanje poremećeno, mogu se sasvim dobro sami škakljati."},
+
+{"n":73,"cat":"Tijelo","correct":"B",
+ "q":"Zašto se krvne žile pod kožom vide plavičasto, iako je krv crvena?",
+ "a":["Krv s malo kisika u venama zaista je plava","Koža crveno svjetlo propušta drukčije od plavoga","Same su stijenke žila plavičasto obojene"],
+ "e":"Krv s malo kisika nije plava, nego tamnocrvena – to se vidi pri vađenju krvi. Plava nastaje tek kroz kožu: crveno svjetlo prodire duboko i u tkivu se gotovo posve proguta, a plavo se rasipa natrag već u gornjim slojevima. Nad tamnom žilom zato pobjeđuje plavi dio.\n\nUčinak dakle ovisi o dubini: vrlo površinske žile djeluju crvenkasto, dublje se gotovo ne vide, a u srednjoj dubini izgledaju plave. To je isti razlog zbog kojega boja za tatuiranje u dubljim slojevima kože dobiva plavičast odsjaj."},
+
+{"n":74,"cat":"Tijelo","correct":"B",
+ "q":"Zašto neki ljudi moraju kihnuti kad izađu na jarko svjetlo?",
+ "a":["Svjetlo isušuje sluznicu nosa","Živac pogrešno prenosi podražaj","Pokret zjenice draži sinuse"],
+ "e":"Vidni živac i živci lica prolaze blizu jedan drugoga, a kod dijela ljudi jak svjetlosni podražaj preskoči na put koji pokreće refleks kihanja. Mozak ga tumači kao dražljaj u nosu. Refleks je nasljedan, ovisno o istraživanju zahvaća 18 do 35 posto ljudi i obično se završi nakon jednoga do tri kihanja.\n\nOpisao ga je već Aristotel, koji ga je pripisao toplini Sunca. Za pilote borbenih zrakoplova i skakače na skijama on je zaista tema – kihanje pri izlasku iz tunela dolazi u najnepovoljnijem trenutku."},
+
+{"n":75,"cat":"Tijelo","correct":"B",
+ "q":"Zašto kosa posijedi?",
+ "a":["S godinama u sebe ugrađuje bijeli keratin","Stanice za boju u korijenu dlake predaju se","Zrak prodire u vlas"],
+ "e":"Boja dlake dolazi od melanocita u korijenu, koji dlaci koja raste dodaju pigment. Njihova se zaliha matičnih stanica kroz godine iscrpi; kad pigment više ne dolazi, dlaka izraste bezbojna. Djeluje bijelo jer se svjetlo u njoj rasipa. Sijedo je samo mješani ugođaj bijelih i još pigmentiranih dlaka.\n\nPojedinačna dlaka dakle ne posijedi – ona izraste sijeda. Kao ubrzivač vrijedi i vodikov peroksid, koji se nakuplja u korijenu i blijedi pigment. Da kosa od straha pobijeli preko noći pak je fizikalno nemoguće."},
+
+{"n":76,"cat":"Tijelo","correct":"B",
+ "q":"Zašto muškarci imaju bradavice?",
+ "a":["Ostatak su iz evolucije sisavaca","Svi ih zametci polažu prije nego što hormoni počnu djelovati","Imaju zadaću u regulaciji temperature"],
+ "e":"U prvim se tjednima svi zametci razvijaju po istom nacrtu, a to uključuje i polaganje mliječnih žlijezda. Tek nakon toga hormoni daljnji razvoj usmjeravaju u jednu stranu. Već položena građa ne razgrađuje se – ona jednostavno ostaje nerazvijena.\n\nDa je to djelatno tkivo, pokazuju iznimke: pod određenim hormonskim uvjetima tkivo dojke može rasti i kod muškaraca, a muškarci mogu oboljeti od raka dojke. Približno jedan posto svih slučajeva zahvaća muškarce – često prepoznat prepozno, jer nitko to ne očekuje."},
+
+{"n":77,"cat":"Hrana i piće","correct":"B",
+ "q":"Zašto hrana u zrakoplovu ima bljutav okus?",
+ "a":["Predugo se drži toplom","Suh zrak, nizak pritisak i buka prigušuju osjet okusa","Kuhinja na letu ne smije koristiti sol"],
+ "e":"Tri se stvari sastaju. Zrak u kabini krajnje je suh, pa sluznica nosa mirisne tvari slabije prima – a okus je većim dijelom miris. Smanjeni pritisak dodatno prigušuje. A stalna buka od približno 85 decibela mjerljivo snižava osjet slatkoga i slanoga. Izgubi se oko 30 posto osjetljivosti.\n\nJedan je smjer okusa uglavnom pošteđen i u buci se čak pojačava: umami. Upravo je zato sok od rajčice na letu tako popularan, iako ga na zemlji gotovo nitko ne naruči – i zato zrakoplovne kuhinje začinjavaju znatno jače nego što bi na zemlji imalo dobar okus."},
+
+{"n":78,"cat":"Svakodnevica","correct":"A",
+ "q":"Zašto prazna prostorija tako jako odjekuje?",
+ "a":["Jer bi namještaj i tekstil zvuk inače upili","Jer zrak bez namještaja bolje titra","Jer se zvuk lomi na više kutova"],
+ "e":"Zvuk se od tvrdih, glatkih površina odbija gotovo posve i u prostoriji putuje tu i tamo dok se energija ne potroši. Mekane i porozne stvari – kauč, tepih, zavjesa, polica s knjigama, i ljudi – umjesto toga ga upijaju i pretvaraju u malo topline. Nedostaju li, gašenje traje osjetno dulje.\n\nUpravo je to vrijeme odjeka središnja veličina akustike prostora: u dnevnoj je sobi oko pola sekunde, u praznoj novogradnji često preko dvije, u velikoj crkvi šest ili više. A kako publika snažno upija, koncertna dvorana na probi zvuči drukčije nego na izvedbi."},
+
+{"n":79,"cat":"Svemir","correct":"B",
+ "q":"Zašto se Mjesec može vidjeti i po danu?",
+ "a":["Jer je bliži od svake zvijezde","Jer je dovoljno svijetao da se održi pred plavim nebom","Jer ga sunčevo svjetlo po danu dodatno obasjava"],
+ "e":"Mjesec nije noćni predmet – on je jednostavno na nebu kad ga njegova staza tamo odvede, a to je često po danu. Vidljiv je jer njegova površina odbija dovoljno sunčeva svjetla da bude svjetliji od rasutoga plavog neba za njim. Zvijezde to ne mogu, njihovo se svjetlo u njemu izgubi.\n\nNajbolje ide oko faza polumjeseca: tada Mjesec stoji približno 90 stupnjeva od Sunca, dakle visoko na nebu, a Sunce još sja. Pri punom Mjesecu on pak izlazi približno sa zalaskom Sunca – po danu je tada pod obzorom."},
+
+{"n":80,"cat":"Povijest","correct":"A",
+ "q":"Zašto gotovo svi vijci imaju desni navoj?",
+ "a":["Jer je pri zatezanju povoljniji za dešnjake","Jer se lijevi navoji lakše sami otpuštaju","Jer su prvi strojevi za rezanje navoja mogli raditi samo tako"],
+ "e":"Pri zatezanju desnom rukom okretanje u smjeru kazaljke na satu snažnije je i lakše se nadzire od suprotnoga – podlaktica se pri tome zavrće prema unutra. Kako je većina ljudi dešnjaka, taj se smjer ustalio kao norma i kasnije je jednostavno propisan.\n\nLijevi navoji postoje tamo gdje bi norma bila opasna: na lijevoj pedali bicikla, da se u vožnji sama ne odvrne, na nekim maticama za listove pile i na plinskim bocama za goriva plinove, da se ne priključi pogrešan spoj. Iznimka je dakle uvijek svjesno osiguranje."},
+
+{"n":81,"cat":"Jezik","correct":"B",
+ "q":"Što »ok« izvorno znači?",
+ "a":["Skraćenica je imena jednoga mjesta","Bila je šala s namjerno pogrešnim pisanjem","Dolazi od indijanske riječi za pristajanje"],
+ "e":"Godine 1839. u bostonskim je novinama kolala moda da se izrazi namjerno pogrešno pišu i zatim skraćuju. »Oll korrect« za »all correct« postalo je o.k. Većina je tih šaljivih skraćenica umrla u nekoliko mjeseci – ova nije, jer je nedugo zatim u predsjedničkoj kampanji dobila drugo značenje.\n\nMartin Van Buren dolazio je iz Kinderhooka i zvali su ga »Old Kinderhook«; njegovi su pristaše osnivali O.K. klubove. Oboje zajedno učinilo je ta dva slova besmrtnima – danas »ok« vrijedi kao najrasprostranjenija riječ na svijetu."},
+
+{"n":82,"cat":"Jezik","correct":"A",
+ "q":"Odakle dolazi riječ »panika«?",
+ "a":["Od jednoga grčkog boga","Od latinske riječi za bijeg","Od srednjovjekovnoga liječnika koji ju je opisao"],
+ "e":"Pan je bio grčki bog pastira s kozjim nogama, zadužen za šume i pašnjake. Govorilo se da putnike i cijela krda napada iznenadnim strahom – bezrazložnim užasom koji je bez vidljiva povoda prolazio kroz mnoštvo. Taj panični strah postao je riječ.\n\nNa njega se svodi i više: Panova svirala, koju je po predanju izmislio, i zaobilaznim putem kršćanski prikaz đavla s rogovima i kozjim nogama. Riječ »pandemija« s njim pak nema ništa – to je grčki »sav narod«."},
+
+{"n":83,"cat":"Priroda","correct":"B",
+ "q":"Zašto kiša ima tako karakterističan miris?",
+ "a":["Munje pri tlu stvaraju ozon","Kapi u zrak izbacuju ulja iz tla i spore bakterija","Voda koja isparava sa sobom nosi miris prašine"],
+ "e":"Kad kap padne na suho tlo, nakratko zatvori zrak. On izlazi kao roj sitnih mjehurića i sa sobom povlači tvari s površine: biljna ulja koja se u sušnim razdobljima nakupljaju, i mirisnu tvar geosmin iz bakterija u tlu. Postupak je učinjen vidljivim kamerama velike brzine.\n\nGeosmin je glavni prenositelj toga zemljanog mirisa, a ljudski je nos na njega krajnje osjetljiv – dostatno je nekoliko dijelova na bilijun. Ista tvar cikli daje zemljani okus i razlog je zašto se jedna jedina kap kišnice u vodi za piće odmah osjeti. Ime za taj miris: petrihor."},
+
+{"n":84,"cat":"Priroda","correct":"A",
+ "q":"Zašto je snijeg bijel, a led proziran?",
+ "a":["Snijeg sadrži zatvoren zrak koji rasipa svjetlo","Snježni kristali imaju vlastitu bijelu boju","Snijeg odbija svjetlo samo s površine"],
+ "e":"Snijeg nije ništa drugo nego led – samo se sastoji od milijuna sitnih kristala sa zrakom između njih. Na svakoj granici između leda i zraka svjetlo se malo otkloni. Nakon nebrojenih otklona napušta snijeg u svim smjerovima i u svim bojama jednako: to opažamo kao bijelo.\n\nIsto načelo šećernu vunu, pjenu i oblake čini bijelima, iako su njihovi sastojci prozirni. A gdje je snijeg dubok i gusto stisnut, vidi se sljedeći učinak: u ledenjacima se crveno svjetlo nakon dugoga puta ipak upije – zato led ledenjaka svijetli plavo."},
+
+{"n":85,"cat":"Fizika","correct":"B",
+ "q":"Zašto voda ostaje u vjedru koje vitlamo u krug?",
+ "a":["Sila je pritiskuje prema van na dno","Dno vjedra neprestano ju prisiljava na kružnu stazu","Struja zraka drži je u vjedru"],
+ "e":"Po tromosti voda želi nastaviti letjeti pravo. Dno je vjedra pri tome neprestano na putu i preusmjerava je prema unutra – ta sila prema unutra drži je na kružnoj stazi. U najvišoj točki dio toga preuzima sila teža, ostatak dalje daje dno. Vitla li se presporo, sila teža sama nije dovoljna kao sila zavoja, i voda ispada.\n\nČesto navođena centrifugalna sila »prema van« postoji samo kao pomoć u računu za promatrača koji se vrti zajedno s vjedrom. Gledano izvana, nikakva sila prema van ne djeluje – djeluje samo previše malo prema unutra."},
+
+{"n":86,"cat":"Tehnika","correct":"B",
+ "q":"Zašto krila zrakoplova često imaju krajeve povijene prema gore?",
+ "a":["Da se pri manevrima na zemlji uštedi prostor","Da se prikoči vrtlog na vrhu krila","Da krilo dobije više čvrstoće"],
+ "e":"Na vrhu krila pretisak odozdo dolazi do podtiska iznad i uvija se u snažan vrtlog. Taj vrtlog troši energiju, a ne donosi uzgon. Uzdignut kraj – winglet ili povijen vrh – to obilaženje otežava i vrtlog slabi. Ovisno o izvedbi to donosi nekoliko posto uštede goriva.\n\nVrtlozi su više od pojedinosti: oni su razlog za propisane razmake između zrakoplova koji polijeću, jer vrtložni trag može prevrnuti manji zrakoplov za velikim. Ptice u selidbi isti učinak koriste letom u formaciji – onaj koji leti iza je u uzlaznoj struji prethodnika."},
+
+{"n":87,"cat":"Svemir","correct":"A",
+ "q":"Zašto je u svemiru hladno, iako Sunce tamo sja nefiltrirano?",
+ "a":["Jer se bez materije toplina gotovo ne može prenijeti","Jer se sunčevo zračenje s udaljenošću gotovo izgubi","Jer je temperatura u vakuumu načelno ništica"],
+ "e":"Temperatura je kretanje čestica – gdje ih gotovo nema, gotovo nema ni što zagrijati. Na Zemlji zrak i voda toplinu predaju dodirom i strujanjem; u vakuumu oboje otpada, ostaje samo zračenje. Predmet na Suncu zato postane vrlo vruć, u sjeni vrlo hladan, a između te dvije strane leže stotine stupnjeva.\n\nStoga je hlađenje u svemiru pravi problem, a ne grijanje: svemirska postaja nosi velike radijatore da se oslobodi otpadne topline. A svemirska odijela nisu debela protiv hladnoće, nego izoliraju u oba smjera i imaju vlastiti sustav hlađenja protiv tjelesne topline."},
+
+{"n":88,"cat":"Svakodnevica","correct":"B",
+ "q":"Zašto tuba paste za zube gore ima obojeni četverokut?",
+ "a":["Šifrira sastojke","To je oznaka za stroj koji reže","Pokazuje podrijetlo sirovina"],
+ "e":"Obojeni su kvadratići oznake za stroj koji pakira. Svjetlosni senzor prepoznaje blok boje na svijetloj podlozi i time točno zna na kojem mjestu beskrajnu vrpcu tube treba odrezati i zavariti. Sama je boja bilo koja – mora samo dati dovoljan kontrast.\n\nU skladu s tim, raširena je priča da zelena stoji za posve prirodne a crna za posve kemijske sastojke izmišljena. Iste se oznake nalaze na vrećicama čipsa, pakiranjima kave i folijama za kobasice, gdje nitko ne sumnja u tajnu poruku."},
+
+{"n":89,"cat":"Tehnika","correct":"B",
+ "q":"Zašto se baterija mobitela zimi na otvorenom tako brzo isprazni?",
+ "a":["Zaslon na hladnoći troši više struje","Kemijski procesi u bateriji teku polaganije","Baterija na hladnoći zaista izgubi naboj"],
+ "e":"U litij-ionskoj bateriji ioni moraju putovati kroz elektrolit. Na hladnoći on postaje gušći a putovanje polaganije, pa unutarnji otpor raste. Baterija više ne može davati traženu snagu, napon se pod opterećenjem sruši, a elektronika to tumači kao »prazno« i isključi se. Energija pri tome nije izgubljena – na toplom uređaj često ponovno pokaže naboj.\n\nVažna je posljedica za punjenje: bateriju pod ništicom ne bi trebalo puniti, jer se tada može izdvojiti metalni litij, što je trajno oštećuje. Dobri uređaji zato punjenje na hladnoći odbijaju sami."},
+
+{"n":90,"cat":"Povijest","correct":"B",
+ "q":"Zašto su tračnice u mnogim zemljama široke točno 1435 milimetara?",
+ "a":["Mjera je proizašla iz izračuna o stabilnosti u zavojima","Preuzela je mjeru engleskih željeznica za ugalj","Odgovara širini osi rimskih bojnih kola"],
+ "e":"George Stephenson gradio je svoje lokomotive za željeznice za ugalj na sjeveroistoku Engleske, čija je širina proizašla iz mjesne izrade zaprežnih kola. Kad su se njegovi strojevi probili, njihova je mjera došla s njima i kasnije je propisana kao normalni kolosijek – dobrih 1435 milimetara, dakle četiri stope i osam i pol inča.\n\nOmiljena priča da mjera potječe od širine osi rimskih bojnih kola legenda je bez dokaza. Da su različite zemlje svjesno izabrale druge širine, često je imalo vojne razloge: drukčiji kolosijek koči napadača, jer svoje vlakove ne može jednostavno pustiti dalje."}
+]

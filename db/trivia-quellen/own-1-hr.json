@@ -1,0 +1,151 @@
+[
+{"n":1,"cat":"Hrana i piće","correct":"B",
+ "q":"Zašto ementaler ima rupe?",
+ "a":["Probijaju se iglama pri oblikovanju","Bakterije u siru proizvode ugljikov dioksid","Pri zrenju tekućina isparava iz šupljina"],
+ "e":"Odgovorne su propionske bakterije. Tijekom zrenja razgrađuju mliječnu kiselinu i pri tome otpuštaju ugljikov dioksid. Plin ne može izaći iz čvrstoga kolača pa se skuplja na sitnim začetnim mjestima – i iz njih nastaju okrugle rupe, u struci zvane »oči«.\n\nZanimljivo je što se dogodi kad se radi previše čisto: nekada su kao začetna mjesta služile male čestice sijena u mlijeku. Otkako moderni sustavi za strojnu mužnju daju gotovo posve čisto mlijeko, rupe su mjerljivo manje. Neke sirane zato danas namjerno ponovno dodaju prah sijena."},
+
+{"n":2,"cat":"Priroda","correct":"A",
+ "q":"Zašto su banane zakrivljene?",
+ "a":["Plod raste prema gore, protiv sile teže","Težina grozda povija ih prema dolje","Kora se s jedne strane suši i steže"],
+ "e":"Cvjetna stabljika banane najprije visi prema dolje. Mladi plodovi zatim rastu natrag prema gore, protiv sile teže i prema svjetlu – botaničari to nazivaju negativnim gravitropizmom. Budući da počinju nisko a završavaju visoko, nastaje luk.\n\nZakrivljenost dakle nije rezultat oplemenjivanja, nego obična reakcija rasta. Divlje banane jednako su zakrivljene – samo su pune tvrdih sjemenki i gotovo nejestive."},
+
+{"n":3,"cat":"Tijelo","correct":"B",
+ "q":"Zašto čili peče u ustima, iako ništa nije vruće?",
+ "a":["Ljuta tvar blago nagriza sluznicu","Draži upravo one živce koji javljaju toplinu","Nakratko podiže temperaturu u ustima"],
+ "e":"Ljuta tvar kapsaicin veže se na receptor zvan TRPV1. On je zapravo detektor topline i obično se pokreće od približno 43 stupnja. Kapsaicin ga otvara kemijskim putem – mozak tako dobiva pravu dojavu o toplini, a da nigdje nema topline.\n\nZato voda gotovo ne pomaže: kapsaicin je topljiv u mastima. Mlijeko, jogurt ili vrhnje uspješno ga vežu. A budući da ptice taj receptor imaju drukčije građen, njima čili nije nimalo ljut – što je za biljku praktično, jer ptice raznose sjemenke neoštećene."},
+
+{"n":4,"cat":"Hrana i piće","correct":"A",
+ "q":"Zašto pri rezanju luka moramo plakati?",
+ "a":["Plin na oku stvara kiselinu","Sok luka mehanički draži rožnicu","Jak miris pokreće refleks u mozgu"],
+ "e":"Kad se luk ošteti, sastanu se dvije tvari koje su prije bile odvojene u stanici. Enzim iz njih gradi hlapljiv sumporni spoj. On se diže i na vlažnoj površini oka reagira u slabu kiselinu. Oko to ispire suzama.\n\nTo objašnjava i zašto kućni trikovi rade: ohlađeni luk otpušta manje plina, oštar nož uništava manje stanica, a onaj koji radi blizu nape dobiva manje toga u oči."},
+
+{"n":5,"cat":"Tehnika","correct":"C",
+ "q":"Zašto loptica za golf ima udubljenja?",
+ "a":["Poboljšavaju prihvat pri udarcu","Loptica se tako bolje vidi u travi","Znatno smanjuju otpor zraka"],
+ "e":"Kod glatke loptice strujanje zraka otkida se rano i za sobom vuče široko područje podtiska. Udubljenja stvaraju tanak, uzvitlan sloj neposredno na površini koji dulje prati oblik. Područje podtiska se smanjuje, otpor pada – a rotacija natrag dodatno stvara uzgon.\n\nUčinak je ogroman: glatka loptica leti samo približno upola manje daleko. Otkriven je posve slučajno, jer su igrači u 19. stoljeću primijetili da njihove stare, izgrebane loptice lete bolje od novih."},
+
+{"n":6,"cat":"Povijest","correct":"B",
+ "q":"Zašto su teniske loptice žute?",
+ "a":["Žuta na zemljanoj podlozi najdulje ostaje čista","Zbog vidljivosti na televiziji u boji","Bojilo čini filc izdržljivijim"],
+ "e":"Do sedamdesetih godina teniske loptice bile su bijele. S televizijom u boji to je postalo problem: pred svjetlim linijama i bijelom odjećom lopticu se na ekranu teško pratilo. Istraživanja su pokazala da se najjasnije vidi jarka žutozelena. Svjetska federacija dopustila ju je 1972.\n\nWimbledon je ipak do 1986. ostao pri bijeloj loptici – tradicija. Službeni naziv boje je »optic yellow«, a je li loptica žuta ili zelena, gledatelji se spore do danas."},
+
+{"n":7,"cat":"Tehnika","correct":"B",
+ "q":"Zašto se pri polijetanju i slijetanju svjetlo u kabini prigušuje?",
+ "a":["Da se uštedi struja za motore","Da oči budu prilagođene mraku","Da piloti imaju manje odsjaja u pilotskoj kabini"],
+ "e":"Polijetanje i slijetanje kritične su faze. Kad bi trebalo evakuirati u mraku, očima koje su se upravo naviknule na jako svjetlo kabine trebalo bi nekoliko minuta da vani bilo što razaznaju. Uz prigušeno svjetlo već su unaprijed prilagođene.\n\nIz istog razloga zasloni na prozorima moraju ostati otvoreni: posada iznutra mora vidjeti ima li s jedne strane vatre ili krhotina prije nego što otvori vrata. A rasvjeta za slučaj nužde ide po podu, jer je tamo dolje vidljiva i u dimu."},
+
+{"n":8,"cat":"Tehnika","correct":"C",
+ "q":"Zašto svaki prozor u zrakoplovu ima malu rupicu na dnu?",
+ "a":["Da se staklo iznutra ne rosi","Služi kao odvod za kondenzat","Osigurava da vanjsko staklo nosi pritisak"],
+ "e":"Prozor kabine sastoji se od nekoliko akrilnih stakala. Sitna rupica u srednjem staklu povezuje međuprostor s kabinom. Zbog toga cijela razlika pritiska prema razrijeđenom vanjskom zraku leži na vanjskom staklu, koje je za to i građeno. Srednje je rezerva, u slučaju da vanjsko popusti.\n\nKao nusučinak, vlaga izlazi iz međuprostora pa se stakla iznutra ne zaleđuju. Riješiti oboje odjednom dobro je inženjerstvo s jednom izvrtanom rupicom."},
+
+{"n":9,"cat":"Priroda","correct":"A",
+ "q":"Zašto je more slano?",
+ "a":["Rijeke u njega nose otopljenu stijenu","Podmorska ležišta soli polako se otapaju","Morski organizmi neprestano otpuštaju soli"],
+ "e":"Kiša je blago kisela i pri otjecanju otapa minerale iz stijena. Rijeke te soli prenose u more. Voda odande ponovno isparava – soli ostaju. Kroz milijune godina tako se ustalio sadržaj od približno 35 grama na litru. Podmorski vulkanski izvori daju drugi doprinos.\n\nZašto onda ne postaje sve slanije? Jer soli i nestaju: ugrađuju se u sedimente, odlažu u odsječenim morskim bazenima i s tektonskim pločama odvlače u dubinu. Dotok i odvod približno se izjednačuju."},
+
+{"n":10,"cat":"Tijelo","correct":"B",
+ "q":"Što pucne kad krcnemo prstima?",
+ "a":["Tetive preskoče preko koštanog izdanka","Mjehurić plina u zglobnoj tekućini","Hrskavične površine nakratko se otaru jedna o drugu"],
+ "e":"Kad zglob razvučemo, pukotina se širi brže nego što tekućina može doteći. Pritisak pada i otopljeni plinovi naglo stvaraju mjehurić. Upravo nastajanje toga mjehurića proizvodi zvuk – snimke magnetskom rezonancijom to su u međuvremenu i zabilježile.\n\nZato ne ide odmah još jednom: plin se prvo mora ponovno otopiti, a to traje oko 20 minuta. I raširena opomena ne stoji baš tako – istraživanja među onima koji to redovito rade nisu našla povećanu stopu artroze, najviše nešto slabiji stisak."},
+
+{"n":11,"cat":"Životinje","correct":"C",
+ "q":"Koliko srca ima hobotnica?",
+ "a":["Jedno, ali s četiri komore","Dva, po jedno za svaku polovicu tijela","Tri"],
+ "e":"Dva škržna srca svako protiskuje krv kroz jednu škrgu, a veće glavno srce zatim je šalje kroz tijelo. To je potrebno jer prenositelj kisika u krvi hobotnice, hemocijanin s bakrom, radi znatno neučinkovitije od našega hemoglobina sa željezom. Krv, uzgred, čini plavičastom.\n\nGlavno srce zastaje dok hobotnica pliva – jedan od razloga zašto radije hoda po dnu nego pliva. Plivanje ju jednostavno brže iscrpljuje."},
+
+{"n":12,"cat":"Životinje","correct":"B",
+ "q":"Zašto se pingvini ne zalede stopalima za led?",
+ "a":["Potplati su im izolirani slojem masti","Dotječuća i otječuća krv izmjenjuju toplinu","Stopala trajno drže malo podignuta"],
+ "e":"U nogama arterije i vene leže tijesno jedna do druge i teku u suprotnim smjerovima. Topla krv iz tijela svoju toplinu predaje neposredno hladnoj krvi koja se vraća. Dolje dolazi još samo malo iznad ništice – dovoljno toplo da se ne zaledi, i dovoljno hladno da se gotovo ništa topline ne izgubi.\n\nTo protustrujno načelo koriste i patke na ledu, kitovi u perajama i sobovi u nogama. Pingvin uz to može regulirati protok krvi – toplih dana kroz stopala otpušta više topline."},
+
+{"n":13,"cat":"Životinje","correct":"A",
+ "q":"Koje je boje koža polarnog medvjeda?",
+ "a":["Crna","Ružičasta kao kod drugih medvjeda","Svjetlosiva s bijelim mrljama"],
+ "e":"Pod krznom je koža polarnog medvjeda crna – dobro se vidi na nosu i usnama. Tamna koža bolje prima toplinu. Same dlake nisu bijele, nego bezbojne i propuštaju svjetlo. Izgledaju bijelo jer se svjetlo u njima rasipa, kao u snijegu ili šećernoj vuni.\n\nZato polarni medvjedi u zoološkim vrtovima mogu postati zelenkasti: nasele li se alge u šuplje dlake, krzno dobiva zeleni odsjaj. Rašireno mišljenje da dlake sunčevo svjetlo vode do kože kao svjetlovodi danas se smatra opovrgnutim."},
+
+{"n":14,"cat":"Priroda","correct":"B",
+ "q":"Zašto je nebo plavo?",
+ "a":["Odražava boju oceana","Molekule zraka najjače rasipaju plavo svjetlo","Vodena para izdvaja crveno svjetlo"],
+ "e":"Sunčevo svjetlo sadrži sve boje. Molekule zraka svjetlo kratkih valnih dužina rasipaju u svim smjerovima daleko jače od onoga dugih – ta se veza naziva Rayleighovim rasipanjem. Plavo nam zato dolazi s cijeloga neba, a ne samo neposredno od Sunca.\n\nLjubičasto bi se rasipalo još jače, ali ga Sunce manje izlučuje a naše su oči na njega manje osjetljive. A navečer? Tada svjetlo ukoso prolazi kroz mnogo više zraka, plavo je putem već rasuto – ostaju narančasto i crveno."},
+
+{"n":15,"cat":"Fizika","correct":"C",
+ "q":"Zašto led pluta na vodi?",
+ "a":["Nose ga zatvoreni mjehurići zraka","Površinska napetost drži ga na vrhu","Voda pri skrutnjavanju postaje lakša"],
+ "e":"Gotovo sve tvari pri skrutnjavanju postaju gušće. Voda ne: u ledu se molekule uređuju u široku rešetku sa šupljinama. Led zato zauzima približno devet posto više prostora od iste količine tekuće vode – pa pluta. Voda je najgušća pri oko četiri stupnja.\n\nTa je anomalija gustoće jedan od razloga zašto život u jezerima preživi zimu: ledeni se pokrov stvara na površini i izolira, a ispod ostaje tekuće na četiri stupnja. Kad bi led tonuo, jezera bi se ledila od dna."},
+
+{"n":16,"cat":"Svakodnevica","correct":"A",
+ "q":"Zašto su poklopci šahtova okrugli?",
+ "a":["Jer okrugli poklopac ne može upasti u šaht","Jer su cijevi okrugle pa poklopac odgovara","Jer se okrugli poklopci lakše liju"],
+ "e":"Krug u svakom smjeru ima isti promjer. Okrugli se poklopac zato ne može okrenuti tako da propadne kroz vlastiti otvor – kod četvrtastoga dovoljno ga je postaviti dijagonalno. Za radnike ispod ulice to je vrlo konkretan sigurnosni argument.\n\nNa to se nadovezuje i praktično: okrugli poklopac pri vraćanju ne treba usmjeravati, može se kotrljati umjesto nositi, a okrugli oblik težinu kamiona koji prelaze ravnomjerno prenosi u obod – kutovi bi bili slabe točke."},
+
+{"n":17,"cat":"Jezik","correct":"B",
+ "q":"Odakle dolazi ime bežične tehnike Bluetooth?",
+ "a":["Od plavog dijela u prvom prototipu","Od danskoga kralja","Od kodnog imena za plave kabele u Ericssonu"],
+ "e":"Kum je Harald Plavozubi, koji je u 10. stoljeću ujedinio danska plemenska područja i pridružio Norvešku. Inženjer je ime predložio kao radni naslov: kako je kralj ujedinio plemena, tako je tehnika trebala ujediniti različite uređaje. Radni je naslov ostao jer se marketing nije mogao dogovoriti o nečem drugom.\n\nČak i logotip odgovara: spaja starnordijske rune za H i B – kraljeve inicijale. Odakle nadimak Plavozubi, nije jasno; možda od tamnoga, mrtvog zuba."},
+
+{"n":18,"cat":"Svakodnevica","correct":"B",
+ "q":"Zašto traperice imaju male metalne zakovice na džepovima?",
+ "a":["Znak su prave markirane robe","Pojačavaju mjesta na kojima tkanina puca","Odvode statički naboj"],
+ "e":"Krojač Jacob Davis krpao je radne hlače za tragatelje za zlatom i smetalo ga je što se uglovi džepova uvijek raspadaju. Jednostavno je ugradio zakovice iz radionice za konjsku opremu. Kako mu je nedostajalo novca za patent, 1873. povezao se sa svojim dobavljačem tkanine Levijem Straussom – i iz te je zakovice nastala moderna traperica.\n\nJedna je zakovica kasnije ponovno nestala: ona u koraku. Uz logorsku vatru postajala je neprijatno vruća. A mali peti džep sprijeda nekoć je bio džep za džepni sat."},
+
+{"n":19,"cat":"Svemir","correct":"B",
+ "q":"Zašto s Mjeseca uvijek vidimo istu stranu?",
+ "a":["Uopće se ne vrti","Jedan mu okret traje jednako dugo kao jedan obilazak","Zemlja svojom sjenom zakriva drugu stranu"],
+ "e":"Mjesec se svakako vrti – samo mu za to treba jednako dugo kao za jedan krug oko Zemlje, oko 27 dana. Zato nam uvijek pokazuje isto lice. Ta vezana rotacija nije slučajna: plimne sile Zemlje kroz milijune godina kočile su njegovo vrtnju dok se nije uklopila.\n\nPrizor nije posve nepomičan. Budući da je Mjesečeva staza blago eliptična i nagnuta, on se malo koleba naprijed-natrag. S vremenom zato sa Zemlje postaje vidljivo oko 59 posto njegove površine."},
+
+{"n":20,"cat":"Svemir","correct":"A",
+ "q":"Zašto postoje godišnja doba?",
+ "a":["Jer je Zemljina os nagnuta","Jer se udaljenost od Sunca mijenja","Jer Sunce zrači različito jako"],
+ "e":"Zemljina os nagnuta je za dobrih 23 stupnja. Zbog toga sunčevo svjetlo sjevernu polutku u lipnju pogađa okomitije i dulje, a u prosincu položenije i kraće – na južnoj polutki upravo obrnuto. Okomitije znači: ista se energija raspoređuje na manju površinu.\n\nUdaljenost to već zato ne može biti jer bi tada svugdje istodobno bilo ljeto. Zemlja je zapravo početkom siječnja najbliža Suncu – u sredini europske zime."},
+
+{"n":21,"cat":"Fizika","correct":"C",
+ "q":"Zašto zvijezde trepere, a planeti gotovo ne?",
+ "a":["Planeti ne svijetle sami, nego samo odbijaju svjetlo","Zvijezde zaista neprestano mijenjaju svoju svjetlinu","Planeti se prikazuju kao pločica, zvijezde kao točka"],
+ "e":"Treperenje ne nastaje na zvijezdi, nego u našoj atmosferi: slojevi zraka različite temperature svjetlo različito lome i odbijaju ga tu i tamo. Zvijezda je i u teleskopu samo svjetlosna točka – kad se ona otkloni, odmah se vidi.\n\nPlanet je pak toliko blizu da tvori sitnu pločicu, dakle mnogo točaka jednu do druge. Njihova kolebanja se izjednačuju i svjetlo ostaje mirno. Praktičan trik pod noćnim nebom: što stoji mirno, obično je planet."},
+
+{"n":22,"cat":"Hrana i piće","correct":"B",
+ "q":"Zašto med praktički nikada ne pokvari?",
+ "a":["Pčele dodaju prirodno sredstvo za konzerviranje","U njemu je previše malo slobodne vode da bi klice rasle","Visok sadržaj šećera kemijski ubija klice"],
+ "e":"Zreo med sadrži samo oko 17 posto vode, a šećer je čvrsto veže. Mikroorganizmima treba slobodna voda – u medu im okolina umjesto toga izvlači tekućinu. Med je uz to kiselkast i sadrži male količine vodikova peroksida, koji pčele unose preko enzima.\n\nU egipatskim grobnicama nađen je med koji se nakon tisućljeća još nije pokvario. Razrijedi li ga se, zaštita otpada i on počinje vreti – a upravo se to koristi pri izradi medovine."},
+
+{"n":23,"cat":"Hrana i piće","correct":"B",
+ "q":"Zašto kola tako silovito prska kad se u nju ubaci Mentos?",
+ "a":["Bomboni kemijski reagiraju s kiselinom","Njihova gruba površina nudi nebrojene začetke mjehurića","Naglo se otapaju i istiskuju tekućinu"],
+ "e":"Gazirana su pića prezasićena plinom. Da bi se mjehurić stvorio, treba mu polazišna točka. Površina Mentosa pod mikroskopom je puna pora i rubova – tisuće polazišnih točaka odjednom. Plin izlazi u nekoliko sekundi i tekućinu potiskuje uvis kao vodoskok.\n\nKemijska reakcija to nije. Dodaci u bombonima uz to snižavaju površinsku napetost, što stvaranje mjehurića dodatno olakšava. S light kolom vodoskok je viši, jer je bez šećernog sirupa rjeđa."},
+
+{"n":24,"cat":"Tijelo","correct":"B",
+ "q":"Zašto se koža na prstima u vodi naboraju?",
+ "a":["Koža se napije vodom i rasteže","Živčani sustav aktivno steže krvne žile","Kožna mast se ispire i koža upada"],
+ "e":"Očekivalo bi se puko upijanje – zapravo je to upravljana reakcija. Autonomni živčani sustav steže krvne žile pod kožom, volumen ispod se smanjuje, a čvrsti rožnati sloj nabire se. Dokaz: ako je zadužni živac oštećen, prsti se više ne naboraju.\n\nZašto tijelo to čini, nije konačno razjašnjeno. Pokusi upućuju na to da žljebovi omogućuju bolje hvatanje mokrih predmeta – slično kao što profil gume odvodi vodu."},
+
+{"n":25,"cat":"Životinje","correct":"C",
+ "q":"Zašto ptice na električnom vodu ne dobiju udar?",
+ "a":["Njihove su kandže od izolacijskog materijala","Perje ne vodi struju dalje","Između njihovih stopala gotovo nema napona"],
+ "e":"Struja teče samo kad postoji razlika napona. Oba stopala ptice sjede na istoj žici, nekoliko centimetara jedno od drugoga – između njih gotovo nema napona, pa kroz pticu praktički ne teče struja. Ugodniji put ostaje bakar.\n\nOpasno postaje u trenutku kad ptica dodirne i nešto drugo: drugu žicu, stup ili uzemljeni dio. Upravo su zato velike vrste ptica velikog raspona krila na stupovima visokoga napona posebno ugrožene."},
+
+{"n":26,"cat":"Jezik","correct":"A",
+ "q":"Odakle dolazi izraz »pasti s kruške«?",
+ "a":["Iz slike čovjeka koji se iznenada nađe na zemlji, bez pojma gdje je","Od stare kazne za krađu voća","Od mjere za visinu koju su koristili vrtlari"],
+ "e":"Izraz opisuje nekoga tko govori ili se ponaša kao da ništa ne zna o stvari o kojoj je riječ – kao da je upravo pao s drveta i našao se posve izgubljen. Slika je jednostavna i zato razumljiva bez ikakva objašnjenja: onaj koji padne s kruške u trenutku ne zna ni gdje je ni kako je tamo došao.\n\nSlične slike postoje u mnogim jezicima. Njemački kaže da je nekoga »s Mjeseca«, engleski da je pao »off the back of a lorry« kad je riječ o stvarima sumnjiva podrijetla. Zajedničko im je da naglo i nepripremljeno pojavljivanje znači neznanje."},
+
+{"n":27,"cat":"Jezik","correct":"B",
+ "q":"Što izvorno znači želja »Hals- und Beinbruch«, njemački pandan izrazu »slomi nogu«?",
+ "a":["Opomenu pred opasnim radom","Blagoslov iz jidiša","Zdravicu rudara"],
+ "e":"U pozadini je vrlo vjerojatno jidiška formula »hatslokhe un brokhe« – sreća i blagoslov. Njemačke su uši iz toga glasovno čule »Hals und Bruch«, a kako to nije imalo smisla, narodni je govor iz toga napravio potpunu želju za nesrećom.\n\nTo se dobro uklopilo u raširenu praznovjericu: onaj koji otvoreno želi sreću, priziva suprotno – pa se radije želi nešto zlo. U engleskom se čini upravo isto s »break a leg«, a u hrvatskom se kaže »slomi nogu«."},
+
+{"n":28,"cat":"Svakodnevica","correct":"A",
+ "q":"Zašto je natpis sprijeda na vozilu hitne pomoći zrcalno napisan?",
+ "a":["Da se u retrovizoru ispravno čita","Jer se folija tako lakše lijepi s unutrašnje strane","To je međunarodni propis za vozila s rotacijskim svjetlom"],
+ "e":"Natpis na prednjoj strani namijenjen je vozaču automobila koji vozi ispred. On vozilo vidi u retrovizoru – a tamo se svaki tekst prikazuje obrnuto. Ako se od početka postavi zrcalno, u zrcalu ga čita ispravno i može brže reagirati.\n\nZato zrcalni natpis stoji uvijek samo sprijeda, nikada na stranama ili straga: samo prednja strana ikada dospije u tuđi retrovizor."},
+
+{"n":29,"cat":"Fizika","correct":"B",
+ "q":"Zašto udar munje ne ugrožava putnike u zrakoplovu?",
+ "a":["Gumene gume izoliraju zrakoplov","Metalna ovojnica vodi struju s vanjske strane","Visina munju toliko oslabi"],
+ "e":"Vodljiva vanjska ovojnica djeluje kao Faradayev kavez: struja teče preko površine i zrakoplov napušta na jednom odvodnom šiljku, a unutrašnjost ostaje praktički bez polja. Statistički, prometne zrakoplove munja pogodi približno jednom godišnje, a putnici obično osjete samo prasak i bljesak.\n\nZahtjevno je to kod modernih dijelova trupa od ugljičnih vlakana, koja slabije vode. Tamo se ulaminiraju fine metalne mrežice ili bakrene folije da kavez i dalje djeluje. Uz to na rubovima krila i repnih površina sjede mali odvodni šiljci."},
+
+{"n":30,"cat":"Priroda","correct":"B",
+ "q":"Zašto su flamingosi ružičasti?",
+ "a":["Perje sadrži vlastito crveno bojilo","Boja dolazi iz njihove hrane","Građa perja lomi svjetlo u ružičasto"],
+ "e":"Flamingosi iz vode filtriraju male rakove i alge. U njima su karotenoidi – ista skupina tvari koja mrkvu čini narančastom. Ptica ih ugrađuje u kožu i perje. Bez te hrane ostaje blijedo bijela, što se u zoološkim vrtovima nekada redovito viđalo, prije nego što je hrana prilagođena.\n\nBoja je i signal: snažno ružičasta pokazuje da se životinja dobro hrani i da je zdrava – i pri odabiru partnera djeluje odgovarajuće privlačno. Roditelji koji gnijezde pak blijede, jer bojila predaju svojim mladima."}
+]

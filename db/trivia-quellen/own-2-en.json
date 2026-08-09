@@ -1,0 +1,151 @@
+[
+{"n":31,"cat":"Body","correct":"B",
+ "q":"Why does urine smell after eating asparagus?",
+ "a":["Asparagus itself contains strongly smelling oils","The body breaks an asparagus acid down into sulphur compounds","Asparagus is a diuretic and makes the urine more concentrated"],
+ "e":"Asparagus contains asparagusic acid, which barely occurs in this form in any other food. Digestion breaks it down into small, highly volatile sulphur compounds. Because they are so volatile, you can smell them after about a quarter of an hour.\n\nThe curious part: not everyone perceives the smell. A widespread gene variant in the sense of smell makes a substantial share of people blind to it. That is why it was long assumed only some people produced the smell at all – in fact almost everyone does."},
+
+{"n":32,"cat":"Body","correct":"B",
+ "q":"Why does orange juice taste appalling straight after brushing your teeth?",
+ "a":["The toothpaste reacts with the fruit acid","A foaming agent blocks your perception of sweetness","The menthol numbs the tongue completely"],
+ "e":"The culprit is usually sodium lauryl sulphate, the substance that makes toothpaste foam. It dampens the receptors for sweetness and at the same time attacks fat molecules that otherwise soften the perception of bitterness. The result: the sweetness of the juice is missing, the acid and the bitter compounds remain – and suddenly taste unbearable.\n\nToothpaste without that foaming agent barely triggers the effect. And anyone who does not want to wait can simply have breakfast before brushing."},
+
+{"n":33,"cat":"Physics","correct":"A",
+ "q":"Why does ketchup refuse to come out and then arrive all at once?",
+ "a":["Shaking makes it thinner","The narrow opening dams it up at first","Air has to flow into the bottle first"],
+ "e":"Ketchup is one of the non-Newtonian fluids. At rest the tomato particles form a loose network that holds it together almost like a solid. Apply enough force – shaking, tapping, pressure – and that network collapses and the viscosity drops dramatically within seconds. Then everything flows at once.\n\nThe behaviour is called thixotropy and is used deliberately: wall paint should be thin under the brush and not drip on the wall, toothpaste should stand up in the tube and come out under pressure."},
+
+{"n":34,"cat":"Technology","correct":"B",
+ "q":"Why does stainless steel not rust, although it consists mostly of iron?",
+ "a":["It is covered with a protective coating applied to it","The chromium in it forms a wafer-thin barrier by itself","Alloying makes the iron chemically untouchable"],
+ "e":"From around twelve per cent chromium something elegant happens: at the surface the chromium reacts immediately with oxygen to form a dense oxide layer only a few atoms thick. It sits firmly, is invisible, and lets no more oxygen reach the iron beneath. But rust needs precisely that access.\n\nThe best part is the self-healing: scratch the layer open and it re-forms within seconds. Only where oxygen is permanently absent – under a stubborn deposit, say – or where chloride breaks it locally can stainless steel corrode after all."},
+
+{"n":35,"cat":"Technology","correct":"B",
+ "q":"Why are the letters on a keyboard arranged so awkwardly?",
+ "a":["The layout follows letter frequency in English","It was meant to stop typewriter bars from jamming","It derives from the arrangement in the telegraph alphabet"],
+ "e":"In mechanical typewriters, type bars struck the paper from below. If two frequently consecutive letters sat next to each other, the bars jammed when typing quickly. Christopher Latham Sholes therefore pulled common letter pairs apart spatially in the 1870s. The result is the QWERTY row, which German keyboards use with Z and Y swapped.\n\nWith computers the reason fell away, yet the layout stayed: millions of people had learned it. Demonstrably faster layouts such as Dvorak or Neo have never caught on."},
+
+{"n":36,"cat":"History","correct":"B",
+ "q":"Why do people drive on the left in Great Britain?",
+ "a":["Because of the steering in the first cars built there","So that riders had their sword hand towards oncoming traffic","Because the railways ran on the left and the roads followed"],
+ "e":"The usual explanation reaches back long before the car. Anyone travelling on horseback and carrying a sword wore it on the right. Riding on the left kept the weapon hand facing whoever was coming, and left the right hand free for greeting or for a grip without changing the reins. Pope Boniface VIII is said to have advised pilgrims to keep left in the year 1300.\n\nThat much of the world drives on the right today has a lot to do with France and the United States: wide waggons with several draught horses were steered from the left rear horse – the driver wanted oncoming traffic on his left, so he kept to the right."},
+
+{"n":37,"cat":"History","correct":"A",
+ "q":"Why does a week have seven days?",
+ "a":["Because of the seven wandering stars visible to the naked eye","Because a lunar month divides neatly into four parts","Because seven counted as a divine number in Babylon"],
+ "e":"Babylonian astronomers knew seven celestial bodies that move against the background of the stars: sun, moon, Mercury, Venus, Mars, Jupiter and Saturn. Each was assigned a day. The seven-day week reached Europe via the Greeks and Romans – so unlike the month and the year, it has no astronomical rhythm it has to follow.\n\nThe names still betray the origin. In English, Saturday, Sunday and Monday are directly Saturn, sun and moon. Tuesday, Wednesday, Thursday and Friday hold Germanic gods who replaced the Roman ones: Tiw, Woden, Thunor and Frige."},
+
+{"n":38,"cat":"Language","correct":"B",
+ "q":"Why is the German word for Wednesday, unlike the other weekdays, not named after a god?",
+ "a":["Because in antiquity it counted as a day of rest without a deity","Because the church displaced the name of the god Woden","Because it was only added to the week in the Middle Ages"],
+ "e":"Originally it was the day of the god Woden – in English it is still Wednesday, in Dutch woensdag. In the German-speaking world the church pushed through the sober counting form in the early Middle Ages: Mittwoch, the day in the middle of the week.\n\nWith Saturday it partly succeeded too. The north of Germany says Sonnabend, the eve of Sunday, the south says Samstag – which comes by a roundabout route from the Hebrew sabbath. Only Tuesday, Thursday and Friday kept their old divine names in German."},
+
+{"n":39,"cat":"Food & Drink","correct":"B",
+ "q":"Why do sparkling wine corks have the shape of a mushroom?",
+ "a":["They are pressed that way so you can grip them better","They are cylindrical and only deformed inside the bottle","The mushroom head spreads the pressure of the wire cage"],
+ "e":"Before corking, a sparkling wine cork is a thick cylinder, noticeably wider than the neck of the bottle. Sealing it compresses it hard. The lower part stays trapped in the neck and keeps that compressed shape, while the upper part springs back out outside – and that becomes the mushroom head.\n\nThe shape even lets you read the age: the longer the bottle has lain, the less elastic the cork and the narrower the pulled cork stays. An almost cylindrical cork points to a long-aged sparkling wine."},
+
+{"n":40,"cat":"Food & Drink","correct":"A",
+ "q":"Why do wine glasses have a long stem?",
+ "a":["So your hand does not warm the wine","So the glass stands more steadily when swirled","So the aromas collect in the stem"],
+ "e":"Held by the stem, the warmth of your hand stays away from the wine – with a chilled white that amounts to several degrees over a long meal. Side effect: the bowl stays free of fingerprints and does not fog up, so you can see colour and clarity better.\n\nThat is exactly why a brandy snifter has no long stem: there the warmth of the hand is wanted, it drives the aromas out. And modern stemless glasses are a deliberate compromise – easier to wash, but your hand warms the wine."},
+
+{"n":41,"cat":"Body","correct":"B",
+ "q":"Why does your stomach rumble?",
+ "a":["Stomach acid bubbles when the stomach is empty","Gas and liquid are pushed through the intestine","The stomach wall vibrates with tension"],
+ "e":"Stomach and intestine work even without food: roughly every one and a half to two hours a strong cleaning wave runs through the digestive tract and pushes leftovers along. When it meets a mixture of liquid and air, you get the gurgling noises doctors call borborygmus.\n\nThere is a simple reason it is so loud on an empty stomach: the contents that would muffle the sound are missing. A full stomach rumbles just as much, you just do not hear it."},
+
+{"n":42,"cat":"Body","correct":"B",
+ "q":"What happens in the body when you have hiccups?",
+ "a":["The oesophagus cramps in a ring","The diaphragm twitches and the vocal folds snap shut","The stomach briefly presses against the lung"],
+ "e":"A reflex makes the diaphragm contract abruptly – you involuntarily draw in air. Only a fraction of a second later the larynx closes the vocal folds. The inrushing air hits that closure, and that is exactly what produces the characteristic sound.\n\nWhy the reflex exists is unclear; one suspicion traces it back to tadpoles, which do something similar when breathing through gills. The home remedies at least share a principle: holding your breath, drinking water or swallowing something cold either raise the CO₂ level or stimulate the nerve involved – either can interrupt the reflex."},
+
+{"n":43,"cat":"Body","correct":"B",
+ "q":"Why do you get a headache when you eat ice cream too fast?",
+ "a":["The brain measurably cools down for a moment","Vessels in the palate react and the pain is mislocated","The sugar makes your blood pressure dip briefly"],
+ "e":"Cold at the palate makes blood vessels first contract and then widen quickly. The trigeminal nerve registers this response – the same nerve that also supplies large areas of the face and forehead. The brain cannot pin the message down precisely and relocates the pain forward into the forehead. Specialists call it referred pain.\n\nThe brain itself does not cool down, and it has no pain receptors either. The whole thing is over within half a minute at most; pressing your tongue against the palate warms the spot and shortens it."},
+
+{"n":44,"cat":"Body","correct":"B",
+ "q":"Why do you hear a rushing sound like the sea in a large shell?",
+ "a":["You are hearing your own blood in the vessels of the ear","The shell amplifies quiet ambient noise","Trapped air vibrates at a fixed pitch"],
+ "e":"The cavity of the shell is a resonating body. It picks particular frequencies out of the ever-present quiet carpet of ambient noise and amplifies them – what comes out is a broadband rushing that resembles the sea. A cup or a cupped hand at your ear does exactly the same.\n\nThe blood explanation is easy to refute: in a very quiet room the rushing becomes noticeably weaker, and climbing stairs with a racing pulse does not make it louder. If it were your own blood, it would be the other way round."},
+
+{"n":45,"cat":"Body","correct":"A",
+ "q":"Why do people get seasick?",
+ "a":["The balance organ reports something different from the eyes","The rocking throws the stomach mechanically out of rhythm","The air pressure on deck changes the inner pressure of the ear"],
+ "e":"Below deck the eye sees a cabin at rest, while the balance organ in the inner ear feels rocking. The brain cannot reconcile the contradictory messages. A common explanation: it interprets the conflict as poisoning – and the sensible response to poisoning is vomiting.\n\nThe effective countermeasures follow directly from that: go on deck and look at the horizon, so that eyes and inner ear report the same thing. For the same reason the driver rarely feels ill, while the passenger with a book soon does."},
+
+{"n":46,"cat":"Animals","correct":"B",
+ "q":"Why can an owl turn its head so far?",
+ "a":["Its skull sits on a ball joint","Because its eyes cannot move","So that it can see backwards in flight"],
+ "e":"Owl eyes are huge for maximum light-gathering and are not spheres but tubes – they fill the eye socket completely and are practically immobile. So the owl cannot glance with its eyes, it has to turn its whole head. For that it has 14 neck vertebrae, twice as many as a human, and manages around 270 degrees.\n\nThe blood supply is adapted to this extreme: the arteries run in wide channels and have reserve pockets, so they are not pinched off during the strong twist. A human would cut off the blood supply to the brain with the same movement."},
+
+{"n":47,"cat":"Animals","correct":"A",
+ "q":"Why do goats have rectangular pupils?",
+ "a":["For a very wide field of view without turning the head","So that they can tell colours apart better","To let in less light in bright sunshine"],
+ "e":"The horizontal slit works like a panoramic format: it lets light in from a very wide horizontal angle and delivers a sharp image at ground level, while little is lost above and below. Together with the eyes set at the sides, the goat reaches a field of view of nearly 320 degrees – while grazing it sees almost all around without lifting its head.\n\nThe pattern matches the way of life: grazing prey animals such as goats, sheep and horses have horizontal pupils. Cats, as ambush hunters, have vertical slits, which help judge distances. And while grazing the slit stays horizontal – the eye rotates to compensate for the lowered head."},
+
+{"n":48,"cat":"Animals","correct":"B",
+ "q":"How does a firefly produce its light?",
+ "a":["By rubbing fine plates of chitin together","By a chemical reaction with oxygen","By bacteria living in its abdomen"],
+ "e":"In the abdomen an enzyme brings the substance luciferin together with oxygen. Almost all the energy of the reaction is given off as light and hardly any as heat – hence the name cold light. The efficiency is around 40 per cent and beats any light bulb by a mile.\n\nThe flashing is a personal advertisement, and every species has its own rhythm. In the European glow-worms it is usually the flightless females that sit in the grass and glow while the males search on the wing. Some American species take it further: their females imitate the rhythm of other species and eat the males they lure in."},
+
+{"n":49,"cat":"Animals","correct":"B",
+ "q":"Why can a fly walk across the ceiling?",
+ "a":["It creates a slight vacuum with its legs","Tiny hairs hold on via a liquid","Its claws grip unevenness in the plaster"],
+ "e":"At the tips of its feet sit two adhesive pads with thousands of extremely fine hairs. Each releases a minute amount of an oily liquid. The thin film of liquid pulls the hair against the surface through capillary forces – almost nothing for each one, but considerably more than the weight of the fly for all of them together.\n\nThat explains two observations: it holds better on smooth glass than on dusty surfaces, because dust breaks the contact. And the fly has to peel itself off actively to get free – sticking fast and coming loose again are two separate tricks."},
+
+{"n":50,"cat":"Nature","correct":"B",
+ "q":"What colour were carrots originally?",
+ "a":["Orange, just as today","Purple and white","Green like their leaves"],
+ "e":"The cultivated carrot comes from the region of Afghanistan and was purple, yellowish or white. Orange varieties only arose in the early modern period through selection, largely in the Netherlands. They contained plenty of beta-carotene, tasted milder and caught on across Europe – until orange counted as the natural colour of a carrot.\n\nThe popular tale that Dutch gardeners bred the carrot orange in honour of the House of Orange is charming but not historically supported. Purple varieties are back in the shops, by the way – as a novelty."},
+
+{"n":51,"cat":"Food & Drink","correct":"A",
+ "q":"Why does a cut avocado turn brown?",
+ "a":["An enzyme reacts with oxygen from the air","The fatty acids in the flesh go rancid","Chlorophyll breaks down under light"],
+ "e":"Cutting destroys cells and an enzyme called polyphenol oxidase meets oxygen. It converts plant compounds into brown pigments – the same reaction colours cut apples, bananas and potatoes. It does not mean the fruit has spoiled.\n\nThe enzyme needs oxygen and dislikes acid. That is why lemon juice and airtight covering work, and why it helps to mix the flesh straight into guacamole with lime. The stone left in the dip, on the other hand, only keeps clear the area it covers itself."},
+
+{"n":52,"cat":"Food & Drink","correct":"B",
+ "q":"Why does bread go stale especially quickly in the fridge?",
+ "a":["It dries out faster there than at room temperature","The starch crystallises fastest at fridge temperature","Cold kills the yeasts that keep it soft"],
+ "e":"Going stale is not drying out but a rearrangement: the starch opened up during baking gradually forms firm, crystalline regions again and forces water out. The technical term is retrogradation. And this process runs fastest in the range of a few degrees above zero – fridge temperature is the worst possible point.\n\nSo the rule is: store bread at room temperature or freeze it straight away, because deep-frozen the process practically stops. And because it is reversible, stale bread goes soft again in the oven – brief reheating melts the crystals."},
+
+{"n":53,"cat":"Space","correct":"B",
+ "q":"Which summit is furthest from the centre of the earth?",
+ "a":["Mount Everest in the Himalaya","Chimborazo in Ecuador","Denali in Alaska"],
+ "e":"The earth is not a sphere but bulges at the equator because of its rotation – sea level there lies around 21 kilometres further out than at the poles. Chimborazo stands almost on the equator. Although at a good 6,260 metres above sea level it remains far below Everest, its summit lies about two kilometres further from the centre of the earth.\n\nEverest is still the highest mountain, just by a different measure. Take the foot as the reference and a third contender wins: Mauna Kea in Hawaii rises over 10,000 metres from the sea floor – almost half of it under water."},
+
+{"n":54,"cat":"Physics","correct":"B",
+ "q":"Why do you hear thunder only after the lightning?",
+ "a":["The thunder only forms shortly after the discharge","Sound is around a million times slower than light","Clouds hold the sound back at first"],
+ "e":"Lightning and thunder arise at the same moment: the lightning channel heats the air to many thousands of degrees within microseconds, it expands explosively, and that pressure wave is the thunder. Light needs practically no time for the distance, sound about three seconds per kilometre.\n\nHence the familiar rule of thumb: count the seconds, divide by three, and you have the distance in kilometres. The long rolling comes from the fact that the lightning channel is kilometres long – its sections are at different distances, so the sound arrives bit by bit."},
+
+{"n":55,"cat":"Nature","correct":"B",
+ "q":"Why are clouds white but rain clouds grey?",
+ "a":["Rain clouds contain dust that colours them dark","Thick clouds let hardly any light through to the ground","Water droplets darken as they grow"],
+ "e":"Cloud droplets scatter all colours equally, which is why a cloud appears white. As it grows taller, the light has to pass more and more droplets, is deflected a little at each scattering event and barely arrives at the bottom. Seen from below the cloud therefore looks grey to almost black – not because of its colour but because of its thickness.\n\nFrom above, say from an aircraft, the same thunderstorm cloud is brilliant white. And because large raindrops offer less surface per amount of water than many small droplets, a cloud also scatters more weakly shortly before it rains."},
+
+{"n":56,"cat":"Everyday life","correct":"B",
+ "q":"Why is red the international colour for »stop«?",
+ "a":["Because it recalls blood and therefore danger","Because it stays visible furthest and rarely occurs in nature","Because early signal lamps only had red glass"],
+ "e":"Red light is scattered less by haze and rain than blue is, and is therefore easy to see over great distances – the same principle that makes sunsets red. Add to that the fact that red is rare in the landscape and so stands out. The railways established it as a stop signal in the 19th century, and road traffic took it over from there.\n\nOne colour was dropped along the way: originally white meant »line clear«. After a case in which the red glass fell out and the driver read the bare white lamp as permission to proceed, green took over."},
+
+{"n":57,"cat":"Technology","correct":"A",
+ "q":"Why are airliners usually white?",
+ "a":["White stays coolest and shows up damage","White paints are particularly durable","White is easiest to pick up on radar"],
+ "e":"White reflects sunlight and keeps the fuselage noticeably cooler on the ground, which takes load off the air conditioning and the material. On a light background, cracks, oil traces and fuel leaks are also immediately visible during inspection. White barely fades, whereas strong colours bleach quickly under high-altitude radiation and need repainting more often.\n\nThere is also a hard-nosed argument: full-surface paint on a large aircraft weighs several hundred kilograms and costs fuel over the years. Some airlines therefore deliberately leave parts bare or paint as thinly as possible."},
+
+{"n":58,"cat":"Everyday life","correct":"B",
+ "q":"Why do shopping trolleys have a lock for a coin?",
+ "a":["To be able to count how many trolleys are handed out","So that the trolleys get brought back","To make stealing the trolleys impossible"],
+ "e":"The coin is a deposit that only the person who hooks the trolley back up gets returned. Commercially it pays off not because of the money but because of the working time saved: without a deposit, staff have to collect trolleys from the car park constantly, and that is where most of the dents in customers' cars come from.\n\nThe amount is deliberately small. It only has to be large enough to make pushing the trolley back worthwhile – not so large that it puts off customers who have no suitable coin on them."},
+
+{"n":59,"cat":"Language","correct":"A",
+ "q":"Where does the German expression »Schwein gehabt« – literally »had a pig« – come from?",
+ "a":["From the pig as a consolation prize at contests","From the piggy bank as a sign of wealth","From a pig-shaped lucky charm of sailors"],
+ "e":"At medieval shooting and sporting contests the person who came last received a pig as a consolation prize. Anyone who carried home a valuable animal despite losing had been lucky after all – and that became the expression. A pig was a fortune: it supplied meat, fat and offspring.\n\nThe lucky pig given at New Year comes from the same root. The piggy bank, on the other hand, probably has an entirely different origin: a type of clay called »pygg« that was used to form saving vessels – and the English similarity in sound to »pig« did the rest."},
+
+{"n":60,"cat":"History","correct":"B",
+ "q":"Why does the day begin at midnight in our reckoning of time?",
+ "a":["Because the Romans changed the official day at midnight","Because sunrise wanders with the season","Because the church had the day begin with the night mass"],
+ "e":"Several points are conceivable as the start of a day, and historically all of them were in use: for the Egyptians and later the Romans the civil day began at midnight, while Jewish and Islamic calendars have it begin at sunset. Midnight won out in practice for a simple reason: sunrise and sunset wander over the year and with latitude, whereas midnight, as the opposite point to the sun's highest position, can be defined astronomically and fixed.\n\nAstronomers ignored this for a long time: until 1925 their day began at noon, so that a night of observation did not fall across a change of date. Anyone reading old star catalogues has to allow for that difference."}
+]

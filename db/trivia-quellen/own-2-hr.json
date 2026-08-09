@@ -1,0 +1,151 @@
+[
+{"n":31,"cat":"Tijelo","correct":"B",
+ "q":"Zašto mokraća nakon jela šparoga ima poseban miris?",
+ "a":["Šparoge same sadrže jako mirisna ulja","Tijelo šparogovu kiselinu razgrađuje u sumporne spojeve","Šparoge izbacuju vodu pa mokraća postaje koncentriranija"],
+ "e":"Šparoge sadrže šparogovu kiselinu, koja se u tom obliku gotovo ne javlja u nijednoj drugoj hrani. Probava je razlaže u male, vrlo hlapljive sumporne spojeve. Budući da su toliko hlapljivi, osjete se već nakon petnaest minuta.\n\nZanimljivo je da miris ne osjeti svatko. Rasprostranjena genska varijanta u osjetu mirisa čini znatan dio ljudi slijepima za njega. Zato se dugo mislilo da miris uopće proizvode samo neki – zapravo ga proizvode gotovo svi."},
+
+{"n":32,"cat":"Tijelo","correct":"B",
+ "q":"Zašto sok od naranče neposredno nakon pranja zuba ima odvratan okus?",
+ "a":["Pasta reagira s kiselinom iz voća","Sredstvo za pjenjenje blokira osjet slatkoga","Mentol posve obamre jezik"],
+ "e":"Krivac je obično natrijev laurilsulfat, tvar koja pastu čini pjenušavom. Ona priguši receptore za slatko i istodobno napada molekule masti koje inače ublažavaju osjet gorčine. Rezultat: slatkoća soka izostaje, kiselina i gorke tvari ostaju – i odjednom imaju nepodnošljiv okus.\n\nPasta bez toga sredstva za pjenjenje gotovo ne izaziva taj učinak. A onaj koji ne želi čekati može doručak jednostavno obaviti prije pranja zuba."},
+
+{"n":33,"cat":"Fizika","correct":"A",
+ "q":"Zašto kečap najprije ne izlazi, a onda navali sav odjednom?",
+ "a":["Tresenjem postaje rjeđi","Uzak otvor ga najprije zaustavlja","Zrak najprije mora doteći u bocu"],
+ "e":"Kečap pripada nenewtonskim tekućinama. U mirovanju čestice rajčice tvore rahlu mrežu koja ga drži zajedno gotovo kao čvrsto tijelo. Djeluje li dovoljna sila – tresenje, udaranje, pritisak – ta se mreža ruši i žilavost u nekoliko sekundi dramatično padne. Tada sve poteče odjednom.\n\nTo se ponašanje naziva tiksotropijom i namjerno se koristi: boja za stijene treba biti rijetka pod kistom i ne kapati sa stijene, pasta za zube treba stajati u tubi i izlaziti pod pritiskom."},
+
+{"n":34,"cat":"Tehnika","correct":"B",
+ "q":"Zašto nerđajući čelik ne rđa, iako se sastoji uglavnom od željeza?",
+ "a":["Prekriven je naknadno nanesenim zaštitnim slojem","Krom u njemu sam tvori tanašnu zapornu opnu","Legiranje čini željezo kemijski nedodirljivim"],
+ "e":"Od približno dvanaest posto kroma dogodi se nešto elegantno: krom na površini odmah reagira s kisikom u gust oksidni sloj debeo samo nekoliko atomskih slojeva. On čvrsto stoji, nevidljiv je i kisiku više ne dopušta da dođe do željeza pod njim. A rđi je potreban upravo taj pristup.\n\nNajbolje je samoizlječenje: izgrebe li se sloj, ponovno se stvori u nekoliko sekundi. Samo kad kisika trajno nema – primjerice pod tvrdokornom naslagom – ili kad ga klorid mjestimično probije, i nerđajući čelik može korodirati."},
+
+{"n":35,"cat":"Tehnika","correct":"B",
+ "q":"Zašto su slova na tipkovnici tako nepraktično razmještena?",
+ "a":["Razmještaj slijedi učestalost slova u engleskom","Trebao je spriječiti zapinjanje poluga pisaćeg stroja","Potječe od razmještaja u telegrafskoj abecedi"],
+ "e":"U mehaničkim pisaćim strojevima poluge s tipovima udarale su o papir odozdo. Ako su dva slova koja često slijede jedno drugo stajala jedno do drugoga, poluge su pri brzom udaranju zapinjale. Christopher Latham Sholes zato je sedamdesetih godina 19. stoljeća česte parove slova prostorno razdvojio. Rezultat je red QWERTY, koji njemačke tipkovnice koriste sa zamijenjenim Z i Y.\n\nS računalima je razlog otpao, no razmještaj je ostao: milioni su ga ljudi naučili. Dokazano brži razmještaji kao Dvorak ili Neo nikada se nisu probili."},
+
+{"n":36,"cat":"Povijest","correct":"B",
+ "q":"Zašto se u Velikoj Britaniji vozi lijevom stranom?",
+ "a":["Zbog upravljača u prvim tamo građenim automobilima","Da jahači imaju ruku s mačem prema onima koji dolaze","Jer je željeznica išla lijevo pa su ceste slijedile"],
+ "e":"Uobičajeno objašnjenje seže daleko prije automobila. Onaj koji je putovao na konju i nosio mač, nosio ga je desno. Jahanjem lijevo ruka s oružjem ostala je okrenuta onome koji dolazi, a desna je bila slobodna za pozdrav ili hvat bez mijenjanja uzda. Papa Bonifacije VIII. navodno je 1300. hodočasnicima savjetovao da idu lijevo.\n\nDa velik dio svijeta danas vozi desno, mnogo ima s Francuskom i Sjedinjenim Državama: širokim se zapregama s više vučnih konja upravljalo s lijevoga zadnjeg konja – kočijaš je one koji dolaze htio imati lijevo od sebe pa se držao desno."},
+
+{"n":37,"cat":"Povijest","correct":"A",
+ "q":"Zašto tjedan ima sedam dana?",
+ "a":["Zbog sedam golim okom vidljivih lutajućih zvijezda","Jer se lunarni mjesec lijepo dijeli na četiri dijela","Jer sedmica u Babilonu vrijedi kao božanski broj"],
+ "e":"Babilonski su astronomi poznavali sedam nebeskih tijela koja se kreću pred zvjezdanom pozadinom: Sunce, Mjesec, Merkur, Veneru, Mars, Jupiter i Saturn. Svakom je pripisan jedan dan. Preko Grka i Rimljana sedmodnevni je tjedan došao u Europu – dakle, drukčije od mjeseca i godine, nema astronomski takt koji bi morao slijediti.\n\nImena podrijetlo odaju do danas. U engleskom su Saturday, Sunday i Monday neposredno Saturn, Sunce i Mjesec. U hrvatskom se pak vidi drugi red: ponedjeljak je dan po nedjelji, a srijeda i četvrtak imenovani su prema mjestu u tjednu."},
+
+{"n":38,"cat":"Jezik","correct":"B",
+ "q":"Zašto njemačka riječ za srijedu, drukčije od ostalih dana, nije imenovana po bogu?",
+ "a":["Jer je u antici vrijedila kao dan odmora bez božanstva","Jer je Crkva potisnula ime boga Wodana","Jer je tjednu pridodan tek u srednjem vijeku"],
+ "e":"Izvorno je to bio dan boga Wodana – u engleskom je još Wednesday, u nizozemskom woensdag. U njemačkom je govornom prostoru Crkva u ranom srednjem vijeku provela suhi brojevni oblik: Mittwoch, dan u sredini tjedna.\n\nKod subote je to dijelom također uspjelo. Sjever Njemačke kaže Sonnabend, predvečerje nedjelje, jug Samstag – što zaobilaznim putem dolazi od hebrejskoga šabata. Samo su utorak, četvrtak i petak u njemačkom zadržali stara božanska imena. Hrvatski je pak sve dane imenovao po redu u tjednu."},
+
+{"n":39,"cat":"Hrana i piće","correct":"B",
+ "q":"Zašto čepovi za pjenušac imaju oblik gljive?",
+ "a":["Tako se stiskaju da bi se bolje mogli uhvatiti","Valjkasti su i oblikuju se tek u boci","Glava gljive raspoređuje pritisak žičane košarice"],
+ "e":"Prije zatvaranja čep za pjenušac debeo je valjak, znatno širi od grla boce. Pri zatvaranju se snažno stisne. Donji dio ostaje zarobljen u grlu i zadržava stisnuti oblik, a gornji se izvan boce ponovno opruži – i iz toga nastaje glava gljive.\n\nPo obliku se čak može pročitati starost: što je boca dulje ležala, kora je manje elastična i izvučeni čep ostaje uži. Gotovo valjkast čep upućuje na dugo odležali pjenušac."},
+
+{"n":40,"cat":"Hrana i piće","correct":"A",
+ "q":"Zašto vinske čaše imaju dugu nožicu?",
+ "a":["Da ruka ne grije vino","Da čaša pri kruženju stabilnije stoji","Da se arome skupljaju u nožici"],
+ "e":"Držano za nožicu, vino ostaje podalje od topline ruke – kod ohlađenoga bijelog to kroz dulji obrok znači nekoliko stupnjeva. Nusučinak: kupa ostaje bez otisaka prstiju i ne rosi se, pa se boja i bistrina bolje vide.\n\nUpravo zato čaša za konjak nema dugu nožicu: tamo je toplina ruke željena, ona istiskuje arome. A moderne čaše bez nožice svjestan su kompromis – lakše za pranje, ali ruka grije vino."},
+
+{"n":41,"cat":"Tijelo","correct":"B",
+ "q":"Zašto želudac kruli?",
+ "a":["Želučana kiselina vrije kad je želudac prazan","Plin i tekućina protiskuju se kroz probavni trakt","Želučana stijenka vibrira od napetosti"],
+ "e":"Želudac i crijevo rade i bez hrane: približno svakih sat i pol do dva kroz probavni trakt prolazi snažan val čišćenja i potiskuje ostatke dalje. Naiđe li na mješavinu tekućine i zraka, nastaju grgljavi zvukovi koje medicina naziva borborigmom.\n\nDa je pri praznom želucu tako glasno, ima jednostavan razlog: nedostaje sadržaj koji bi zvuk prigušio. Pun želudac kruli jednako, samo se ne čuje."},
+
+{"n":42,"cat":"Tijelo","correct":"B",
+ "q":"Što se u tijelu događa pri štucanju?",
+ "a":["Jednjak se prstenasto stegne","Dijafragma se trgne i glasnice se zaklope","Želudac nakratko pritisne pluća"],
+ "e":"Refleks natjera dijafragmu da se naglo stegne – nevoljno se uvlači zrak. Samo djelić sekunde kasnije grkljan zaklopi glasnice. Zrak koji ulazi udari u tu zapreku, i upravo to proizvodi karakterističan zvuk.\n\nZašto taj refleks postoji, nije jasno; jedna sumnja vodi ga do punoglavaca, koji pri disanju škrgama čine nešto slično. Kućni trikovi ipak imaju zajedničko načelo: zadržavanje zraka, pijenje vode ili gutanje hladnoga povisuju sadržaj CO₂ ili dražie uključeni živac – oboje može prekinuti refleks."},
+
+{"n":43,"cat":"Tijelo","correct":"B",
+ "q":"Zašto zaboli glava kad se sladoled jede prebrzo?",
+ "a":["Mozak se nakratko mjerljivo ohladi","Žile na nepcu reagiraju, a bol se pogrešno smjesti","Šećer nakratko obori krvni pritisak"],
+ "e":"Hladnoća na nepcu čini da se krvne žile najprije stegnu a zatim brzo rašire. Tu reakciju registrira trovlasni živac – isti onaj koji opskrbljuje i velika područja lica i čela. Mozak dojavu ne može točno smjestiti pa bol premješta naprijed u čelo. Stručnjaci govore o prenesenoj boli.\n\nSam se mozak pri tome ne hladi, a nema ni receptore za bol. Sve je prošlo nakon najviše pola minute; onaj koji jezik pritisne na nepce grije to mjesto i skraćuje ga."},
+
+{"n":44,"cat":"Tijelo","correct":"B",
+ "q":"Zašto se u velikoj školjki čuje šum kao na moru?",
+ "a":["Čuje se vlastita krv u žilama uha","Školjka pojačava tihe zvukove okoline","Zatvoreni zrak titra na stalnoj visini tona"],
+ "e":"Šupljina školjke je rezonantno tijelo. Iz sveprisutnoga tihog sloja zvukova okoline izdvaja određene frekvencije i pojačava ih – ishod je širokopojasni šum koji podsjeća na more. Šalica ili šuplja ruka na uhu čine upravo isto.\n\nObjašnjenje s krvlju lako se pobija: u vrlo tihoj prostoriji šum postaje osjetno slabiji, a pri uspinjanju stubama s ubrzanim pulsom ne postaje glasniji. Da je to vlastita krv, moralo bi biti obrnuto."},
+
+{"n":45,"cat":"Tijelo","correct":"A",
+ "q":"Zašto se dobiva morska bolest?",
+ "a":["Organ za ravnotežu dojavljuje nešto drugo nego oči","Ljuljanje mehanički izbaci želudac iz takta","Zračni pritisak na palubi mijenja unutarnji pritisak uha"],
+ "e":"Pod palubom oko vidi kabinu u mirovanju, a organ za ravnotežu u unutarnjem uhu osjeća ljuljanje. Mozak protivrječne dojave ne može spojiti. Uobičajeno objašnjenje: tumači sukob kao otrovanje – a razuman odgovor na otrovanje je izbacivanje.\n\nIz toga neposredno slijede i djelotvorna protusredstva: izaći na palubu i gledati u obzor, da oči i unutarnje uho dojavljuju isto. Iz istoga razloga vozaču rijetko pozli, a suvozaču s knjigom brzo."},
+
+{"n":46,"cat":"Životinje","correct":"B",
+ "q":"Zašto sova može tako daleko okrenuti glavu?",
+ "a":["Lubanja joj sjedi na kuglastom zglobu","Jer joj se oči ne mogu micati","Da u letu može gledati natrag"],
+ "e":"Sovine su oči za najveći mogući prihvat svjetla ogromne i nisu kugle, nego cijevi – posve ispunjavaju očnu duplju i praktički su nepomične. Sova dakle ne može pogledati očima, mora okrenuti cijelu glavu. Za to ima 14 vratnih kralježaka, dvostruko više od čovjeka, i postiže oko 270 stupnjeva.\n\nOpskrba krvlju prilagođena je toj krajnosti: arterije prolaze širokim kanalima i imaju rezervne jastučiće, pa se pri snažnom zavrtanju ne prikliješte. Čovjek bi istim pokretom prekinuo dotok krvi u mozak."},
+
+{"n":47,"cat":"Životinje","correct":"A",
+ "q":"Zašto koze imaju četvrtaste zjenice?",
+ "a":["Za vrlo široko vidno polje bez okretanja glave","Da bolje razlikuju boje","Da pri jarkom suncu propuste manje svjetla"],
+ "e":"Vodoravna pukotina djeluje kao panoramski format: propušta svjetlo iz vrlo širokoga vodoravnog kuta i pri tlu daje oštru sliku, a gore i dolje malo se gubi. Zajedno s očima postavljenima na strane koza postiže vidno polje od gotovo 320 stupnjeva – pasući vidi gotovo posvuda oko sebe, bez podizanja glave.\n\nUzorak odgovara načinu života: pasuće životinje plijena kao koze, ovce i konji imaju vodoravne zjenice. Mačke, kao lovci iz zasjede, imaju uspravne pukotine, koje bolje omogućuju procjenu udaljenosti. A pri pasenju pukotina ostaje vodoravna – oko se zavrće nasuprot spuštenoj glavi."},
+
+{"n":48,"cat":"Životinje","correct":"B",
+ "q":"Kako krijesnica proizvodi svoje svjetlo?",
+ "a":["Trenjem finih hitinskih pločica","Kemijskom reakcijom s kisikom","Bakterijama koje žive u zatku"],
+ "e":"U zatku enzim spaja tvar luciferin s kisikom. Energija reakcije gotovo se posve otpušta kao svjetlo, a kao toplina gotovo nikako – odatle ime hladno svjetlo. Iskoristivost je oko 40 posto i nadmašuje svaku žarulju za mnogo duljina.\n\nTreperenje je oglas za partnera, a svaka vrsta ima svoj takt. Kod domaćih krijesnica obično lete mužjaci i traže, a bezkrilne ženke sjede u travi i svijetle. Neke američke vrste idu dalje: njihove ženke oponašaju takt drugih vrsta i pojedu privučene mužjake."},
+
+{"n":49,"cat":"Životinje","correct":"B",
+ "q":"Zašto muha može hodati po stropu?",
+ "a":["Nogama stvara blagi podtisak","Sitne dlačice drže preko tekućine","Kandžice se hvataju za neravnine u zidu"],
+ "e":"Na vršcima nogu sjede dva ljepljiva jastučića s tisućama najfinijih dlačica. Svaka otpušta sitnu količinu uljaste tekućine. Tanki film tekućine kapilarnim silama privlači dlačicu na površinu – svaka pojedina gotovo ništa, ali sve zajedno znatno više od težine muhe.\n\nTo objašnjava dva opažanja: na glatkom staklu drži bolje nego na prašnim površinama, jer prašina prekida dodir. A muha se mora aktivno odvaljati da se odvoji – prilijepiti se i ponovno se otpustiti dvije su odvojene vještine."},
+
+{"n":50,"cat":"Priroda","correct":"B",
+ "q":"Koje su boje mrkve izvorno bile?",
+ "a":["Narančaste, kao i danas","Ljubičaste i bijele","Zelene kao njihova cima"],
+ "e":"Kulturna mrkva dolazi iz područja Afganistana i bila je ljubičasta, žućkasta ili bijela. Narančaste sorte nastale su tek u ranom novom vijeku odabirom, uglavnom u Nizozemskoj. Sadržavale su mnogo beta-karotena, imale blaži okus i probile se u Europi – dok narančasta nije počela vrijediti kao naravna boja mrkve.\n\nOmiljena priča da su nizozemski vrtlari mrkvu uzgojili narančastom u čast kuće Oranje lijepa je, ali povijesno nije potvrđena. Ljubičaste su sorte, uzgred, ponovno u prodaji – kao novost."},
+
+{"n":51,"cat":"Hrana i piće","correct":"A",
+ "q":"Zašto prerezani avokado potamni?",
+ "a":["Enzim reagira s kisikom iz zraka","Masne kiseline u mesu užegnu","Klorofil se raspada pod svjetlom"],
+ "e":"Rezanjem se uništavaju stanice i enzim zvan polifenol oksidaza dođe u dodir s kisikom. On biljne sastojke pretvara u smeđe pigmente – ista reakcija boji prerezane jabuke, banane i krumpir. Plod time nije pokvaren.\n\nEnzimu treba kisik i ne voli kiselinu. Zato djeluju sok limuna i nepropusno pokrivanje, i zato pomaže meso odmah pomiješati s limetom u guacamole. Koštica u umaku pak drži čistom samo onu površinu koju sama prekriva."},
+
+{"n":52,"cat":"Hrana i piće","correct":"B",
+ "q":"Zašto kruh u hladnjaku posebno brzo postane star?",
+ "a":["Tamo se suši brže nego na sobnoj temperaturi","Škrob kristalizira najbrže upravo na temperaturi hladnjaka","Hladnoća ubija kvasce koji ga drže mekim"],
+ "e":"Starenje kruha nije sušenje, nego preuređenje: škrob otvoren pri pečenju postupno ponovno stvara čvrsta, kristalna područja i istiskuje vodu. Stručni je naziv retrogradacija. A upravo taj postupak najbrže teče u području od nekoliko stupnjeva iznad ništice – temperatura hladnjaka najnepovoljnija je točka.\n\nPravilo je dakle: kruh držati na sobnoj temperaturi ili ga odmah zamrznuti, jer duboko zamrznut postupak praktički stane. A kako je obratan, star kruh u pećnici ponovno omekša – kratko dopečen kristale rastopi."},
+
+{"n":53,"cat":"Svemir","correct":"B",
+ "q":"Koji je vrh najdalje od središta Zemlje?",
+ "a":["Mount Everest u Himalaji","Chimborazo u Ekvadoru","Denali na Aljaski"],
+ "e":"Zemlja nije kugla, nego je zbog vrtnje na ekvatoru izbočena – razina mora tamo leži približno 21 kilometar dalje prema van nego na polovima. Chimborazo stoji gotovo na ekvatoru. Iako s dobrih 6260 metara nad morem ostaje daleko ispod Everesta, njegov vrh leži oko dva kilometra dalje od središta Zemlje.\n\nEverest je time i dalje najviša gora, samo po drugom mjerilu. Uzme li se stopa kao polazište, pobjeđuje treći: Mauna Kea na Havajima uzdiže se s morskoga dna više od 10.000 metara – gotovo polovica toga leži pod vodom."},
+
+{"n":54,"cat":"Fizika","correct":"B",
+ "q":"Zašto se grmljavina čuje tek nakon munje?",
+ "a":["Grmljavina nastaje tek nedugo nakon izboja","Zvuk je oko milijun puta polaganiji od svjetla","Oblaci zvuk najprije zadržavaju"],
+ "e":"Munja i grmljavina nastaju istodobno: kanal munje u nekoliko mikrosekundi zagrije zrak na mnogo tisuća stupnjeva, on se eksplozivno rasteže, i taj je tlačni val grmljavina. Svjetlu za tu razdaljinu ne treba praktički nikakvo vrijeme, zvuku oko tri sekunde po kilometru.\n\nOdatle poznato pravilo: brojiti sekunde, dijeliti s tri, i imate udaljenost u kilometrima. Duga tutnjava dolazi od toga što je kanal munje kilometrima dug – njegovi su odsječci različito daleko, pa zvuk dolazi postupno."},
+
+{"n":55,"cat":"Priroda","correct":"B",
+ "q":"Zašto su oblaci bijeli, a oblaci s kišom sivi?",
+ "a":["Oblaci s kišom sadrže prašinu koja ih boji tamno","Debeli oblaci gotovo ne propuštaju svjetlo do tla","Kapljice vode potamne kako rastu"],
+ "e":"Kapljice u oblaku rasipaju sve boje jednako, zato se oblak čini bijelim. Kako raste u visinu, svjetlo mora prolaziti kroz sve više kapljica, pri svakom se rasipanju malo otkloni i dolje gotovo ne dođe. Odozdo gledan oblak zato djeluje sivo do gotovo crno – ne zbog svoje boje, nego zbog svoje debljine.\n\nOdozgo, primjerice iz zrakoplova, isti je grmljavinski oblak blistavo bijel. A kako velike kapi kiše nude manje površine po količini vode nego mnogo malih kapljica, oblak neposredno prije kiše rasipa i slabije."},
+
+{"n":56,"cat":"Svakodnevica","correct":"B",
+ "q":"Zašto je crvena međunarodno boja za »stani«?",
+ "a":["Jer podsjeća na krv, a time na opasnost","Jer ostaje vidljiva najdalje i rijetko se javlja u prirodi","Jer su rane signalne svjetiljke imale samo crveno staklo"],
+ "e":"Crveno svjetlo izmaglica i kiša rasipaju slabije od plavoga, pa se dobro vidi na velike udaljenosti – isto načelo koje zalaze Sunca čini crvenima. Dodatno, crvena je u krajoliku rijetka pa se ističe. Željeznica ju je u 19. stoljeću uvela kao signal za zaustavljanje, a od nje ju je preuzeo cestovni promet.\n\nJedna je boja pri tome ispala: izvorno je bijela značila »slobodan prolaz«. Nakon slučaja u kojem je crveno staklo ispalo a strojovođa golu bijelu svjetiljku pročitao kao dopuštenje, preuzela je zelena."},
+
+{"n":57,"cat":"Tehnika","correct":"A",
+ "q":"Zašto su prometni zrakoplovi obično bijeli?",
+ "a":["Bijela ostaje najhladnija i pokazuje oštećenja","Bijeli su lakovi posebno izdržljivi","Bijelu je najlakše zahvatiti radarom"],
+ "e":"Bijela odbija sunčevo svjetlo i trup na zemlji drži osjetno hladnijim, što olakšava posao klimatizaciji i materijalu. Na svijetloj se podlozi pri pregledu odmah vide i pukotine, uljni tragovi i propuštanje goriva. Bijela uz to gotovo ne blijedi, a jarke boje pod zračenjem na velikim visinama brzo izgube boju i moraju se češće prelakirati.\n\nDolazi i vrlo konkretan argument: lak po cijeloj površini velikoga zrakoplova teži nekoliko stotina kilograma i kroz godine troši gorivo. Neki prijevoznici zato dijelove svjesno ostavljaju neobojenima ili lakiraju što tanje."},
+
+{"n":58,"cat":"Svakodnevica","correct":"B",
+ "q":"Zašto kolica u trgovini imaju zaključavanje za novčić?",
+ "a":["Da se može brojiti koliko je kolica izdano","Da se kolica vraćaju","Da krađa kolica bude nemoguća"],
+ "e":"Novčić je zalog koji dobiva natrag samo onaj koji kolica ponovno zakvači. Poslovno se to isplati ne zbog novca, nego zbog uštede radnog vremena: bez zaloga osoblje mora stalno skupljati kolica s parkirališta, a pri tome nastaje najviše udubljenja na automobilima kupaca.\n\nIznos je svjesno malen. Mora biti samo dovoljno velik da se vraćanje kolica isplati – ne toliko velik da odbije kupce koji nemaju odgovarajući novčić uz sebe."},
+
+{"n":59,"cat":"Jezik","correct":"A",
+ "q":"Odakle dolazi njemački izraz »Schwein gehabt« – doslovno »imao svinju« – u značenju imati sreću?",
+ "a":["Od svinje kao utješne nagrade na natjecanjima","Od svinjice za novac kao znaka bogatstva","Od svinje kao amuleta pomoraca"],
+ "e":"Na srednjovjekovnim streljačkim i sportskim natjecanjima onaj koji je bio posljednji dobivao je svinju kao utješnu nagradu. Onaj koji je kao gubitnik kući ipak odnio vrijednu životinju, imao je sreće – i iz toga je nastao izraz. Svinja je bila imetak: davala je meso, mast i potomstvo.\n\nIz istoga korijena dolazi i svinja za sreću uz Novu godinu. Svinjica za novac vjerojatno ima posve drugo podrijetlo: vrstu gline zvanu »pygg« iz koje su se oblikovale posude za štednju – a engleska zvučna sličnost s »pig« učinila je ostatak."},
+
+{"n":60,"cat":"Povijest","correct":"B",
+ "q":"Zašto dan u našem računanju vremena počinje u ponoć?",
+ "a":["Jer su Rimljani službeni dan mijenjali u ponoć","Jer izlazak Sunca putuje s godišnjim dobom","Jer je Crkva dala da dan počinje noćnom misom"],
+ "e":"Kao početak dana zamislivo je više točaka, i povijesno su sve bile u upotrebi: Egipćanima i kasnije Rimljanima građanski je dan počinjao u ponoć, a židovski i islamski kalendari daju mu početak sa zalaskom Sunca. Ponoć se u praksi probila iz jednostavnog razloga: izlazak i zalazak Sunca putuju kroz godinu i sa zemljopisnom širinom, a ponoć se, kao protutočka najvišem položaju Sunca, može astronomski odrediti i utvrditi.\n\nAstronomi se toga dugo nisu držali: do 1925. njihov je dan počinjao u podne, da noć promatranja ne bi pala preko promjene datuma. Onaj koji čita stare zvjezdane kataloge mora tu razliku uračunati."}
+]
