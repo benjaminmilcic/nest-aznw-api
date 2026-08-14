@@ -27,6 +27,7 @@ import { AnalyticsModule } from './analytics/analytics.module';
 import { TelegramModule } from './telegram/telegram.module';
 import { TriviaQuestions } from './trivia/trivia-questions.entity';
 import { TriviaModule } from './trivia/trivia.module';
+import { ImagegenModule } from './imagegen/imagegen.module';
 
 @Module({
   imports: [
@@ -90,6 +91,7 @@ import { TriviaModule } from './trivia/trivia.module';
     AnalyticsModule,
     TelegramModule,
     TriviaModule,
+    ImagegenModule,
   ],
 })
 export class AppModule {}

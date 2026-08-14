@@ -7,6 +7,7 @@ import {
   UseGuards,
   NotFoundException,
   Res,
+  StreamableFile,
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -14,9 +15,13 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { Response } from 'express'; // Import Express Response
 import { GoogleAuthGuard } from './google-auth.guard';
+import { TtsDto } from './dtos/tts.dto';
+import { MemoryRateLimiter } from '../common/memory-rate-limiter';
 
 @Controller('auth')
 export class AuthController {
+  private readonly ttsLimiter = new MemoryRateLimiter();
+
   constructor(private readonly authService: AuthService) {}
 
   @Post('signup')
@@ -60,6 +65,15 @@ export class AuthController {
     const jsonData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
     return jsonData; // Return parsed JSON data
+  }
+
+  @Post('tts')
+  @UseGuards(AuthGuard)
+  async tts(@Body() body: TtsDto, @Req() req) {
+    const userKey = req.user?.sub || req.user?.email || 'unknown';
+    this.ttsLimiter.consume(`tts:${userKey}`, 10, 60 * 60 * 1000);
+    const audio = await this.authService.synthesizeSpeech(body.text.trim());
+    return new StreamableFile(audio, { type: 'audio/mpeg' });
   }
 
   @Get('google')
