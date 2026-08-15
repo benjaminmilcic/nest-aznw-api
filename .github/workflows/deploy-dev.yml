@@ -1,0 +1,63 @@
+name: Deploy API (benjamin-milcic.dev)
+
+on:
+  push:
+    branches: [master]
+
+env:
+  DEPLOY_HOST: 212.227.31.144
+  DEPLOY_USER: deploy
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24        # muss zum Server passen
+          cache: npm
+
+      - name: Abhängigkeiten
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Nur Produktions-Abhängigkeiten behalten
+        run: |
+          rm -rf node_modules
+          npm ci --omit=dev
+
+      - name: SSH vorbereiten
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+
+      - name: Übertragen
+        run: |
+          SSH="ssh -i ~/.ssh/id_ed25519"
+          # uploads/ wird bewusst nicht angefasst
+          rsync -az --delete -e "$SSH" dist/         "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/dist/"
+          rsync -az --delete -e "$SSH" node_modules/ "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/node_modules/"
+          rsync -az          -e "$SSH" package.json  "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/"
+
+      - name: Dienst neu starten
+        run: |
+          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo systemctl restart nestjs-api'
+
+      - name: Health-Check
+        run: |
+          for i in $(seq 1 15); do
+            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://api.benjamin-milcic.dev/ || echo 000)
+            if [ "$code" != "503" ] && [ "$code" != "502" ] && [ "$code" != "000" ]; then
+              echo "API antwortet (HTTP $code)"; exit 0
+            fi
+            echo "Versuch $i: HTTP $code, warte..."; sleep 4
+          done
+          echo "API kommt nicht hoch."
+          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo systemctl status nestjs-api' || true
+          exit 1
