@@ -8,7 +8,7 @@ export class PageView {
   @Column()
   sessionId: string; // UUID zur Verknüpfung mit Analytics
 
-  @Column()
+  @Column({ length: 512 })
   route: string; // z.B. "/about", "/contact"
 
   @Column({ type: 'datetime' })
