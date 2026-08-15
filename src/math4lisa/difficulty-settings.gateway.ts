@@ -9,14 +9,7 @@ import { Math4LisaService } from './math4lisa.service';
 
 @WebSocketGateway({
   namespace: '/math4lisa',
-  cors: {
-    origin: [
-      'https://benjaminmilcic.site',
-      'http://benjaminmilcic.site',
-      'https://evaluation.benjaminmilcic.site',
-      'http://evaluation.benjaminmilcic.site',
-    ], // Passe dies an, um nur spezifische Clients zuzulassen
-  },
+  cors: { origin: '*' },
 })
 export class DifficultySettingsGateway {
   constructor(private math4lisaService: Math4LisaService) {}
