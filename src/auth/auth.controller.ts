@@ -94,8 +94,11 @@ export class AuthController {
         `http://localhost:4200/#/gimmicks/auth/google-redirect?token=${jwt.token}`,
       );
     } else {
+      const frontend =
+        process.env.FRONTEND_URL ?? 'https://auf-zu-neuen-welten.de';
+
       return res.redirect(
-        `https://auf-zu-neuen-welten.de/#/gimmicks/auth/google-redirect?token=${jwt.token}`,
+        `${frontend}/#/gimmicks/auth/google-redirect?token=${jwt.token}`,
       );
     }
   }
