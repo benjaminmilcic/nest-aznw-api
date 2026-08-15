@@ -9,7 +9,6 @@ import {
 import { Server, Socket } from 'socket.io';
 import { YahtzeeGameService } from './yahtzee-game.service';
 import { CurrentDice } from './yahtzee-game.types';
-import 'source-map-support/register';
 
 @WebSocketGateway({
   namespace: '/yahtzee-game',
