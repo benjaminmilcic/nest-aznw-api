@@ -18,6 +18,13 @@ export class AnalyticsService {
    * IPv4: Entfernt das letzte Oktett (z.B. 192.168.1.100 -> 192.168.1.0)
    * IPv6: Entfernt die letzten 80 Bits
    */
+
+  /** Kürzt Freitext aus dem Browser auf die Spaltenbreite. */
+  private cut(value: string | null | undefined, max = 255): string | null {
+    if (value === null || value === undefined) return null;
+    return String(value).slice(0, max);
+  }
+
   private anonymizeIp(ip: string): string {
     if (!ip) return null;
 
@@ -51,22 +58,23 @@ export class AnalyticsService {
     ipAddress: string,
     acceptLanguage: string,
   ): Promise<Analytics> {
+    const ts = new Date(visitorData.timestamp);
     const analyticsEntry = this.repo.create({
       sessionId: visitorData.sessionId,
-      timestamp: new Date(visitorData.timestamp),
-      userAgent: visitorData.userAgent,
-      language: visitorData.language,
+      timestamp: isNaN(ts.getTime()) ? new Date() : ts,
+      userAgent: this.cut(visitorData.userAgent),
+      language: this.cut(visitorData.language),
       languages: visitorData.languages,
-      platform: visitorData.platform,
+      platform: this.cut(visitorData.platform),
       screenResolution: visitorData.screenResolution,
       viewportSize: visitorData.viewportSize,
-      timezone: visitorData.timezone,
+      timezone: this.cut(visitorData.timezone),
       timezoneOffset: visitorData.timezoneOffset,
       cookiesEnabled: visitorData.cookiesEnabled,
-      referrer: visitorData.referrer || '',
+      referrer: this.cut(visitorData.referrer) ?? '',
       deviceMemory: visitorData.deviceMemory,
       hardwareConcurrency: visitorData.hardwareConcurrency,
-      connectionType: visitorData.connectionType,
+      connectionType: this.cut(visitorData.connectionType),
       online: visitorData.online,
       // Backend-spezifische Daten
       ipAddressAnonymized: this.anonymizeIp(ipAddress),
@@ -122,7 +130,8 @@ export class AnalyticsService {
       const ua = entry.userAgent.toLowerCase();
 
       if (ua.includes('chrome') && !ua.includes('edg')) browser = 'Chrome';
-      else if (ua.includes('safari') && !ua.includes('chrome')) browser = 'Safari';
+      else if (ua.includes('safari') && !ua.includes('chrome'))
+        browser = 'Safari';
       else if (ua.includes('firefox')) browser = 'Firefox';
       else if (ua.includes('edg')) browser = 'Edge';
       else if (ua.includes('opera') || ua.includes('opr')) browser = 'Opera';
@@ -152,12 +161,13 @@ export class AnalyticsService {
    * @param pageViewData - Daten vom Frontend
    */
   async savePageView(pageViewData: PageViewDto): Promise<PageView> {
-    const pageView = this.pageViewRepo.create({
-      sessionId: pageViewData.sessionId,
-      route: pageViewData.route,
-      timestamp: new Date(pageViewData.timestamp),
-      referrer: pageViewData.referrer || null,
-    });
+     const ts = new Date(pageViewData.timestamp);
+     const pageView = this.pageViewRepo.create({
+       sessionId: this.cut(pageViewData.sessionId),
+       route: this.cut(pageViewData.route, 512) ?? '',
+       timestamp: isNaN(ts.getTime()) ? new Date() : ts,
+       referrer: this.cut(pageViewData.referrer),
+     });
 
     return this.pageViewRepo.save(pageView);
   }
@@ -176,7 +186,9 @@ export class AnalyticsService {
   /**
    * Ruft Top-Routes-Statistiken ab
    */
-  async getTopRoutes(limit: number = 10): Promise<{ route: string; count: number }[]> {
+  async getTopRoutes(
+    limit: number = 10,
+  ): Promise<{ route: string; count: number }[]> {
     const routes = await this.pageViewRepo
       .createQueryBuilder('pageView')
       .select('pageView.route', 'route')
@@ -196,7 +208,10 @@ export class AnalyticsService {
    * Löscht alle Analytics-Daten (Analytics-Einträge und PageViews)
    * Setzt die Analytics quasi auf "leer" zurück.
    */
-  async deleteAllAnalytics(): Promise<{ deletedVisits: number; deletedPageViews: number }> {
+  async deleteAllAnalytics(): Promise<{
+    deletedVisits: number;
+    deletedPageViews: number;
+  }> {
     const deletedPageViews = await this.pageViewRepo.count();
     const deletedVisits = await this.repo.count();
 

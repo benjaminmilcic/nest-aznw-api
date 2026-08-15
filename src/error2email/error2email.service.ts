@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MailerService } from '@nestjs-modules/mailer';
+import { siteName } from '../common/site';
 
 @Injectable()
 export class Error2emailService {
@@ -14,7 +15,7 @@ export class Error2emailService {
     this.mailerService.sendMail({
       to: this.configService.get<string>('ADMIN_EMAIL'),
       from: this.configService.get<string>('SENDER_EMAIL'),
-      subject: 'An error has occurred on auf-zu-neuen-welten.de',
+      subject: `An error has occurred on ${siteName()}`,
       html: this.buildHtml(JSON.parse(formattedError.error), 4),
     });
   }

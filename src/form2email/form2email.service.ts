@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { MailerService } from '@nestjs-modules/mailer';
+import { siteName } from '../common/site';
 
 @Injectable()
 export class Form2emailService {
@@ -21,7 +22,7 @@ export class Form2emailService {
     this.mailerService.sendMail({
       to: this.configService.get<string>('ADMIN_EMAIL'),
       from: this.configService.get<string>('SENDER_EMAIL'),
-      subject: 'New message from auf-zu-neuen-welten.de',
+      subject: `New message from ${siteName()}`,
       html:
         '<p>Name: <b>' +
         message.name +
