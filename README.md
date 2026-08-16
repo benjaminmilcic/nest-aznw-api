@@ -4,11 +4,11 @@ This is the backend code for my personal homepage.
 
 <p align="center">
   <strong>Visit my homepage here:</strong><br><br>
-  <a href="https://auf-zu-neuen-welten.de/" target="_blank">
-    <img src="https://auf-zu-neuen-welten.de/assets/homepage-image.png" width="300" alt="Auf zu neuen Welten Homepage" />
+  <a href="https://benjamin-milcic.dev/" target="_blank">
+    <img src="https://benjamin-milcic.dev/assets/homepage-image.png" width="300" alt="benjamin-milcic.dev" />
   </a>
   <br>
-  <a href="https://auf-zu-neuen-welten.de/" target="_blank">https://auf-zu-neuen-welten.de</a>
+  <a href="https://benjamin-milcic.dev/" target="_blank">https://benjamin-milcic.dev</a>
 </p>
 
 This backend is made with NestJS.
