@@ -89,16 +89,17 @@ export class AuthController {
 
     const jwt = await this.authService.loginWithGoogle(req.user);
 
+    // Das Frontend laeuft seit August 2026 mit Pfad-Routing (kein /#/ mehr).
     if (process.env.NODE_ENV && process.env.NODE_ENV.trim() === 'development') {
       return res.redirect(
-        `http://localhost:4200/#/gimmicks/auth/google-redirect?token=${jwt.token}`,
+        `http://localhost:4200/gimmicks/auth/google-redirect?token=${jwt.token}`,
       );
     } else {
       const frontend =
         process.env.FRONTEND_URL ?? 'https://auf-zu-neuen-welten.de';
 
       return res.redirect(
-        `${frontend}/#/gimmicks/auth/google-redirect?token=${jwt.token}`,
+        `${frontend}/gimmicks/auth/google-redirect?token=${jwt.token}`,
       );
     }
   }
