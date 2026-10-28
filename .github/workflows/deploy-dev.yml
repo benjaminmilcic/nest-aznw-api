@@ -73,5 +73,6 @@ jobs:
             echo "Attempt $i: the new version does not answer yet, waiting..."; sleep 4
           done
           echo "API does not come up."
-          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo -n systemctl status nestjs-api' || true
+          # Reading the status needs no sudo – and the deploy user's sudoers does not allow it
+          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'systemctl status --no-pager nestjs-api' || true
           exit 1
