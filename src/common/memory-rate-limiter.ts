@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus } from '@nestjs/common';
 
-/** Einfaches In-Memory-Fenster. Reicht für eine Instanz; nach Restart leer. */
+/** Simple in-memory window. Enough for one instance; empty after a restart. */
 export class MemoryRateLimiter {
   private readonly hits = new Map<string, number[]>();
 
@@ -18,19 +18,26 @@ export class MemoryRateLimiter {
   }
 }
 
+/**
+ * IP address of the visitor, tamper-proof behind Cloudflare + Apache:
+ * 1. X-Real-IP – set by Apache itself (RequestHeader set, overwrites anything sent along) from the address
+ *    corrected by mod_remoteip.
+ * 2. The LAST entry of X-Forwarded-For – Apache appends it. The FIRST one can be sent by the visitor
+ *    (Cloudflare only appends), which would get around every limit.
+ * 3. The socket address (locally without a proxy).
+ */
 export function clientIp(req: {
   headers: Record<string, string | string[] | undefined>;
   ip?: string;
   connection?: { remoteAddress?: string };
 }): string {
-  const forwarded = req.headers['x-forwarded-for'];
-  let ip =
-    (typeof forwarded === 'string' ? forwarded : forwarded?.[0]) ||
-    req.connection?.remoteAddress ||
-    req.ip ||
-    'unknown';
-  if (ip.includes(',')) {
-    ip = ip.split(',')[0].trim();
-  }
-  return ip;
+  const header = (name: string) => {
+    const value = req.headers[name];
+    return (Array.isArray(value) ? value.join(',') : value)?.trim() || '';
+  };
+  const realIp = header('x-real-ip');
+  if (realIp) return realIp;
+  const forwarded = header('x-forwarded-for').split(',').map((ip) => ip.trim()).filter(Boolean);
+  if (forwarded.length) return forwarded[forwarded.length - 1];
+  return req.connection?.remoteAddress || req.ip || 'unknown';
 }

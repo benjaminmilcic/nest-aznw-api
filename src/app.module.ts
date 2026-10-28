@@ -28,6 +28,10 @@ import { TelegramModule } from './telegram/telegram.module';
 import { TriviaQuestions } from './trivia/trivia-questions.entity';
 import { TriviaModule } from './trivia/trivia.module';
 import { ImagegenModule } from './imagegen/imagegen.module';
+import { AvailabilityModule } from './availability/availability.module';
+import { JokesModule } from './jokes/jokes.module';
+import { ChatModule } from './chat/chat.module';
+import { HealthModule } from './health/health.module';
 
 @Module({
   imports: [
@@ -92,6 +96,10 @@ import { ImagegenModule } from './imagegen/imagegen.module';
     TelegramModule,
     TriviaModule,
     ImagegenModule,
+    AvailabilityModule,
+    JokesModule,
+    ChatModule,
+    HealthModule,
   ],
 })
 export class AppModule {}

@@ -4,6 +4,13 @@ on:
   push:
     branches: [master]
 
+# One deploy at a time: a new push waits for the running deploy instead of
+# racing it (an older run finishing last would otherwise put the old state live).
+# Waiting runs are superseded by newer ones, so only the latest commit is deployed.
+concurrency:
+  group: deploy-nest-api
+  cancel-in-progress: false
+
 env:
   DEPLOY_HOST: 212.227.31.144
   DEPLOY_USER: deploy
@@ -16,48 +23,55 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 24        # muss zum Server passen
+          node-version: 24        # must match the server
           cache: npm
 
-      - name: Abhängigkeiten
+      - name: Dependencies
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: |
+          npm run build
+          # GET /health reports this, so the health check can prove that the new commit is running
+          echo "{\"commit\": \"$GITHUB_SHA\"}" > dist/build-info.json
 
-      - name: Nur Produktions-Abhängigkeiten behalten
+      - name: Keep only production dependencies
         run: |
           rm -rf node_modules
           npm ci --omit=dev
 
-      - name: SSH vorbereiten
+      - name: Prepare SSH
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts
 
-      - name: Übertragen
+      # -rltz instead of -a: rsync must not set permissions. -a (contains -p/-g) clears the setgid bit of the directories,
+      # then new files no longer belong to the service group – for the ToDo app this brought the service down.
+      - name: Upload
         run: |
           SSH="ssh -i ~/.ssh/id_ed25519"
-          # uploads/ wird bewusst nicht angefasst
-          rsync -az --delete -e "$SSH" dist/         "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/dist/"
-          rsync -az --delete -e "$SSH" node_modules/ "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/node_modules/"
-          rsync -az          -e "$SSH" package.json  "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/"
+          # uploads/ is deliberately left untouched
+          rsync -rltz --delete -e "$SSH" dist/         "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/dist/"
+          rsync -rltz --delete -e "$SSH" node_modules/ "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/node_modules/"
+          rsync -rltz          -e "$SSH" package.json  "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/"
 
-      - name: Dienst neu starten
+      # sudo -n: if the sudoers rule is missing, the step fails with a clear message instead of "no tty present"
+      - name: Restart the service
         run: |
-          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo systemctl restart nestjs-api'
+          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo -n systemctl restart nestjs-api'
 
-      - name: Health-Check
+      # Directly on the server against the service, not via Cloudflare – and only green once the new commit answers
+      - name: Health check
         run: |
           for i in $(seq 1 15); do
-            code=$(curl -s -o /dev/null -w '%{http_code}' --max-time 10 https://api.benjamin-milcic.dev/ || echo 000)
-            if [ "$code" != "503" ] && [ "$code" != "502" ] && [ "$code" != "000" ]; then
-              echo "API antwortet (HTTP $code)"; exit 0
+            if ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'curl -fsS --max-time 5 http://127.0.0.1:3000/health' \
+                | grep -q "\"build\":\"$GITHUB_SHA\""; then
+              echo "API is running with commit $GITHUB_SHA"; exit 0
             fi
-            echo "Versuch $i: HTTP $code, warte..."; sleep 4
+            echo "Attempt $i: the new version does not answer yet, waiting..."; sleep 4
           done
-          echo "API kommt nicht hoch."
-          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo systemctl status nestjs-api' || true
+          echo "API does not come up."
+          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo -n systemctl status nestjs-api' || true
           exit 1
