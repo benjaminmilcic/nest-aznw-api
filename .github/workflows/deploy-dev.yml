@@ -57,10 +57,13 @@ jobs:
           rsync -rltz --delete -e "$SSH" node_modules/ "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/node_modules/"
           rsync -rltz          -e "$SSH" package.json  "$DEPLOY_USER@$DEPLOY_HOST:/opt/nestjs-api/"
 
-      # sudo -n: if the sudoers rule is missing, the step fails with a clear message instead of "no tty present"
+      # sudo -n: if the sudoers rule is missing, the step fails with a clear message instead of "no tty present".
+      # After five failed starts in a row systemd refuses further starts until the failed state is reset – so reset it,
+      # but only when the service has failed (not "|| true": a refused sudo must still fail the step).
       - name: Restart the service
         run: |
-          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" 'sudo -n systemctl restart nestjs-api'
+          ssh -i ~/.ssh/id_ed25519 "$DEPLOY_USER@$DEPLOY_HOST" \
+            'set -e; if systemctl is-failed --quiet nestjs-api; then sudo -n systemctl reset-failed nestjs-api; fi; sudo -n systemctl restart nestjs-api'
 
       # Directly on the server against the service, not via Cloudflare – and only green once the new commit answers
       - name: Health check
