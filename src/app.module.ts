@@ -21,9 +21,6 @@ import { YahtzeeGameModule } from './yahtzee-game/yahtzee-game.module';
 import { GeolocationModule } from './geolocation/geolocation.module';
 import { Recipes } from './recipes/recipes.entity';
 import { RecipesModule } from './recipes/recipes.module';
-import { Analytics } from './analytics/analytics.entity';
-import { PageView } from './analytics/page-view.entity';
-import { AnalyticsModule } from './analytics/analytics.module';
 import { TelegramModule } from './telegram/telegram.module';
 import { TriviaQuestions } from './trivia/trivia-questions.entity';
 import { TriviaModule } from './trivia/trivia.module';
@@ -65,8 +62,6 @@ import { HealthModule } from './health/health.module';
           MathTasks,
           DifficultySettings,
           Recipes,
-          Analytics,
-          PageView,
           TriviaQuestions,
         ],
         synchronize: false,
@@ -92,7 +87,6 @@ import { HealthModule } from './health/health.module';
     YahtzeeGameModule,
     GeolocationModule,
     RecipesModule,
-    AnalyticsModule,
     TelegramModule,
     TriviaModule,
     ImagegenModule,
