@@ -20,7 +20,8 @@ import { RateLimitGuard } from '../common/rate-limit.guard';
 
 /**
  * The Recipes gimmick lets every visitor add, change and delete recipes – one shared budget per visitor for these
- * writes, so a script can't wipe or flood the recipes
+ * writes. It stops automated bulk writes and floods per address, but does not protect the content: a few recipes
+ * are still deleted within the budget. Lost recipes come back from the daily database backup.
  */
 const RecipeWriteLimit = RateLimitGuard('recipe-write', 20, 60 * 60 * 1000);
 
