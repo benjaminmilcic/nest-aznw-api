@@ -8,6 +8,7 @@ import {
   Param,
   ParseIntPipe,
   HttpCode,
+  UseGuards,
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
@@ -15,6 +16,13 @@ import { RecipesService } from './recipes.service';
 import { CreateRecipeDto } from './dtos/create-recipe.dto';
 import { UpdateRecipeDto } from './dtos/update-recipe.dto';
 import { Recipes } from './recipes.entity';
+import { RateLimitGuard } from '../common/rate-limit.guard';
+
+/**
+ * The Recipes gimmick lets every visitor add, change and delete recipes – one shared budget per visitor for these
+ * writes, so a script can't wipe or flood the recipes
+ */
+const RecipeWriteLimit = RateLimitGuard('recipe-write', 20, 60 * 60 * 1000);
 
 @Controller('recipes')
 export class RecipesController {
@@ -26,12 +34,14 @@ export class RecipesController {
   }
 
   @Post()
+  @UseGuards(RecipeWriteLimit)
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async create(@Body() createDto: CreateRecipeDto): Promise<Recipes> {
     return this.service.create(createDto);
   }
 
   @Put(':id')
+  @UseGuards(RecipeWriteLimit)
   @UsePipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }))
   async update(
     @Param('id', ParseIntPipe) id: number,
@@ -41,6 +51,7 @@ export class RecipesController {
   }
 
   @Delete(':id')
+  @UseGuards(RecipeWriteLimit)
   @HttpCode(204)
   async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.service.remove(id);
